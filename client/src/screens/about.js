@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
-import { ReactComponent as BackgroundTriangle } from '../assets/background-triangle.svg'
-
-const Wrapper = styled.div`
-  background: ;
-  background-size: 100% 100%;
-`
+import Header from '../components/header.js'
+import Team from '../components/team.js'
+import '../styles/about.css'
 
 class About extends Component {
   render() {
     return (
-      <Wrapper>
-        <h2>About</h2>
-      </Wrapper>
+      <div>
+        <Header text={'The Team'} />
+        <Team />
+      </div>
     )
   }
 }
