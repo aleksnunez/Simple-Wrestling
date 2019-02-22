@@ -9,7 +9,7 @@ const Text = styled.h2`
   font-size: 36px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #00887A;
 `
 
 export default class Header extends PureComponent {

@@ -6,10 +6,9 @@ import Name from './name.js'
 const Wrapper = styled.div`
   position: absolute;
 
-  width: 280px;
-  height: 17px;
-  left: 70px;
-  top: 00px;
+  width: 32em;
+  height: 2em;
+  left: 8em;
 
   background: #00887A;
 `
@@ -18,7 +17,7 @@ export default class Header extends PureComponent {
   render() {
     return (
       <Wrapper>
-        <Name text='Michael Swanson' />
+        <Name text={this.props.name} />
       </Wrapper>
     )
   }

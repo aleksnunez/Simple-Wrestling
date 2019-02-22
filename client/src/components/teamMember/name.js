@@ -4,18 +4,17 @@ import styled from 'styled-components'
 const Text = styled.h2`
   position: absolute;
 
-  width: 210px;
-  height: 17.5px;
-  left: 70px;
-  top: 0px;
+  width: 24em;
+  height: 2em;
+  left: 8em;
 
-  margin: 0px;
+  margin: 0.5em 0 0;
 
   font-family: 'IBM Plex Sans', sans-serif;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  font-size: 14px;
+  font-size: 1em;
   text-align: center;
 
   color: #FFFFFF;

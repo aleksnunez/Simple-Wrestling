@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Michael David",
+    "portrait": "IMAGE_PATH",
+    "description": "DESCRIPTION",
+    "github": "GITHUB_LINK"
+  },
+  {
+    "name": "Michael Swanson",
+    "portrait": "./team/portraits/MichaelSwanson.jpg",
+    "description": "./team/descriptions/MichaelSwanson.json",
+    "github": "https://github.com/Swabisan"
+  },
+  {
+    "name": "Huy Nguyen",
+    "portrait": "IMAGE_PATH",
+    "description": "DESCRIPTION",
+    "github": "GITHUB_LINK"
+  },
+  {
+    "name": "Heewon Han",
+    "portrait": "IMAGE_PATH",
+    "description": "DESCRIPTION",
+    "github": "GITHUB_LINK"
+  },
+  {
+    "name": "Tuan Le",
+    "portrait": "IMAGE_PATH",
+    "description": "DESCRIPTION",
+    "github": "GITHUB_LINK"
+  },
+  {
+    "name": "Alexander Nunez",
+    "portrait": "IMAGE_PATH",
+    "description": "DESCRIPTION",
+    "github": "GITHUB_LINK"
+  }
+]

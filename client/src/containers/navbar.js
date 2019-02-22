@@ -2,26 +2,55 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Header = styled.nav`
+const Nav = styled.nav`
   position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+const Wrapper = styled(Nav)`
+  flex-wrap: wrap;
+
   height: 60px;
   width: 100%;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
+  padding: 0 auto;
   z-index: 100;
+`
+const StyledLink = styled(Link)`
+  padding-left: 1em;
+  padding-right: 1em;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 1.25em;
+  text-align: center;
+  text-decoration: none;
+
+  &:link, &:visited {
+    color: #333333;
+  }
+
+  &:hover, &:active {
+    color: #828282;
+  }
 `
 
 class NavBar extends Component {
   render() {
     return (
-      <Header>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-      </Header>
+      <Wrapper>
+        <Nav>
+        </Nav>
+        <Nav>
+        </Nav>
+        <Nav>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/about">About</StyledLink>
+        </Nav>
+      </Wrapper>
     )
   }
 }
