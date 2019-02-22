@@ -2,21 +2,32 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import TeamMember from './teamMember/teamMember.js'
+import { ReactComponent as GitHub } from '../assets/github.svg'
 
 const PATH = './team/team.json'
-const Col = styled.section`
+const Col = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-const Row = styled.section`
+const Row = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-evenly;
 `
+const StyledGitHub = styled(GitHub)`
+  width: 2em;
+  height: 2em;
 
+  &:hover, &:active {
+
+  }
+`
+const StyledLink = styled.a`
+  border-radius: 100%;
+`
 export default class Team extends Component {
   constructor() {
     super()
@@ -39,7 +50,7 @@ export default class Team extends Component {
     const people = team.map((person, i) => {
       return (
         <Row key={i}>
-          github link
+          <StyledLink href={person.github}><StyledGitHub /></StyledLink>
           <TeamMember
             name={person.name}
             portrait={person.portrait}

@@ -6,7 +6,7 @@ const Text = styled.div`
   font-style: normal;
   font-weight: normal;
   line-height: normal;
-  font-size: 14px;
+  font-size: 12px;
 
   margin: 1em;
 
