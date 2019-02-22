@@ -1,0 +1,25 @@
+{
+  "name": "648-team206",
+  "version": "1.0.0",
+  "description": "This is a 648 team project making a full stack web application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC-648-SFSU/csc648-sp19-team206.git"
+  },
+  "keywords": [
+    "node.js",
+    "react.js",
+    "mongodb",
+    "aws"
+  ],
+  "author": "Michael Swanson, Michael David, Huy Nguyen, Sarah, Tuan Le, Alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSC-648-SFSU/csc648-sp19-team206/issues"
+  },
+  "homepage": "https://github.com/CSC-648-SFSU/csc648-sp19-team206#readme"
+}
