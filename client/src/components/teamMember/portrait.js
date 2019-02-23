@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
 const Image = styled.div`
@@ -14,13 +15,22 @@ const Image = styled.div`
   background-size: cover;
   background-position: center;
 `
+const StyledPlaceholder = styled(ReactPlaceholder)`
+  position: absolute;
+
+  z-index: 500;
+`
 
 export default class Portrait extends PureComponent {
   render() {
     const { path } = this.props
 
     return (
-      <Image style={{backgroundImage: `url(${path})`}}/>
+      <StyledPlaceholder type='round' color={'#EEEEEE'}
+        ready={path ? path.includes('./team/portraits/') : false}
+        style={{width: '16em', height: '16em'}}>
+        <Image style={{backgroundImage: `url(${path})`}}/>
+      </StyledPlaceholder>
     )
   }
 }

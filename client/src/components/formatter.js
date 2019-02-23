@@ -21,7 +21,7 @@ const Tab = styled.div`
   margin-left: 40px;
 `
 
-export default class Paragraph extends PureComponent {
+export default class Formatter extends PureComponent {
   parseTabs = line => {
     return line.split('\t').map((str, i) => {
       if (i === 0) {

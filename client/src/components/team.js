@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
 import TeamMember from './teamMember/teamMember.js'
@@ -33,7 +34,7 @@ export default class Team extends Component {
     super()
 
     this.state = {
-      team: []
+      team: [{}, {}, {}, {}, {}, {}]
     }
   }
 
@@ -44,18 +45,28 @@ export default class Team extends Component {
     .catch(err => new Error(err))
   }
 
+  renderTeamMember = (person, key) => {
+    return (
+      <Row key={key}>
+        <ReactPlaceholder type='round' color={'#EEEEEE'}
+          ready={person.github ? person.github.includes('https://github.com/') : false}
+          style={{width: '2em', height: '2em'}}>
+          <StyledLink href={person.github}><StyledGitHub /></StyledLink>
+        </ReactPlaceholder>
+        <TeamMember
+          name={person.name}
+          portrait={person.portrait}
+          description={person.description} />
+      </Row>
+    )
+  }
+
   render() {
     const { team } = this.state
 
     const people = team.map((person, i) => {
       return (
-        <Row key={i}>
-          <StyledLink href={person.github}><StyledGitHub /></StyledLink>
-          <TeamMember
-            name={person.name}
-            portrait={person.portrait}
-            description={person.description} />
-        </Row>
+        this.renderTeamMember(person, i)
       )
     })
 

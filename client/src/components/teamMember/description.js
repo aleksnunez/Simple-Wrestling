@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
+import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import Paragraph from '../paragraph.js'
+import Formatter from '../formatter.js'
 
 const Wrapper = styled.div`
   position: absolute;
@@ -14,6 +15,14 @@ const Wrapper = styled.div`
   background: #ffffff;
   box-shadow: 0.1em 0em #00887A;
 `
+const StyledPlaceholder = styled(ReactPlaceholder)`
+  position: absolute;
+
+  margin: 1em;
+
+  left: 16em;
+  top: 2em;
+`
 
 export default class Description extends PureComponent {
   constructor() {
@@ -24,7 +33,7 @@ export default class Description extends PureComponent {
     }
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     const { path } = this.props
 
     if (path) {
@@ -43,9 +52,13 @@ export default class Description extends PureComponent {
     const { description } = this.state
 
     return (
-      <Wrapper>
-        <Paragraph text={description} />
-      </Wrapper>
+      <StyledPlaceholder type='text' rows={4}
+        ready={description ? true : false} color={'#EEEEEE'}
+        style={{width: '22.9em', height: '14em'}}>
+        <Wrapper>
+          <Formatter text={description} />
+        </Wrapper>
+      </StyledPlaceholder>
     )
   }
 }
