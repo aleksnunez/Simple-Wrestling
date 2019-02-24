@@ -45,28 +45,22 @@ export default class Team extends Component {
     .catch(err => new Error(err))
   }
 
-  renderTeamMember = (person, key) => {
-    return (
-      <Row key={key}>
-        <ReactPlaceholder type='round' color={'#EEEEEE'}
-          ready={person.github ? person.github.includes('https://github.com/') : false}
-          style={{width: '2em', height: '2em'}}>
-          <StyledLink href={person.github}><StyledGitHub /></StyledLink>
-        </ReactPlaceholder>
-        <TeamMember
-          name={person.name}
-          portrait={person.portrait}
-          description={person.description} />
-      </Row>
-    )
-  }
-
   render() {
     const { team } = this.state
 
     const people = team.map((person, i) => {
       return (
-        this.renderTeamMember(person, i)
+        <Row key={i}>
+          <ReactPlaceholder type='round' color={'#EEEEEE'}
+            ready={person.github ? person.github.includes('https://github.com/') : false}
+            style={{width: '2em', height: '2em'}}>
+            <StyledLink href={person.github}><StyledGitHub /></StyledLink>
+          </ReactPlaceholder>
+          <TeamMember
+            name={person.name}
+            portrait={person.portrait}
+            description={person.description} />
+        </Row>
       )
     })
 
