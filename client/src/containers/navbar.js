@@ -2,20 +2,21 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Nav = styled.nav`
-  position: relative;
-
+const Row = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `
-const Wrapper = styled(Nav)`
+const Wrapper = styled(Row)`
   flex-wrap: wrap;
 
   height: 60px;
-  width: 100%;
+  width: 96vw;
 
   z-index: 100;
+`
+const Nav = styled(Row)`
+
 `
 const StyledLink = styled(Link)`
   padding: 0 1em;
