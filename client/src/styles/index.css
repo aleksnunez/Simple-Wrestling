@@ -9,6 +9,11 @@ body {
   overflow-y: overlay;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
