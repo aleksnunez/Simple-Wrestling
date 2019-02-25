@@ -13,9 +13,9 @@
   },
   {
     "name": "Huy Nguyen",
-    "portrait": "IMAGE_PATH",
-    "description": "DESCRIPTION",
-    "github": "GITHUB_LINK"
+    "portrait": "./team/portraits/HuyNguyen.jpg",
+    "description": "./team/descriptions/HuyNguyen.json",
+    "github": "https://github.com/huy9997"
   },
   {
     "name": "Heewon Han",
