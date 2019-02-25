@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/CSC-648-SFSU/csc648-sp19-team206/issues"
   },
-  "homepage": "https://github.com/CSC-648-SFSU/csc648-sp19-team206#readme"
+  "homepage": "https://github.com/CSC-648-SFSU/csc648-sp19-team206#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
