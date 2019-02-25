@@ -14,12 +14,11 @@ const Wrapper = styled(Nav)`
 
   height: 60px;
   width: 100%;
-  padding: 0 auto;
+
   z-index: 100;
 `
 const StyledLink = styled(Link)`
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 0 1em;
 
   font-family: 'IBM Plex Sans', sans-serif;
   font-style: normal;
