@@ -23,12 +23,18 @@ export default class Header extends PureComponent {
   render() {
     const { name } = this.props
 
+    const SKELETON = {
+      type: 'text',
+      rows: 1,
+      color: '#EEEEEE',
+      ready: name ? true : false,
+      style: {width: '32em', height: '2em'}
+    }
+
     return (
-      <StyledPlaceholder type='text' rows={1}
-        ready={name ? true : false} color={'#EEEEEE'}
-        style={{width: '32em', height: '2em'}}>
+      <StyledPlaceholder {...SKELETON}>
         <Wrapper>
-          <Name text={this.props.name} />
+          <Name text={name} />
         </Wrapper>
       </StyledPlaceholder>
     )

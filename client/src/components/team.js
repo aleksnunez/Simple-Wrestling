@@ -49,17 +49,19 @@ export default class Team extends Component {
     const { team } = this.state
 
     const people = team.map((person, i) => {
+      const SKELETON = {
+        type: 'round',
+        color: '#EEEEEE',
+        ready: person.github ? person.github.includes('https://github.com/') : false,
+        style: {width: '2em', height: '2em'}
+      }
+
       return (
         <Row key={i}>
-          <ReactPlaceholder type='round' color={'#EEEEEE'}
-            ready={person.github ? person.github.includes('https://github.com/') : false}
-            style={{width: '2em', height: '2em'}}>
-            <StyledLink href={person.github}><StyledGitHub /></StyledLink>
+          <ReactPlaceholder {...SKELETON}>
+            <StyledLink href={person.github} target='_blank'><StyledGitHub /></StyledLink>
           </ReactPlaceholder>
-          <TeamMember
-            name={person.name}
-            portrait={person.portrait}
-            description={person.description} />
+          <TeamMember {...person} />
         </Row>
       )
     })
