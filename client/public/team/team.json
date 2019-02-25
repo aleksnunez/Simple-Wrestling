@@ -31,8 +31,8 @@
   },
   {
     "name": "Alexander Nunez",
-    "portrait": "IMAGE_PATH",
-    "description": "DESCRIPTION",
-    "github": "GITHUB_LINK"
+    "portrait": "./team/portraits/AlexanderNunez.jpg",
+    "description": "./team/descriptions/AlexanderNunez.json",
+    "github": "https://github.com/alexandernunez1"
   }
 ]
