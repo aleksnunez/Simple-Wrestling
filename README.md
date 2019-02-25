@@ -12,9 +12,7 @@ npm install
 ```
 
 
-```diff
-(open two terminal command lines, one inside / and one inside /client)
-```
+###### open two terminal command lines, one inside `/` and one inside `/client`
 
 
 ## Run Instructions
@@ -24,7 +22,7 @@ npm install
 ```
 npm start
 ```
-or
+###### or
 ```
 node server.js
 ```
