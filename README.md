@@ -1,12 +1,12 @@
 ## Build Instructions
-### to update dependencies
+#### to update dependencies
 
-#### _inside project directory_ `/`
+_inside project directory_ `/`
 ```
 npm install
 ```
 
-#### _inside_ `/client`
+_inside_ `/client`
 ```
 npm install
 ```
@@ -16,21 +16,21 @@ npm install
 
 
 ## Run Instructions
-### _(step 1)_ start express backend
+#### _(step 1)_ start express backend
 
-#### _inside project directory_ `/`
+_inside project directory_ `/`
 ```
 npm start
 ```
-###### or
+or
 ```
 node server.js
 ```
 
 
-### _(step 2)_ start react frontend
+#### _(step 2)_ start react frontend
 
-#### _inside_ `/client`
+_inside_ `/client`
 ```
 npm start
 ```
