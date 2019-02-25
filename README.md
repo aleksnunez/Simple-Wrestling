@@ -13,7 +13,7 @@ npm install
 
 
 ```diff
-- (open two terminal command lines, one inside / and one inside /client)
+(open two terminal command lines, one inside / and one inside /client)
 ```
 
 
