@@ -25,10 +25,15 @@ export default class Portrait extends PureComponent {
   render() {
     const { path } = this.props
 
+    const SKELETON = {
+      type: 'round',
+      color: '#EEEEEE',
+      ready: path ? path.includes('./team/portraits/') : false,
+      style: {width: '16em', height: '16em'}
+    }
+
     return (
-      <StyledPlaceholder type='round' color={'#EEEEEE'}
-        ready={path ? path.includes('./team/portraits/') : false}
-        style={{width: '16em', height: '16em'}}>
+      <StyledPlaceholder {...SKELETON}>
         <Image style={{backgroundImage: `url(${path})`}}/>
       </StyledPlaceholder>
     )

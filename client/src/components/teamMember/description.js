@@ -51,10 +51,16 @@ export default class Description extends PureComponent {
   render() {
     const { description } = this.state
 
+    const SKELETON = {
+      type: 'text',
+      rows: 4,
+      color: '#EEEEEE',
+      ready: description ? true : false,
+      style: {width: '22.9em', height: '14em'}
+    }
+
     return (
-      <StyledPlaceholder type='text' rows={4}
-        ready={description ? true : false} color={'#EEEEEE'}
-        style={{width: '22.9em', height: '14em'}}>
+      <StyledPlaceholder {...SKELETON}>
         <Wrapper>
           <Formatter text={description} />
         </Wrapper>
