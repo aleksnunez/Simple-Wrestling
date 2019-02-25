@@ -19,9 +19,9 @@
   },
   {
     "name": "Heewon Han",
-    "portrait": "IMAGE_PATH",
-    "description": "DESCRIPTION",
-    "github": "GITHUB_LINK"
+    "portrait": "./team/portraits/HeewonHan.jpg",
+    "description": "./team/descriptions/HeewonHan.json",
+    "github": "https://github.com/heewonhan"
   },
   {
     "name": "Tuan Le",
