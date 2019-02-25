@@ -1,4 +1,4 @@
-### Build Instructions
+## Build Instructions
 #### to update dependencies
 
 _inside project directory_ `/`
@@ -15,7 +15,7 @@ npm install
 ###### open two terminal command lines, one inside `/` and one inside `/client`
 
 
-### Run Instructions
+## Run Instructions
 #### _(step 1)_ start express backend
 
 _inside project directory_ `/`
