@@ -1,9 +1,9 @@
 [
   {
     "name": "Michael David",
-    "portrait": "IMAGE_PATH",
-    "description": "DESCRIPTION",
-    "github": "GITHUB_LINK"
+    "portrait": "./team/portraits/MichaelDavid.jpg",
+    "description": "./team/descriptions/MichaelDavid.json",
+    "github": "https://github.com/MDavid599"
   },
   {
     "name": "Michael Swanson",
