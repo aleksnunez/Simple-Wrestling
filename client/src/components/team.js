@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import TeamMember from './teamMember/teamMember.js'
 import { ReactComponent as GitHub } from '../assets/github.svg'
 
-const PATH = './team/team.json'
 const Col = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +38,7 @@ export default class Team extends Component {
   }
 
   componentDidMount() {
-    fetch(PATH)
+    fetch('./team/team.json')
     .then(res => res.json())
     .then(team => this.setState({team: team}))
     .catch(err => new Error(err))

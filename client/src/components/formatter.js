@@ -25,10 +25,10 @@ export default class Formatter extends PureComponent {
   parseTabs = line => {
     return line.split('\t').map((str, i) => {
       if (i === 0) {
-        return (<div key={i}>{str}</div>)
+        return <div key={i}>{str}</div>
       }
       else {
-        return (<Tab key={i}>{str}</Tab>)
+        return <Tab key={i}>{str}</Tab>
       }
     })
   }

@@ -11,7 +11,9 @@ const Image = styled.div`
   height: 16em;
 
   background: #00887A;
-  background-image: none;
+  background-image: ${props =>
+    props ? `url(${props.path})` : 'none'
+  };
   background-size: cover;
   background-position: center;
 `
@@ -34,7 +36,7 @@ export default class Portrait extends PureComponent {
 
     return (
       <StyledPlaceholder {...SKELETON}>
-        <Image style={{backgroundImage: `url(${path})`}}/>
+        <Image path={path} />
       </StyledPlaceholder>
     )
   }
