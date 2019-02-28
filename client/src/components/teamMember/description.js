@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   top: 2em;
 
   background: #ffffff;
-  box-shadow: 0.1em 0em #00887A;
+  box-shadow: 0.1em -0.1em #00887A;
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;

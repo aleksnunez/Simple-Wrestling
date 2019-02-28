@@ -13,7 +13,7 @@ const Col = styled.div`
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
   align-items: flex-start;
   justify-content: space-evenly;
 `
