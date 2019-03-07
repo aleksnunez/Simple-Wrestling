@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 
-import NavBar from '../containers/navbar.js'
+import NavBar from '../containers/navbar/navbar.js'
 import Home from '../screens/home.js'
 import About from '../screens/about.js'
 

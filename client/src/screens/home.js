@@ -7,14 +7,12 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-class About extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Header text={'Home'} />
-      </Wrapper>
-    )
-  }
+const Home = () => {
+  return (
+    <Wrapper>
+      <Header text={'Home'} />
+    </Wrapper>
+  )
 }
 
-export default About
+export default Home

@@ -9,15 +9,13 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-class About extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Header text={'The Team'} />
-        <Team />
-      </Wrapper>
-    )
-  }
+const About = () => {
+  return (
+    <Wrapper>
+      <Header text={'The Team'} />
+      <Team />
+    </Wrapper>
+  )
 }
 
 export default About

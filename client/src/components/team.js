@@ -28,6 +28,7 @@ const StyledGitHub = styled(GitHub)`
 const StyledLink = styled.a`
   border-radius: 100%;
 `
+
 export default class Team extends Component {
   constructor() {
     super()
