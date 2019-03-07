@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
@@ -24,7 +24,7 @@ const StyledPlaceholder = styled(ReactPlaceholder)`
   top: 2em;
 `
 
-export default class Description extends PureComponent {
+export default class Description extends Component {
   constructor() {
     super ()
 
