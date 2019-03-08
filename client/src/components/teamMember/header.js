@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
@@ -19,24 +19,24 @@ const StyledPlaceholder = styled(ReactPlaceholder)`
   left: 8em;
 `
 
-export default class Header extends PureComponent {
-  render() {
-    const { name } = this.props
+const Header = (props) => {
+  const { name } = props
 
-    const SKELETON = {
-      type: 'text',
-      rows: 1,
-      color: '#EEEEEE',
-      ready: name ? true : false,
-      style: {width: '32em', height: '2em'}
-    }
-
-    return (
-      <StyledPlaceholder {...SKELETON}>
-        <Wrapper>
-          <Name text={name} />
-        </Wrapper>
-      </StyledPlaceholder>
-    )
+  const SKELETON = {
+    type: 'text',
+    rows: 1,
+    color: '#EEEEEE',
+    ready: name ? true : false,
+    style: {width: '32em', height: '2em'}
   }
+
+  return (
+    <StyledPlaceholder {...SKELETON}>
+      <Wrapper>
+        <Name text={name} />
+      </Wrapper>
+    </StyledPlaceholder>
+  )
 }
+
+export default Header

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import Header from './header.js'
@@ -14,16 +14,16 @@ const Wrapper = styled.section`
   margin: 3em 1em;
 `
 
-export default class TeamMember extends Component {
-  render() {
-    const { name, description, portrait } = this.props
+const TeamMember = (props) => {
+  const { name, description, portrait } = props
 
-    return (
-      <Wrapper>
-        <Header name={name} />
-        <Portrait path={portrait} />
-        <Description path={description} />
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      <Header name={name} />
+      <Portrait path={portrait} />
+      <Description path={description} />
+    </Wrapper>
+  )
 }
+
+export default TeamMember

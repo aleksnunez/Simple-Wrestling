@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const Text = styled.h2`
@@ -12,8 +12,8 @@ const Text = styled.h2`
   color: #00887A;
 `
 
-export default class Header extends PureComponent {
-  render() {
-    return <Text>{this.props.text}</Text>
-  }
+const Header = (props) => {
+  return <Text>{props.text}</Text>
 }
+
+export default Header

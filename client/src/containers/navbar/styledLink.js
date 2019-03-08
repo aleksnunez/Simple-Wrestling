@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -22,8 +22,8 @@ const StyledLink = styled(Link)`
   }
 `
 
-export default class StyledLinkComponent extends Component {
-  render() {
-    return <StyledLink to={this.props.to}>{this.props.children}</StyledLink>
-  }
+const StyledLinkComponent = (props) => {
+  return <StyledLink to={props.to}>{props.children}</StyledLink>
 }
+
+export default StyledLinkComponent
