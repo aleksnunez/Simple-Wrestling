@@ -6,7 +6,7 @@ import {
 
 import NavBar from '../containers/navbar/navbar.js'
 import Home from '../screens/home.js'
-import About from '../screens/about.js'
+import About from '../screens/about/about.js'
 
 const Routes = () => (
   <Router>

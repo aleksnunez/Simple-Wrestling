@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Header from '../components/header.js'
-import Team from '../components/team.js'
+import Header from '../../components/header.js'
+import Team from '../../components/team.js'
 
 const Wrapper = styled.section`
   position: relative;
