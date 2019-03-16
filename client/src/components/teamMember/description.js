@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import Formatter from '../formatter.js'
+import Formatter from '../formatter'
 
 const Wrapper = styled.div`
   position: absolute;

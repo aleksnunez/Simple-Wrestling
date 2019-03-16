@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import Name from './name.js'
+import Name from './name'
 
 const Wrapper = styled.div`
   position: absolute;

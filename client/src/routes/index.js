@@ -4,9 +4,9 @@ import {
   Route
 } from 'react-router-dom'
 
-import NavBar from '../containers/navbar/navbar.js'
-import Home from '../screens/home.js'
-import About from '../screens/about/about.js'
+import NavBar from '../containers/navbar'
+import Home from '../screens/home'
+import About from '../screens/about'
 
 const Routes = () => (
   <Router>

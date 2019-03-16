@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Route } from 'react-router-dom'
 
-import Header from '../../components/header.js'
-import Team from '../../components/team.js'
-import Details from './details.js'
+import Header from '../../components/header'
+import Team from '../../components/team'
+import Details from './details'
 
 const Wrapper = styled.section`
   position: relative;
 `
 
-const About = () => {
+const About = (match) => {
   return (
     <Wrapper>
       <Header text={'The Team'} />
