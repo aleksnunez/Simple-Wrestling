@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-let DefineData = ()=>{
+let DefineData = (sequelize)=>{
   wrestler = sequelize.define('wrestler',{
     username: Sequelize.STRING,
     password: Sequelize.STRING,

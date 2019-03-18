@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const defineDataSets = require('./defineData');
+const addData = require('./addData');
 
 let database = () =>{
   const sequelize = new Sequelize('wrestlingdatabase', 'WrestlingApplication', 'wrestle123', {
@@ -13,18 +14,8 @@ let database = () =>{
     console.log(err);
   });
   
-  defineDataSets();
-
-
-  sequelize.sync()
-  .then(() => User.create({
-    username: 'janedoe',
-    password: 'password'
-  }))
-  .then(userTest => {
-    console.log(userTest.toJSON());
-  });
-
+  defineDataSets(sequelize);
+  addData()
 };
 
 module.exports = database; 
