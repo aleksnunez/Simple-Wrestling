@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Routes from './routes/routes.js'
+import Routes from './routes'
 import * as serviceWorker from './serviceWorker'
-import './styles/index.css'
+import './styles/global.css'
 import 'react-placeholder/lib/reactPlaceholder.css'
 
 ReactDOM.render(<Routes />, document.getElementById('root'))

@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import TeamMember from './teamMember/teamMember.js'
+import TeamMember from './teamMember'
 import { ReactComponent as GitHub } from '../assets/github.svg'
 
-const PATH = './team/team.json'
 const Col = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,7 +13,7 @@ const Col = styled.div`
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
   align-items: flex-start;
   justify-content: space-evenly;
 `
@@ -29,6 +28,7 @@ const StyledGitHub = styled(GitHub)`
 const StyledLink = styled.a`
   border-radius: 100%;
 `
+
 export default class Team extends Component {
   constructor() {
     super()
@@ -39,7 +39,7 @@ export default class Team extends Component {
   }
 
   componentDidMount() {
-    fetch(PATH)
+    fetch('./team/team.json')
     .then(res => res.json())
     .then(team => this.setState({team: team}))
     .catch(err => new Error(err))
