@@ -19,6 +19,9 @@
   "homepage": "https://github.com/CSC-648-SFSU/csc648-sp19-team206#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.1.0",
     "pg-promise": "^8.6.4"
   }
 }
