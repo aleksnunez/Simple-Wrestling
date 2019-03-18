@@ -14,7 +14,6 @@ let DefineData = (sequelize)=>{
      wrestlers:Sequelize.STRING,
      location:Sequelize.STRING,
   })
-
 };
 
 
