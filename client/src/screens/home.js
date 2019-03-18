@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
+import styled from 'styled-components'
 
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Home</h2>
-      </div>
-    )
-  }
+import Header from '../components/header'
+
+const Wrapper = styled.section`
+  position: relative;
+`
+
+const Home = () => {
+  return (
+    <Wrapper>
+      <Header text={'Home'} />
+    </Wrapper>
+  )
 }
 
 export default Home

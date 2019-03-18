@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react'
+import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import Formatter from '../formatter.js'
+import Formatter from '../formatter'
 
 const Wrapper = styled.div`
   position: absolute;
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   top: 2em;
 
   background: #ffffff;
-  box-shadow: 0.1em 0em #00887A;
+  box-shadow: 0.1em -0.1em #00887A;
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
@@ -24,7 +24,7 @@ const StyledPlaceholder = styled(ReactPlaceholder)`
   top: 2em;
 `
 
-export default class Description extends PureComponent {
+export default class Description extends Component {
   constructor() {
     super ()
 
@@ -51,10 +51,16 @@ export default class Description extends PureComponent {
   render() {
     const { description } = this.state
 
+    const SKELETON = {
+      type: 'text',
+      rows: 4,
+      color: '#EEEEEE',
+      ready: description ? true : false,
+      style: {width: '22.9em', height: '14em'}
+    }
+
     return (
-      <StyledPlaceholder type='text' rows={4}
-        ready={description ? true : false} color={'#EEEEEE'}
-        style={{width: '22.9em', height: '14em'}}>
+      <StyledPlaceholder {...SKELETON}>
         <Wrapper>
           <Formatter text={description} />
         </Wrapper>
