@@ -1,7 +1,7 @@
 ## Build Instructions
 #### to update dependencies
 
-_inside project directory_ `/`
+_inside project directory_ `/api`
 ```
 npm install
 ```
@@ -18,7 +18,7 @@ npm install
 ## Run Instructions
 #### _(step 1)_ start express backend
 
-_inside project directory_ `/`
+_inside project directory_ `/api`
 ```
 npm start
 ```
