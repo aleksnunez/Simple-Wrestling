@@ -5,6 +5,7 @@ let loginData = (data)=>{
   .then(() => User.create({
     username: data.user,
     password: data.password
+    
   }))
   .then(userTest => {
     console.log(userTest.toJSON());

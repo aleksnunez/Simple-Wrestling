@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 
 let DefineData = (sequelize)=>{
-  wrestler = sequelize.define('wrestler',{
+ 
+  User = sequelize.define('wrestler',{
     username: Sequelize.STRING,
     password: Sequelize.STRING,
     age: Sequelize.INTEGER,
@@ -14,6 +15,7 @@ let DefineData = (sequelize)=>{
      wrestlers:Sequelize.STRING,
      location:Sequelize.STRING,
   })
+  
 };
 
 
