@@ -1,8 +1,11 @@
-const express = require('express')
-const router  = express.Router()
+const express = require('express');
+const router  = express.Router();
 
-router.get('/', (req, res) => {
-  res.send({ express: 'CONNECTED TO /API' })
-})
+const home = require('./homePage')
+const coachTeamRegisteration = require('./coachRegisterTeam')
 
-module.exports = router
+
+router.use('/home',home);
+router.use('/coachTeamRegisteration',coachTeamRegisteration);
+
+module.exports = router;

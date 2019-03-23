@@ -1,10 +1,11 @@
-const Sequelize = require('sequelize');
+let post = require('./sequalize');
 
-let loginData = (data)=>{
-  sequelize.sync()
+console.log(post);
+let loginData = ()=>{
+  post.sync()
   .then(() => User.create({
-    username: data.user,
-    password: data.password
+    username: 'james',
+    password: 'password'
     
   }))
   .then(userTest => {
@@ -12,10 +13,4 @@ let loginData = (data)=>{
   });
 }
 
-let addData = (tableName,data)=>{
-  if(tableName=='loginTable'){
-    loginData(data);
-  }
-}
-
-module.exports= addData;
+module.exports= loginData;
