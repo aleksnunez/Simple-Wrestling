@@ -5,11 +5,6 @@ import styled from 'styled-components'
 import TeamMember from 'components/teamMember'
 import { ReactComponent as GitHub } from 'assets/github.svg'
 
-const Col = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -66,10 +61,6 @@ export default class Team extends Component {
       )
     })
 
-    return (
-      <Col>
-        {people}
-      </Col>
-    )
+    return people
   }
 }
