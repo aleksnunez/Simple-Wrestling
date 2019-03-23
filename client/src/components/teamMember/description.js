@@ -2,18 +2,27 @@ import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import Formatter from '../formatter'
+import Formatter from 'components/formatter'
 
 const Wrapper = styled.div`
   position: absolute;
 
-  width: 23.9em;
+  width: 31.9em;
   height: 14em;
-  left: 16em;
+  left: 8em;
   top: 2em;
 
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0.1em -0.1em #00887A;
+`
+const Content = styled.div`
+  position: relative;
+
+  width: 23.9em;
+  height: 14em;
+  left: 8em;
+
+  padding: 0;
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
@@ -62,7 +71,9 @@ export default class Description extends Component {
     return (
       <StyledPlaceholder {...SKELETON}>
         <Wrapper>
-          <Formatter text={description} />
+          <Content>
+            <Formatter text={description} cutoff={8}/>
+          </Content>
         </Wrapper>
       </StyledPlaceholder>
     )

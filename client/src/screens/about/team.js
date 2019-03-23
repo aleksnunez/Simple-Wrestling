@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import TeamMember from './teamMember'
-import { ReactComponent as GitHub } from '../assets/github.svg'
+import TeamMember from 'components/teamMember'
+import { ReactComponent as GitHub } from 'assets/github.svg'
 
 const Col = styled.div`
   display: flex;

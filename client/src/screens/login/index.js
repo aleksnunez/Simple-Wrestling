@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Header from 'components/header'
+import LoginForm from 'components/loginForm'
 
 const Wrapper = styled.section`
   position: relative;
 `
 
-const Home = () => {
+const Login = () => {
   return (
     <Wrapper>
-      <Header text={'Home'} />
+      <LoginForm />
     </Wrapper>
   )
 }
 
-export default Home
+export default Login

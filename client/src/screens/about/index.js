@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Route } from 'react-router-dom'
 
-import Header from '../../components/header'
-import Team from '../../components/team'
+import Header from 'components/header'
+import Team from './team'
 import Details from './details'
 
 const Wrapper = styled.section`

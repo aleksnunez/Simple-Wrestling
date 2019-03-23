@@ -7,12 +7,12 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-const Home = () => {
+const SignUp = () => {
   return (
     <Wrapper>
-      <Header text={'Home'} />
+      <Header text={'SignUp'} />
     </Wrapper>
   )
 }
 
-export default Home
+export default SignUp

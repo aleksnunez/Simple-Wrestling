@@ -16,6 +16,7 @@ const Image = styled.div`
   };
   background-size: cover;
   background-position: center;
+  z-index: 500;
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
