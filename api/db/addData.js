@@ -1,7 +1,7 @@
-let post = require('./sequalize');
+const sequalize = require('./sequalize');
 
 let addCoach = ()=>{
-  post.sync()
+  sequalize.sync()
     .then(() => Coach.create({
       username: 'james',
       password: 'password'
@@ -12,7 +12,7 @@ let addCoach = ()=>{
 }
 
 let addAdmin = ()=>{
-  post.sync()
+  sequalize.sync()
     .then(() => Admin.create({
       username: 'james',
       password: 'password'
@@ -23,7 +23,7 @@ let addAdmin = ()=>{
 }
 
 let addWrestler = ()=>{
-  post.sync()
+  sequalize.sync()
     .then(() => User.create({
       name: 'wrestler',
       password: 'password'
