@@ -4,13 +4,12 @@ const add = require('./addData');
 const DBtest = require('./DBtest');
 
 let database = () =>{
-  User = sequelize.define('wrestler',{
+  User = sequelize.define('user',{
     username: Sequelize.STRING,
-    weight: Sequelize.STRING,
+    password: Sequelize.STRING,
     age: Sequelize.INTEGER,
     weightClass: Sequelize.INTEGER
   });
-
   Admin = sequelize.define('admin',{
     username: Sequelize.STRING,
     password: Sequelize.STRING,
@@ -24,11 +23,11 @@ let database = () =>{
     age: Sequelize.INTEGER,
     weightClass: Sequelize.INTEGER
   });
-  
+
   DBtest();
+  add.addWrestler();
   add.addAdmin();
   add.addCoach();
-  add.addWrestler();
 
 };
 

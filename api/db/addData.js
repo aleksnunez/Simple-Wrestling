@@ -3,7 +3,7 @@ const sequalize = require('./sequalize');
 let addCoach = ()=>{
   sequalize.sync()
     .then(() => Coach.create({
-      username: 'james',
+      username: 'coach',
       password: 'password'
     }))
     .then(userTest => {
@@ -14,7 +14,7 @@ let addCoach = ()=>{
 let addAdmin = ()=>{
   sequalize.sync()
     .then(() => Admin.create({
-      username: 'james',
+      username: 'admin',
       password: 'password'
     }))
     .then(userTest => {
@@ -25,7 +25,7 @@ let addAdmin = ()=>{
 let addWrestler = ()=>{
   sequalize.sync()
     .then(() => User.create({
-      name: 'wrestler',
+      username: 'hello',
       password: 'password'
     }))
     .then(userTest => {
@@ -33,7 +33,7 @@ let addWrestler = ()=>{
     });
 }
 
-module.exports= {
+module.exports = {
   addAdmin,
   addCoach,
   addWrestler
