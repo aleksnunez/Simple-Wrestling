@@ -1,21 +1,35 @@
-const pgp = require('pg-promise')()
 const Sequelize = require('sequelize');
-const defineDataSets = require('./defineData');
-const addData = require('./addData');
+const sequelize = require('./sequalize');
+const add = require('./addData');
+const DBtest = require('./DBtest');
 
 let database = () =>{
-  const sequelize = new Sequelize('wrestlingdatabase', 'WrestlingApplication', 'wrestle123', {
-    host: 'wrestlingtournments.chgoxg8wubk2.us-west-2.rds.amazonaws.com',
-    dialect: 'postgres'
+  User = sequelize.define('wrestler',{
+    username: Sequelize.STRING,
+    weight: Sequelize.STRING,
+    age: Sequelize.INTEGER,
+    weightClass: Sequelize.INTEGER
   });
 
-  sequelize.authenticate().then(() => {
-    console.log(" Database is running Success!");
-  }).catch((err) => {
-    console.log(err);
+  Admin = sequelize.define('admin',{
+    username: Sequelize.STRING,
+    password: Sequelize.STRING,
+    age: Sequelize.INTEGER,
+    weightClass: Sequelize.INTEGER
   });
-  defineDataSets(sequelize);
-  addData();
+
+  Coach = sequelize.define('coach',{
+    username: Sequelize.STRING,
+    password: Sequelize.STRING,
+    age: Sequelize.INTEGER,
+    weightClass: Sequelize.INTEGER
+  });
+  
+  DBtest();
+  add.addAdmin();
+  add.addCoach();
+  add.addWrestler();
+
 };
 
-module.exports = database; 
+module.exports.database = database; 
