@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Header from 'components/header'
-import SignupLink from './signupLink'
+import LoginLink from './loginLink'
 import Form from './form'
 
 const Col = styled.div`
@@ -17,16 +17,16 @@ const Wrapper = styled(Col)`
   padding: 1em 5em;
 `
 
-const LoginForm = (props) => {
+const SignupForm = (props) => {
   return (
     <Wrapper>
       <Col>
-        <Header text='Login' />
-        <SignupLink />
+        <Header text='Sign Up' />
+        <LoginLink />
       </Col>
       <Form/>
     </Wrapper>
   )
 }
 
-export default LoginForm
+export default SignupForm

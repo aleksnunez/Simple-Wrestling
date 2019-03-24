@@ -1,17 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Header from 'components/header'
+import SignupForm from 'components/signupForm'
 
-const Wrapper = styled.section`
-  position: relative;
+const Col = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 2em;
 `
 
 const SignUp = () => {
   return (
-    <Wrapper>
-      <Header text={'SignUp'} />
-    </Wrapper>
+    <Col>
+      <SignupForm />
+    </Col>
   )
 }
 

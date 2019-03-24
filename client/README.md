@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Important `.env`
+
+This app uses absolute paths to specify imports, this means that
+you will need to configure your `.env` file in order to run this app
+
+To start, create a new file in `/client/` named `.env`=> `/client/.env`
+
+Inside `.env` place `NODE_PATH=src/`, then save.
+
 ## Available Scripts
 
 In the project directory, you can run:
