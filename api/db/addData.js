@@ -1,20 +1,40 @@
-const Sequelize = require('sequelize');
+const sequalize = require('./sequalize');
 
-let loginData = (data)=>{
-  sequelize.sync()
-  .then(() => User.create({
-    username: data.user,
-    password: data.password
-  }))
-  .then(userTest => {
-    console.log(userTest.toJSON());
-  });
+let addCoach = ()=>{
+  sequalize.sync()
+    .then(() => Coach.create({
+      username: 'coach',
+      password: 'password'
+    }))
+    .then(userTest => {
+      console.log(userTest.toJSON());
+    });
 }
 
-let addData = (tableName,data)=>{
-  if(tableName=='loginTable'){
-    loginData(data);
-  }
+let addAdmin = ()=>{
+  sequalize.sync()
+    .then(() => Admin.create({
+      username: 'admin',
+      password: 'password'
+    }))
+    .then(userTest => {
+      console.log(userTest.toJSON());
+    });
 }
 
-module.exports= addData;
+let addWrestler = ()=>{
+  sequalize.sync()
+    .then(() => User.create({
+      username: 'hello',
+      password: 'password'
+    }))
+    .then(userTest => {
+      console.log(userTest.toJSON());
+    });
+}
+
+module.exports = {
+  addAdmin,
+  addCoach,
+  addWrestler
+};
