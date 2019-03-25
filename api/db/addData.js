@@ -25,7 +25,7 @@ let addAdmin = ()=>{
 let addWrestler = ()=>{
   sequalize.sync()
     .then(() => User.create({
-      username: 'hello',
+      usercame: 'hello',
       password: 'password'
     }))
     .then(userTest => {
