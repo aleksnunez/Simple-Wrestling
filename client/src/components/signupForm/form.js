@@ -1,9 +1,8 @@
 import React from 'react'
 
 import Text from 'components/text'
-import Button from './button'
 import StyledLink from 'components/link'
-import { Col, InputWrapper, Input } from 'components/formLib'
+import { Col, InputWrapper, Input, Button } from 'components/formLib'
 
 const Form = () => {
   return (

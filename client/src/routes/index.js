@@ -6,6 +6,7 @@ import {
 
 import NavBar from 'containers/navbar'
 import screens from 'screens'
+import GlobalStyle from 'styles/global.js'
 
 const Routes = () => (
   <Router>
@@ -15,6 +16,7 @@ const Routes = () => (
       <Route path='/login' component={screens.Login} />
       <Route path='/signup' component={screens.SignUp} />
       <Route path='/about' component={screens.About} />
+      <GlobalStyle />
     </div>
   </Router>
 )
