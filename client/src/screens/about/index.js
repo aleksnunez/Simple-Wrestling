@@ -2,22 +2,24 @@ import React from 'react'
 import styled from 'styled-components'
 import { Route } from 'react-router-dom'
 
-import Header from '../../components/header'
-import Team from '../../components/team'
+import Header from 'components/header'
+import Team from './team'
 import Details from './details'
 
-const Wrapper = styled.section`
-  position: relative;
+const Col = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const About = (match) => {
   return (
-    <Wrapper>
+    <Col>
       <Header text={'The Team'} />
       <Team />
 
       <Route path={`${match.path}/:id`} component={Details} />
-    </Wrapper>
+    </Col>
   )
 }
 

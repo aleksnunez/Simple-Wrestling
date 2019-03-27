@@ -4,16 +4,19 @@ import {
   Route
 } from 'react-router-dom'
 
-import NavBar from '../containers/navbar'
-import Home from '../screens/home'
-import About from '../screens/about'
+import NavBar from 'containers/navbar'
+import screens from 'screens'
+import GlobalStyle from 'styles/global.js'
 
 const Routes = () => (
   <Router>
     <div>
       <NavBar />
-      <Route exact path='/' component={Home} />
-      <Route path='/about' component={About} />
+      <Route exact path='/' component={screens.Home} />
+      <Route path='/login' component={screens.Login} />
+      <Route path='/signup' component={screens.SignUp} />
+      <Route path='/about' component={screens.About} />
+      <GlobalStyle />
     </div>
   </Router>
 )

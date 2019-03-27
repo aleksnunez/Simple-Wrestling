@@ -16,7 +16,7 @@ const Wrapper = styled.section`
 
 const TeamMember = (props) => {
   const { name, description, portrait } = props
-
+  
   return (
     <Wrapper>
       <Header name={name} />
