@@ -1,34 +1,30 @@
 const Sequelize = require('sequelize');
-const sequelize = require('./sequalize');
-const add = require('./addData');
+const connection = require('./sequalize');
 const DBtest = require('./DBtest');
+const query = require('./query');
+const add = require('./addData');
 
 let database = () =>{
-  User = sequelize.define('user',{
+  User = connection.define('user',{
     username: Sequelize.STRING,
     password: Sequelize.STRING,
     age: Sequelize.INTEGER,
     weightClass: Sequelize.INTEGER
   });
-  Admin = sequelize.define('admin',{
-    username: Sequelize.STRING,
-    password: Sequelize.STRING,
-    age: Sequelize.INTEGER,
-    weightClass: Sequelize.INTEGER
-  });
-
-  Coach = sequelize.define('coach',{
+  Admin = connection.define('admin',{
     username: Sequelize.STRING,
     password: Sequelize.STRING,
     age: Sequelize.INTEGER,
     weightClass: Sequelize.INTEGER
   });
 
+  Coach = connection.define('coach',{
+    username: Sequelize.STRING,
+    password: Sequelize.STRING,
+    age: Sequelize.INTEGER,
+    weightClass: Sequelize.INTEGER
+  });
   DBtest();
-  add.addWrestler();
-  add.addAdmin();
-  add.addCoach();
-
-};
+}
 
 module.exports.database = database; 
