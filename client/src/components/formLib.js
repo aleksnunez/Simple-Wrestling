@@ -43,17 +43,12 @@ const Button = styled.button`
   margin: 1.1em 0.1em;
 
   &:hover, &:focus {
-    border: 0.1em solid ${Color.p};
+    border: 0.2em solid ${Color.p};
     background: ${Font.s};
     color: ${Color.p};
     cursor: pointer;
-    padding: 0.56em 2.9em;
-    margin: 1em 0;
-  }
-
-  &:focus {
-    padding: 0.56em 2.9em;
-    margin: 1em 0;
+    padding: 0.37em 2.7em;
+    margin: 1.1em 0.1em;
   }
 `
 
