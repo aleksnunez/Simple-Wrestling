@@ -2,6 +2,8 @@ import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
+import { Color } from 'styles/themes'
+
 const Image = styled.div`
   position: absolute;
 
@@ -10,12 +12,13 @@ const Image = styled.div`
   width: 16em;
   height: 16em;
 
-  background: #00887A;
+  background: ${Color.p};
   background-image: ${props =>
     props ? `url(${props.path})` : 'none'
   };
   background-size: cover;
   background-position: center;
+  z-index: 500;
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
