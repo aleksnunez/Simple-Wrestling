@@ -2,7 +2,7 @@ import React from 'react'
 
 import Text from 'components/text'
 import StyledLink from 'components/link'
-import { Col, InputWrapper, Input, Button } from 'components/formLib'
+import { Col, InputWrapper, Input, Button } from '../'
 
 const Form = () => {
   return (
@@ -21,7 +21,7 @@ const Form = () => {
           autoComplete='off'/>
       </InputWrapper>
       <Button>
-        Login
+        Sign Up
       </Button>
       <StyledLink to='/forgot' color='#828282' margin='0.5em 0'>
         <Text>Forgot Password</Text>

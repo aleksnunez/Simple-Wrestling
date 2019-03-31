@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import LoginForm from 'components/loginForm'
+import LoginForm from 'components/formLib/loginForm'
 
 const Col = styled.section`
   display: flex;
