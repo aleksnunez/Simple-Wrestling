@@ -11,15 +11,18 @@ const Button = styled.button`
   border: none;
   border-radius: 0.2em;
 
-  padding: 0.56em 2.9em;
-  margin: 1.1em 0.1em;
+  padding: 0.5em 3em;
+  margin: 1em 0;
+
+  transition: background 1s, color 1s;
 
   &:hover, &:focus {
-    border: 0.15em solid ${Color.p};
+    border: 0.05em solid ${Color.p};
     background: ${Font.s};
     color: ${Color.p};
     cursor: pointer;
-    padding: 0.43em 2.75em;
+    padding: 0.45em 2.95em;
+    margin: 1em 0;
   }
 `
 
