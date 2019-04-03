@@ -14,7 +14,7 @@ const Button = styled.button`
   padding: 0.5em 3em;
   margin: 1em 0;
 
-  transition: background 1s, color 1s;
+  transition: background 0.75s, color 0.75s;
 
   &:hover, &:focus {
     border: 0.05em solid ${Color.p};
