@@ -38,7 +38,3 @@ module.exports = {
   addCoach,
   addWrestler
 };
-
-/*
-export this file to make db calls 
-*/
