@@ -12,9 +12,7 @@ const Row = styled.div`
 const StyledRow = styled(Row)`
   flex-wrap: wrap;
   align-items: center;
-
   width: 96vw;
-
   z-index: 100;
 `
 const StyledLogo = styled.img`

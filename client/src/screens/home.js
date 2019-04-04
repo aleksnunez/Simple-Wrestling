@@ -7,15 +7,15 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-const testEndpoint = () => {
-  fetch('/api/coachTeamRegisteration/hello', {method: 'POST'})
+const getHomePage = () => {
+  fetch('/api/home/')
   .then(res => res.json())
-  .then(res => alert(JSON.stringify(res)))
+  .then(res => console.log(res))
   .catch(err => new Error(err))
 }
 
 const Home = () => {
-  testEndpoint()
+  getHomePage()
   return (
     <Wrapper>
       <Header text={'Home'} />
