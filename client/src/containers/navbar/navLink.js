@@ -1,8 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'components/link'
 import styled from 'styled-components'
 
-const StyledLink = styled(Link)`
+const NavLink = styled(Link)`
   padding: 0 1em;
 
   font-family: 'IBM Plex Sans', sans-serif;
@@ -22,8 +21,4 @@ const StyledLink = styled(Link)`
   }
 `
 
-const StyledLinkComponent = (props) => {
-  return <StyledLink to={props.to}>{props.children}</StyledLink>
-}
-
-export default StyledLinkComponent
+export default NavLink

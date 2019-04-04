@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Link from './styledLink.js'
+import Link from './navLink'
 import logo from 'assets/logo.png'
 
 const Row = styled.div`
@@ -18,8 +18,8 @@ const StyledRow = styled(Row)`
 const StyledLogo = styled.img`
   background-image: ${`url(${logo})`};
   object-fit: contain;
-  width: 500px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 `
 
 export default class NavBar extends Component {
