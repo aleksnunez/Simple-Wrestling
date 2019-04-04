@@ -31,9 +31,10 @@ const Portrait = (props) => {
 
   const SKELETON = {
     type: 'round',
-    color: '#EEEEEE',
+    color: '#C4C4C4',
     ready: path ? path.includes('./team/portraits/') : false,
-    style: {width: '16em', height: '16em'}
+    style: {width: '16em', height: '16em'},
+    showLoadingAnimation: true
   }
 
   return (

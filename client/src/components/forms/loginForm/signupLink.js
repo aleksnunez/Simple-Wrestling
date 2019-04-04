@@ -15,7 +15,7 @@ const SignUpLink = () => {
     <Col>
       <Text>Don't Have an Account?</Text>
       <StyledLink to='/signup' color='#828282' margin='1em 0 0'>
-        <Text>Sign up here</Text>
+        Sign up here
       </StyledLink>
     </Col>
   )
