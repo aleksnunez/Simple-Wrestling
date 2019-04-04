@@ -1,9 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
-
-
-router.get('/getWrestlerInformation', function (req, res) {
+router.get('/getCoachHomePage', function (req, res) {
   //coach register team
   let body ={
     WrestlerName:'joe',
@@ -13,11 +11,15 @@ router.get('/getWrestlerInformation', function (req, res) {
   res.json(body);
 })
 
-router.post('/postWrestlerInformation', function (req,res){
+router.post('/postCoachHomePage', function (req,res){
   let body ={
-    WrestlerName:['joe','james'],
+    WrestlerName:'joe ',
     Organization:'SFSU wrestling club',
-    School:'San Francisco State University'
+    School:'San Francisco State University',
+    WeightClass:'125',
+    RecordWins: 5,
+    RecordLost: 10,
+    TournamentsClose by: ['SFSU Wrestling', 'College Tournaments']
   }
   res.json(body);
 })

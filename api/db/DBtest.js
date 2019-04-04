@@ -1,9 +1,9 @@
-const sequelize = require('./sequalize');
+const connect = require('./sequalize');
 
 
 let testDB =()=>{
-  sequelize.authenticate().then(() => {
-    console.log(" Database is running Success!");
+  connect.authenticate().then(() => {
+    console.log(" Database is running and tables are made !");
   }).catch((err) => {
     console.log(err);
   });

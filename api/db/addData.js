@@ -1,7 +1,7 @@
-const sequalize = require('./sequalize');
+const connect = require('./sequalize');
 
 let addCoach = ()=>{
-  sequalize.sync()
+  connect.sync()
     .then(() => Coach.create({
       username: 'coach',
       password: 'password'
@@ -12,7 +12,7 @@ let addCoach = ()=>{
 }
 
 let addAdmin = ()=>{
-  sequalize.sync()
+  connect.sync()
     .then(() => Admin.create({
       username: 'admin',
       password: 'password'
@@ -23,9 +23,9 @@ let addAdmin = ()=>{
 }
 
 let addWrestler = ()=>{
-  sequalize.sync()
+  connect.sync()
     .then(() => User.create({
-      username: 'hello',
+      usercame: 'hello',
       password: 'password'
     }))
     .then(userTest => {
