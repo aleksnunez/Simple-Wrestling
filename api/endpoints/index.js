@@ -5,7 +5,7 @@ const home = require('./homePage')
 const coachTeamRegisteration = require('./coachRegisterTeam')
 const login = require('./login')
 
-router.use('/',home);
+router.use('/home',home);
 router.use('/login',login);
 
 router.use('/coachTeamRegisteration',coachTeamRegisteration);
