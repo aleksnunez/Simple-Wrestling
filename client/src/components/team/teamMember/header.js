@@ -26,9 +26,10 @@ const Header = (props) => {
   const SKELETON = {
     type: 'text',
     rows: 1,
-    color: '#EEEEEE',
+    color: '#C4C4C4',
     ready: name ? true : false,
-    style: {width: '32em', height: '2em'}
+    style: {left: '16em', width: '24em', height: '2em'},
+    showLoadingAnimation: true
   }
 
   return (

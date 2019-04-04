@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SignupForm from 'components/signupForm'
+import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
   display: flex;

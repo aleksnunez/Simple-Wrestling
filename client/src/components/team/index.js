@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import TeamMember from 'components/teamMember'
+import TeamMember from './teamMember'
 import { ReactComponent as GitHub } from 'assets/github.svg'
 
 const Row = styled.div`
@@ -46,9 +46,10 @@ export default class Team extends Component {
     const people = team.map((person, i) => {
       const SKELETON = {
         type: 'round',
-        color: '#EEEEEE',
+        color: '#C4C4C4',
         ready: person.github ? person.github.includes('https://github.com/') : false,
-        style: {width: '2em', height: '2em'}
+        style: {width: '2em', height: '2em'},
+        showLoadingAnimation: true
       }
 
       return (

@@ -66,7 +66,8 @@ export default class Description extends Component {
       rows: 4,
       color: '#EEEEEE',
       ready: description ? true : false,
-      style: {width: '21.9em', height: '14em'}
+      style: {width: '21.9em', height: '14em'},
+      showLoadingAnimation: true
     }
 
     return (
