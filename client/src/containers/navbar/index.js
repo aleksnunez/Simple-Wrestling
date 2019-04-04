@@ -13,7 +13,6 @@ const StyledRow = styled(Row)`
   flex-wrap: wrap;
   align-items: center;
 
-  height: 60px;
   width: 96vw;
 
   z-index: 100;
