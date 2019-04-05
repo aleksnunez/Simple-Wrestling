@@ -11,6 +11,7 @@ router.get('/', function (req, res){
 
   let tournamentCard =[
     {
+      tournamentCardID: 1,
       image:'https://www.usawmembership.com/images/usa_wrestling_v.png',
       title:'Zinicin Classic',
       dateDay:2,
