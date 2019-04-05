@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
@@ -34,50 +34,37 @@ const StyledPlaceholder = styled(ReactPlaceholder)`
   top: 2em;
 `
 
-export default class Description extends Component {
-  constructor() {
-    super ()
+const Description = (props) => {
+  const { path } = props
+  const [description, setDescription] = useState('')
 
-    this.state = {
-      description: ''
-    }
-  }
-
-  componentDidUpdate() {
-    const { path } = this.props
-
+  useEffect(() => {
     if (path) {
-      this.fetchDescription(path)
+      fetch(path)
+      .then(res => res.json())
+      .then(description => setDescription(description.text))
+      .catch(err => new Error(err))
     }
+  }, [path])
+
+  const SKELETON = {
+    type: 'text',
+    rows: 4,
+    color: '#EEEEEE',
+    ready: description ? true : false,
+    style: {width: '21.9em', height: '14em'},
+    showLoadingAnimation: true
   }
 
-  fetchDescription = path => {
-    fetch(path)
-    .then(res => res.json())
-    .then(description => this.setState({description: description.text}))
-    .catch(err => new Error(err))
-  }
-
-  render() {
-    const { description } = this.state
-
-    const SKELETON = {
-      type: 'text',
-      rows: 4,
-      color: '#EEEEEE',
-      ready: description ? true : false,
-      style: {width: '21.9em', height: '14em'},
-      showLoadingAnimation: true
-    }
-
-    return (
-      <StyledPlaceholder {...SKELETON}>
-        <Wrapper>
-          <Content>
-            <Formatter text={description} cutoff={8}/>
-          </Content>
-        </Wrapper>
-      </StyledPlaceholder>
-    )
-  }
+  return (
+    <StyledPlaceholder {...SKELETON}>
+      <Wrapper>
+        <Content>
+          <Formatter text={description} cutoff={8}/>
+        </Content>
+      </Wrapper>
+    </StyledPlaceholder>
+  )
 }
+
+export default Description
