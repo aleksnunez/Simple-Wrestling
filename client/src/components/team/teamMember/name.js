@@ -1,9 +1,9 @@
-import React from 'react'
 import styled from 'styled-components'
 
+import Text from 'components/text'
 import { Font } from 'styles/themes'
 
-const Text = styled.h2`
+const Name = styled(Text)`
   position: absolute;
   left: 8em;
 
@@ -12,13 +12,8 @@ const Text = styled.h2`
   margin: 0.5em 0 0;
 
   font-weight: 500;
-  font-size: 1em;
   text-align: center;
   color: ${Font.s};
 `
-
-const Name = (props) => {
-  return <Text>{props.text}</Text>
-}
 
 export default Name

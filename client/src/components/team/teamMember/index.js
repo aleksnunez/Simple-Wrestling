@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Header from './header.js'
-import Portrait from './portrait.js'
-import Description from './description.js'
+import Header from './header'
+import Portrait from './portrait'
+import Description from './description'
+import Social from './social'
 
 const Wrapper = styled.section`
   position: relative;
@@ -11,14 +12,15 @@ const Wrapper = styled.section`
   width: 40em;
   height: 16em;
 
-  margin: 3em 1em;
+  margin: 3em;
 `
 
 const TeamMember = (props) => {
-  const { name, description, portrait } = props
-  
+  const { github, name, description, portrait } = props
+
   return (
     <Wrapper>
+      <Social github={github} />
       <Header name={name} />
       <Portrait path={portrait} />
       <Description path={description} />
