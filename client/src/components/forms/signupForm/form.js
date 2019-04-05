@@ -24,7 +24,7 @@ const Form = () => {
         Sign Up
       </Button>
       <StyledLink to='/forgot' color='#828282' margin='0.5em 0'>
-        <Text>Forgot Password</Text>
+        Forgot Password
       </StyledLink>
     </Col>
   )

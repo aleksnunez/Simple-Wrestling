@@ -6,7 +6,7 @@ const StyledLink = styled(Link)`
   text-decoration-color: ${props => props.color ?  props.color : '#333333'};
   transition: text-decoration-color 0.25s, color 0.25s;
 
-  &:hover, &:focus {
+  &:hover, &:active {
     text-decoration-color: #C4C4C4;
     color: #C4C4C4;
   }
