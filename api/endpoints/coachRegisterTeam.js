@@ -14,13 +14,17 @@ router.get('/getWrestlerInformation', function (req, res) {
 })
 
 router.get('/getWrestlerInformations', function (req,res){
-  let body ={
+  const {hellos, world} = req.query;
+  console.log(hello);
+
+  let body = {
     WrestlerName:['joe','james'],
     Organization:'SFSU wrestling club',
     School:'San Francisco State University'
   }
-  console.log(res);
-  //console.log(`this is the request ${req.body}`);
+  //console.log(res);
+
+  console.log(`this is the request ${req}`);
   res.json(body);
 
 })

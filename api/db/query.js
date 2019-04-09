@@ -5,6 +5,7 @@ let queryUserName = ()=>{
     console.log('query',results);
   });
 }
+
 let queryfindOne =  ()=>{
   connect.findOne({
     where: {username: 'admin'},
@@ -12,10 +13,11 @@ let queryfindOne =  ()=>{
     console.log(results);
   })
 }
+
 let queryFindAll= ()=>{
   connect.findAll({
     where: {
-      username: 'admin'
+      limit: 10
     }
   });
 }
