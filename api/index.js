@@ -5,7 +5,7 @@ const port = process.env.PORT || 5000;
 const database = require('./db');
 const endpoints = require('./endpoints');
 
-//database.database();
+database.database();
 app.use('/api',endpoints);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
