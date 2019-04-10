@@ -6,16 +6,10 @@ router.get('/get', function (req, res) {
     username:'user',
     password: ' password'
   }
-  //authentication
-  //
-  //
-  //
   res.json(body);
 });
 router.post('/post', function(req,res){
-  let athenticated = false; 
+  let athenticated = false;
 });
-
-
 
 module.exports = router;
