@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import LoginForm from 'components/forms/loginForm'
+import SearchBar from 'components/searchBar'
+import Header from 'components/header'
 
-const Col = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 2em;
+const Wrapper = styled.section`
+  position: relative;
 `
 
-const Login = () => {
+const Tournaments = () => {
   const [state, setState] = useState({})
 
   const handleChange = (e) => {
@@ -24,9 +21,13 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    fetch('/api/login/post', {
+    const body = {
+      search: state.search
+    }
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'POST',
-      body: JSON.stringify(state),
+      body: JSON.stringify(body),
       headers: {
         'Content-type': 'application/json; charset=UTF-8'
       }
@@ -36,10 +37,11 @@ const Login = () => {
   }
 
   return (
-    <Col>
-      <LoginForm submit={onSubmit} onchange={handleChange} />
-    </Col>
+    <Wrapper>
+      <Header text='Tournaments' />
+      <SearchBar submit={onSubmit} onchange={handleChange} />
+    </Wrapper>
   )
 }
 
-export default Login
+export default Tournaments

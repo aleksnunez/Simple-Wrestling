@@ -3,9 +3,9 @@ const connect = require('./sequalize');
 
 let testDB =()=>{
   connect.authenticate().then(() => {
-    console.log(" Database is running and tables are made !");
+    console.log(" Database connection has been established!");
   }).catch((err) => {
-    console.log(err);
+    console.log("Unable to successfully connect to database",err);
   });
 }
 

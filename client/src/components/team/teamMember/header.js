@@ -7,16 +7,15 @@ import Name from './name'
 
 const Wrapper = styled.div`
   position: absolute;
+  left: 8em;
 
   width: 32em;
   height: 2em;
-  left: 8em;
 
   background: ${Color.p};
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
-
   left: 8em;
 `
 
@@ -35,7 +34,7 @@ const Header = (props) => {
   return (
     <StyledPlaceholder {...SKELETON}>
       <Wrapper>
-        <Name text={name} />
+        <Name>{name}</Name>
       </Wrapper>
     </StyledPlaceholder>
   )

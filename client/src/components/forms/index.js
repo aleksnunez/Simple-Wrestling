@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 import Button from './button'
-import Input from './input'
+import { InputWrapper, Input } from './input'
 
-const Col = styled.div`
+const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,8 +11,5 @@ const Col = styled.div`
   width: 20em;
   padding: 1em 1em;
 `
-const InputWrapper = styled.div`
-  padding: 1em 1em;
-`
 
-export { Col, InputWrapper, Input, Button }
+export { FormWrapper, InputWrapper, Input, Button }
