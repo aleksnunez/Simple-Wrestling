@@ -6,23 +6,21 @@ import { Color } from 'styles/themes'
 
 const Image = styled.div`
   position: absolute;
-
-  border-radius: 100%;
+  z-index: 500;
 
   width: 16em;
   height: 16em;
 
+  border-radius: 100%;
   background: ${Color.p};
   background-image: ${props =>
     props ? `url(${props.path})` : 'none'
   };
   background-size: cover;
   background-position: center;
-  z-index: 500;
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
-
   z-index: 500;
 `
 

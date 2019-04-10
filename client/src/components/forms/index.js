@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Button from './button'
-import Input from './input'
+import { InputWrapper, Input } from './input'
 
 const Col = styled.div`
   display: flex;
@@ -9,9 +9,6 @@ const Col = styled.div`
   align-items: center;
 
   width: 20em;
-  padding: 1em 1em;
-`
-const InputWrapper = styled.div`
   padding: 1em 1em;
 `
 
