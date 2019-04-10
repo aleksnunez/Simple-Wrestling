@@ -9,7 +9,8 @@ router.get('/get', function (req, res) {
   res.json(body);
 });
 router.post('/post', function(req,res){
-  let athenticated = false;
+  console.log(`received POST: ${JSON.stringify(req.body)}\nEchoing...`)
+  res.json(req.body);
 });
 
 module.exports = router;

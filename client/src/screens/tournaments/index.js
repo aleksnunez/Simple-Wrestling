@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import request from 'api'
 
 import SearchBar from 'components/searchBar'
 import Header from 'components/header'
@@ -21,19 +22,9 @@ const Tournaments = () => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    const body = {
-      search: state.search
-    }
-
-    fetch('https://jsonplaceholder.typicode.com/posts/1', {
-      method: 'PUT',
-      body: JSON.stringify(body),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      }
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
+    request({endpoint: 'https://jsonplaceholder.typicode.com/posts', body: JSON.stringify(state)})
+    .then(res => alert(JSON.stringify(res)))
+    .catch(err => new Error(err))
   }
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import request from 'api'
 
 import Header from 'components/header'
 import Text from 'components/text'
@@ -12,8 +13,7 @@ const Home = () => {
   const [data, setData] = useState()
 
   useEffect(() => {
-    fetch('/api/home/')
-    .then(res => res.json())
+    request({endpoint: '/api/home/', method: 'GET'})
     .then(res => setData(res))
     .catch(err => new Error(err))
   }, [])
