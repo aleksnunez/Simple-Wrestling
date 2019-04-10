@@ -7,11 +7,11 @@ import Formatter from 'components/formatter'
 
 const Wrapper = styled.div`
   position: absolute;
+  left: 8em;
+  top: 2em;
 
   width: 31.9em;
   height: 14em;
-  left: 8em;
-  top: 2em;
 
   background: ${Color.s};
   box-shadow: 0.1em -0.1em ${Color.p};

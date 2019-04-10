@@ -8,6 +8,7 @@ const query = require('./query');
 const add = require('./addData');*/
 
 
+<<<<<<< HEAD
 let database = () =>{
   const sequelize = new Sequelize(awsKeys.databaseName, awsKeys.masterUserName, awsKeys.password, {
     host: 'wrestlingtournments.chgoxg8wubk2.us-west-2.rds.amazonaws.com',
@@ -59,14 +60,13 @@ console.log("Love Me Hard!");
     age: Sequelize.INTEGER,
     weightClass: Sequelize.INTEGER
   });
+=======
 
-  Admin = connection.define('admin',{
-    username: Sequelize.STRING,
-    password: Sequelize.STRING,
-    age: Sequelize.INTEGER,
-    weightClass: Sequelize.INTEGER
-  });
+>>>>>>> 46d61f99dd3e3dfab22f79c8497d2bfbba03bd95
 
+let database = () =>{
+
+<<<<<<< HEAD
   Coach = connection.define('coach',{
     username: Sequelize.STRING,
     password: Sequelize.STRING,
@@ -78,6 +78,8 @@ console.log("Love Me Hard!");
     console.log(admin);
   });*/
 
+=======
+>>>>>>> 46d61f99dd3e3dfab22f79c8497d2bfbba03bd95
 }
 
 module.exports.database = database;

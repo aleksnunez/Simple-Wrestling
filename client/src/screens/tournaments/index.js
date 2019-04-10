@@ -2,17 +2,14 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
-import SignupForm from 'components/forms/signupForm'
+import SearchBar from 'components/searchBar'
+import Header from 'components/header'
 
-const Col = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 2em;
+const Wrapper = styled.section`
+  position: relative;
 `
 
-const SignUp = () => {
+const Tournaments = () => {
   const [state, setState] = useState({})
 
   const handleChange = (e) => {
@@ -31,10 +28,11 @@ const SignUp = () => {
   }
 
   return (
-    <Col>
-      <SignupForm submit={onSubmit} onchange={handleChange} />
-    </Col>
+    <Wrapper>
+      <Header text='Tournaments' />
+      <SearchBar submit={onSubmit} onchange={handleChange} />
+    </Wrapper>
   )
 }
 
-export default SignUp
+export default Tournaments

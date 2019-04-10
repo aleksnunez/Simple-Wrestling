@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledLink = styled(Link)`
+  font-family: 'IBM Plex Sans', sans-serif;
   color: ${props => props.color ?  props.color : '#333333'};
   text-decoration-color: ${props => props.color ?  props.color : '#333333'};
   transition: text-decoration-color 0.25s, color 0.25s;
