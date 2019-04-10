@@ -13,13 +13,20 @@ router.get('/getWrestlerInformation', function (req, res) {
   res.json(body);
 })
 
-router.post('/postWrestlerInformation', function (req,res){
-  let body ={
+router.get('/getWrestlerInformations', function (req,res){
+  const {hellos, world} = req.query;
+  console.log(hello);
+
+  let body = {
     WrestlerName:['joe','james'],
     Organization:'SFSU wrestling club',
     School:'San Francisco State University'
   }
+  //console.log(res);
+
+  console.log(`this is the request ${req}`);
   res.json(body);
+
 })
 
 module.exports = router;
