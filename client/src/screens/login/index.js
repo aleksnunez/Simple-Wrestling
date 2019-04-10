@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import request from 'api'
 
 import LoginForm from 'components/forms/loginForm'
 
@@ -24,15 +25,9 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    fetch('https://jsonplaceholder.typicode.com/posts/1', {
-      method: 'PUT',
-      body: JSON.stringify(state),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      }
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
+    request({endpoint: '/api/login/post', body: JSON.stringify(state)})
+    .then(res => alert(JSON.stringify(res)))
+    .catch(err => new Error(err))
   }
 
   return (

@@ -8,7 +8,7 @@ const Col = styled.div`
   flex-direction: column;
   align-items: center;
 `
-const Wrapper = styled.div`
+const Form = styled.form`
   margin: 0.5em;
 `
 const Input = styled.input`
@@ -32,10 +32,10 @@ const Input = styled.input`
 const SearchBar = (props) => {
   return (
     <Col>
-      <Wrapper>
+      <Form>
         <Input name='search' onChange={props.onchange} />
         <Button onClick={props.submit}>Search</Button>
-      </Wrapper>
+      </Form>
     </Col>
   )
 }

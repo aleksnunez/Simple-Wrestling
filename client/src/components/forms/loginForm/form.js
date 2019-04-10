@@ -2,14 +2,16 @@ import React from 'react'
 
 import Text from 'components/text'
 import StyledLink from 'components/link'
-import { Col, InputWrapper, Input, Button } from '../'
+import { FormWrapper, InputWrapper, Input, Button } from '../'
 
 const Form = (props) => {
   return (
-    <Col>
+    <FormWrapper>
       <InputWrapper>
         <Text margin='0 0 0.5em'>Email</Text>
         <Input
+          autoFocus
+          required
           type='email'
           name='email'
           onChange={props.onchange}/>
@@ -17,6 +19,7 @@ const Form = (props) => {
       <InputWrapper>
         <Text margin='0 0 0.5em'>Password</Text>
         <Input
+          required
           type='password'
           name='password'
           autoComplete='off'
@@ -28,7 +31,7 @@ const Form = (props) => {
       <StyledLink to='/forgot' color='#828282' margin='0.5em 0'>
         Forgot Password
       </StyledLink>
-    </Col>
+    </FormWrapper>
   )
 }
 
