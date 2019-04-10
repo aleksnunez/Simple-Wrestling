@@ -4,23 +4,25 @@ import Text from 'components/text'
 import StyledLink from 'components/link'
 import { Col, InputWrapper, Input, Button } from '../'
 
-const Form = () => {
+const Form = (props) => {
   return (
     <Col>
       <InputWrapper>
         <Text margin='0 0 0.5em'>Email</Text>
         <Input
           type='email'
-          name='email'/>
+          name='email'
+          onChange={props.onchange}/>
       </InputWrapper>
       <InputWrapper>
         <Text margin='0 0 0.5em'>Password</Text>
         <Input
           type='password'
           name='password'
-          autoComplete='off'/>
+          autoComplete='off'
+          onChange={props.onchange}/>
       </InputWrapper>
-      <Button>
+      <Button onClick={props.submit}>
         Sign Up
       </Button>
       <StyledLink to='/forgot' color='#828282' margin='0.5em 0'>
