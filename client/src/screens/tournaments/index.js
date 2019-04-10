@@ -25,8 +25,8 @@ const Tournaments = () => {
       search: state.search
     }
 
-    fetch('https://jsonplaceholder.typicode.com/posts/1', {
-      method: 'PUT',
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
       body: JSON.stringify(body),
       headers: {
         'Content-type': 'application/json; charset=UTF-8'

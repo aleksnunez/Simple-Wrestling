@@ -24,8 +24,8 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    fetch('https://jsonplaceholder.typicode.com/posts/1', {
-      method: 'PUT',
+    fetch('/api/login/post', {
+      method: 'POST',
       body: JSON.stringify(state),
       headers: {
         'Content-type': 'application/json; charset=UTF-8'
