@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Michael David",
+    "portrait": "./team/portraits/MichaelDavid.jpg",
+    "description": "./team/descriptions/MichaelDavid.json",
+    "github": "https://github.com/MDavid599"
+  },
+  {
+    "name": "Michael Swanson",
+    "portrait": "./team/portraits/MichaelSwanson.jpg",
+    "description": "./team/descriptions/MichaelSwanson.json",
+    "github": "https://github.com/Swabisan"
+  },
+  {
+    "name": "Huy Nguyen",
+    "portrait": "./team/portraits/HuyNguyen.jpg",
+    "description": "./team/descriptions/HuyNguyen.json",
+    "github": "https://github.com/huy9997"
+  },
+  {
+    "name": "Heewon Han",
+    "portrait": "./team/portraits/HeewonHan.jpg",
+    "description": "./team/descriptions/HeewonHan.json",
+    "github": "https://github.com/heewonhan"
+  },
+  {
+    "name": "Tuan Le",
+    "portrait": "./team/portraits/TuanLe.jpg",
+    "description": "./team/descriptions/TuanLe.json",
+    "github": "https://github.com/tle28"
+  },
+  {
+    "name": "Alexander Nunez",
+    "portrait": "./team/portraits/AlexanderNunez.jpg",
+    "description": "./team/descriptions/AlexanderNunez.json",
+    "github": "https://github.com/alexandernunez1"
+  }
+]
