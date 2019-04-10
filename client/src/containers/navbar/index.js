@@ -27,19 +27,19 @@ export default class NavBar extends Component {
     return (
       <StyledRow>
         <Row>
-          <Link to="/">
+          <Link to='/'>
             <StyledLogo src={logo} />
           </Link>
         </Row>
         <Row>
         </Row>
         <Row>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Link to='/tournaments'>Tournaments</Link>
+          <Link to='/about'>About</Link>
         </Row>
         <Row>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign up</Link>
+          <Link to='/login'>Login</Link>
+          <Link to='/signup'>Sign up</Link>
         </Row>
       </StyledRow>
     )
