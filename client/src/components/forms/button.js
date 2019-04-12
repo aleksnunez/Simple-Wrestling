@@ -1,27 +1,26 @@
 import styled from 'styled-components'
 
-import { Font, Color } from 'styles/themes'
+import { light, primary } from 'styles/themes'
 
 const Button = styled.button`
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 2em;
-  color: ${Font.s};
+  color: ${light.base};
 
-  background: ${Color.p};
-  border: none;
+  background: ${primary.base};
+  border: 0.05em solid ${primary.base};
   border-radius: 0.2em;
 
-  padding: 0.5em 3em;
+  width: 7.5em;
+  height: 2.25em;
   margin: 1em 0;
 
-  transition: background 0.75s, color 0.75s;
+  transition: background 0.25s, color 0.25s;
 
   &:hover, &:focus {
-    border: 0.05em solid ${Color.p};
-    background: ${Font.s};
-    color: ${Color.p};
+    background: ${light.base};
+    color: ${primary.base};
     cursor: pointer;
-    padding: 0.45em 2.95em;
   }
 `
 
