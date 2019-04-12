@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Color } from 'styles/themes'
+import { primary } from 'styles/themes'
 
 const Text = styled.h2`
   font-family: 'IBM Plex Sans', sans-serif;
@@ -11,7 +11,7 @@ const Text = styled.h2`
   font-size: 36px;
   text-align: center;
 
-  color: ${Color.p};
+  color: ${primary.base};
 `
 
 const Header = (props) => {

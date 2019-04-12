@@ -8,8 +8,8 @@ const query = require('./query');
 const add = require('./addData');*/
 
 
-<<<<<<< HEAD
-let database = () =>{
+
+let database = (searchTerm) =>{
   const sequelize = new Sequelize(awsKeys.databaseName, awsKeys.masterUserName, awsKeys.password, {
     host: 'wrestlingtournments.chgoxg8wubk2.us-west-2.rds.amazonaws.com',
     dialect: 'postgres',
@@ -50,7 +50,14 @@ let database = () =>{
       school: 'SFSU'
     });
   });
-console.log("Love Me Hard!");
+
+
+  Model.findAll({
+    where: {
+      userName: searchTerm
+    }
+  });
+
   /*Wrestler.findAll().then(users => {
     console.log("All users:", JSON.stringify(users, userName, school));
   });*/
@@ -78,8 +85,7 @@ let database = () =>{
     console.log(admin);
   });*/
 
-=======
->>>>>>> 46d61f99dd3e3dfab22f79c8497d2bfbba03bd95
+
 }
 
 module.exports.database = database;

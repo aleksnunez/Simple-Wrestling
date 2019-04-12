@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Font } from 'styles/themes'
+import { dark } from 'styles/themes'
 
 const Text = styled.div`
   font-size: 0.75em;
   margin: 1em;
-  color: ${Font.p};
+  color: ${dark.base};
 `
 const Line = styled.div`
   display: flex;

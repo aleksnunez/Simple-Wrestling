@@ -14,7 +14,7 @@ const SignUpLink = () => {
   return (
     <Col>
       <Text>Don't Have an Account?</Text>
-      <Link to='/signup' color='#828282' margin='1em 0 0'>
+      <Link to='/signup'>
         Sign up here
       </Link>
     </Col>

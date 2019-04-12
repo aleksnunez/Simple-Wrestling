@@ -1,18 +1,21 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { dark } from 'styles/themes'
+
 const StyledLink = styled(Link)`
   font-family: 'IBM Plex Sans', sans-serif;
-  color: ${props => props.color ?  props.color : '#333333'};
-  text-decoration-color: ${props => props.color ?  props.color : '#333333'};
+  color: ${dark.base};
+  text-decoration-color: ${dark.base};
+
+  margin: 1em 0 0;
+
   transition: text-decoration-color 0.25s, color 0.25s;
 
   &:hover, &:active {
-    text-decoration-color: #C4C4C4;
-    color: #C4C4C4;
+    text-decoration-color: ${dark.active};
+    color: ${dark.active};
   }
-
-  margin: ${props => props.margin ?  props.margin : 0};
 `
 
 export default StyledLink
