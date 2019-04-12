@@ -11,7 +11,8 @@ const Button = styled.button`
   border: 0.05em solid ${primary.base};
   border-radius: 0 0.2em 0.2em 0;
 
-  padding: 0.688em 2em;
+  width: 6em;
+  height: 2.5em;
 
   transition: background 0.25s, color 0.25s;
 
