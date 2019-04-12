@@ -28,7 +28,7 @@ const Content = styled.div`
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
 
-  margin: 1em;
+  margin: 2em;
 
   left: 16em;
   top: 2em;
