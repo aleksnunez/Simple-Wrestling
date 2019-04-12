@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Color } from 'styles/themes'
+import { primary } from 'styles/themes'
 import Header from 'components/header'
 import SignupLink from './signupLink'
 import Form from './form'
@@ -12,7 +12,7 @@ const Col = styled.div`
   align-items: center;
 `
 const Wrapper = styled(Col)`
-  border: 0.25em solid ${Color.p};
+  border: 0.25em solid ${primary.base};
   background: #fff;
 
   padding: 1em 5em;
