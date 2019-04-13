@@ -6,12 +6,7 @@ const database = require('./db');
 const endpoints = require('./endpoints');
 
 
-database.database()
-
-
-
-
-
+database.database('Mike');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
