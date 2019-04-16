@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import { Color } from 'styles/themes'
+import { primary } from 'styles/themes'
 import Name from './name'
 
 const Wrapper = styled.div`
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   width: 32em;
   height: 2em;
 
-  background: ${Color.p};
+  background: ${primary.base};
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
