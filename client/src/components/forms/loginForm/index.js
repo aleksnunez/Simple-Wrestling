@@ -25,7 +25,7 @@ const LoginForm = (props) => {
         <Header text='Login' />
         <SignupLink />
       </Col>
-      <Form/>
+      <Form {...props} />
     </Wrapper>
   )
 }

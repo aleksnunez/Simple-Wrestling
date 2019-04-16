@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Text from 'components/text'
-import StyledLink from 'components/link'
+import Link from 'components/link'
 
 const Col = styled.div`
   display: flex;
@@ -14,9 +14,9 @@ const LoginLink = () => {
   return (
     <Col>
       <Text>Already Have an Account?</Text>
-      <StyledLink to='/login' color='#828282' margin='1em 0 0'>
+      <Link to='/login' color='#828282' margin='1em 0 0'>
         Login here
-      </StyledLink>
+      </Link>
     </Col>
   )
 }

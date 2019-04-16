@@ -16,6 +16,7 @@ const Routes = () => (
       <Route path='/login' component={screens.Login} />
       <Route path='/signup' component={screens.SignUp} />
       <Route path='/about' component={screens.About} />
+      <Route path='/tournaments' component={screens.Tournaments} />
       <GlobalStyle />
     </div>
   </Router>
