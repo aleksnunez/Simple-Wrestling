@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Text from 'components/text'
-import StyledLink from 'components/link'
+import Link from 'components/link'
 import { FormWrapper, InputWrapper, Input, Button } from '../'
 
 const Form = (props) => {
@@ -28,9 +28,9 @@ const Form = (props) => {
       <Button onClick={props.submit}>
         Login
       </Button>
-      <StyledLink to='/forgot' color='#828282' margin='0.5em 0'>
+      <Link to='/forgot'>
         Forgot Password
-      </StyledLink>
+      </Link>
     </FormWrapper>
   )
 }

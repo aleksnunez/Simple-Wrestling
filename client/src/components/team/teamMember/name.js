@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Text from 'components/text'
-import { Font } from 'styles/themes'
+import { light } from 'styles/themes'
 
 const Name = styled(Text)`
   position: absolute;
@@ -13,7 +13,7 @@ const Name = styled(Text)`
 
   font-weight: 500;
   text-align: center;
-  color: ${Font.s};
+  color: ${light.base};
 `
 
 export default Name

@@ -14,7 +14,7 @@ const LoginLink = () => {
   return (
     <Col>
       <Text>Already Have an Account?</Text>
-      <Link to='/login' color='#828282' margin='1em 0 0'>
+      <Link to='/login'>
         Login here
       </Link>
     </Col>

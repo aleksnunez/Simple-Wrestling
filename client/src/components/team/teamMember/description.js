@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import { Color } from 'styles/themes'
+import { light, primary } from 'styles/themes'
 import Formatter from 'components/formatter'
 
 const Wrapper = styled.div`
@@ -13,8 +13,8 @@ const Wrapper = styled.div`
   width: 31.9em;
   height: 14em;
 
-  background: ${Color.s};
-  box-shadow: 0.1em -0.1em ${Color.p};
+  background: ${light.base};
+  box-shadow: 0.1em -0.1em ${primary.base};
 `
 const Content = styled.div`
   position: relative;
@@ -28,7 +28,7 @@ const Content = styled.div`
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
 
-  margin: 1em;
+  margin: 2em;
 
   left: 16em;
   top: 2em;
