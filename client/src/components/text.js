@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
-import { dark } from 'styles/themes'
-
 const Text = styled.p`
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 1em;
-  color: ${dark.active};
+  color: ${props => props.theme.foreground.base};
 
   margin: ${props => props.margin ?  props.margin : 0};
 `

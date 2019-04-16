@@ -52,11 +52,11 @@ let database = (searchTerm) =>{
   });
 
 
-  Model.findAll({
-    where: {
-      userName: searchTerm
-    }
-  });
+  // Model.findAll({
+  //   where: {
+  //     userName: searchTerm
+  //   }
+  // });
 
   /*Wrestler.findAll().then(users => {
     console.log("All users:", JSON.stringify(users, userName, school));

@@ -7,7 +7,6 @@ import {
 
 import NavBar from 'containers/navbar'
 import screens from 'screens'
-import GlobalStyle from 'styles/global.js'
 
 const Routes = () => (
   <Router>
@@ -21,7 +20,6 @@ const Routes = () => (
         <Route path='/tournaments' component={screens.Tournaments} />
         <Route path='*' component={screens.NotFound} />
       </Switch>
-      <GlobalStyle />
     </div>
   </Router>
 )

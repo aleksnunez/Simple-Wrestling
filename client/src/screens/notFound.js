@@ -7,7 +7,7 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-const NotFound = () => {
+const NotFound = props => {
   return (
     <Wrapper>
       <Header text={'404'} />

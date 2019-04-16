@@ -11,7 +11,7 @@ const Row = styled.div`
 `
 
 const Team = (props) => {
-  const [team, setTeam] = useState([{}, {}, {}, {}, {}, {}])
+  const [team, setTeam] = useState([{}])
 
   useEffect(() => {
     fetch('./team/team.json')
