@@ -12,13 +12,13 @@ const Col = styled.div`
   align-items: center;
 `
 
-const About = (match) => {
+const About = props => {
   return (
     <Col>
       <Header text={'The Team'} />
       <Team />
 
-      <Route path={`${match.path}/:id`} component={Details} />
+      <Route path={`${props.path}/:id`} component={Details} />
     </Col>
   )
 }

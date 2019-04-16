@@ -12,7 +12,7 @@ const Col = styled.section`
   margin-top: 2em;
 `
 
-const Login = () => {
+const Login = props => {
   const [state, setState] = useState({})
 
   const handleChange = (e) => {

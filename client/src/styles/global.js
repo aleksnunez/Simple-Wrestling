@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { light, dark } from './themes'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    color: ${dark.base};
-    background: ${light.base};
+    color: ${props => props.theme.foreground.base};
+    background: ${props => props.theme.background.base};
   }
 
   code {

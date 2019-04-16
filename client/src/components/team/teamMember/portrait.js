@@ -2,8 +2,6 @@ import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import { primary } from 'styles/themes'
-
 const Image = styled.div`
   position: absolute;
   z-index: 500;
@@ -12,7 +10,7 @@ const Image = styled.div`
   height: 16em;
 
   border-radius: 100%;
-  background: ${primary.base};
+  background: ${props => props.theme.primary.base};
   background-image: ${props =>
     props ? `url(${props.path})` : 'none'
   };

@@ -1,8 +1,6 @@
 import Link from 'components/link'
 import styled from 'styled-components'
 
-import { dark } from 'styles/themes'
-
 const NavLink = styled(Link)`
   padding: 0 1em;
 
@@ -15,11 +13,11 @@ const NavLink = styled(Link)`
   text-decoration: none;
 
   &:link, &:visited {
-    color: ${dark.base};
+    color: ${props => props.theme.foreground.base};
   }
 
   &:hover, &:active {
-    color: ${dark.active};
+    color: ${props => props.theme.foreground.active};
   }
 `
 

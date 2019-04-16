@@ -9,7 +9,7 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-const Tournaments = () => {
+const Tournaments = props => {
   const [state, setState] = useState({})
 
   const handleChange = (e) => {

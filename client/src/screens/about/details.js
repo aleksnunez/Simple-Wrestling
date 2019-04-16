@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-const Details = () => {
+const Details = props => {
   return (
     <Wrapper>
       <Header text={'The Team'} />

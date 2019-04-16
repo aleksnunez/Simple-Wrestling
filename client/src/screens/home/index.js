@@ -9,7 +9,7 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-const Home = () => {
+const Home = props => {
   const [data, setData] = useState()
 
   useEffect(() => {
