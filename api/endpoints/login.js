@@ -9,8 +9,14 @@ router.get('/get', function (req, res) {
   res.json(body);
 });
 router.post('/post', function(req,res){
-  console.log(`received POST: ${JSON.stringify(req.body)}`)
+  //console.log(`received POST: ${JSON.stringify(req.body)}`)
+  const data = JSON.stringify(req.body);
+  console.log(req.body.email);
+  
   res.json(req.body);
+  
+
+
   /*
   body.email
   body.password
