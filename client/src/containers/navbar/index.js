@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import Link from './navLink'
+import Button from './button'
 import logo from 'assets/logo.png'
 
 const Row = styled.div`
@@ -22,26 +23,27 @@ const StyledLogo = styled.img`
   height: 100%;
 `
 
-export default class NavBar extends Component {
-  render() {
-    return (
-      <StyledRow>
-        <Row>
-          <Link to='/'>
-            <StyledLogo src={logo} />
-          </Link>
-        </Row>
-        <Row>
-        </Row>
-        <Row>
-          <Link to='/tournaments'>Tournaments</Link>
-          <Link to='/about'>About</Link>
-        </Row>
-        <Row>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Sign up</Link>
-        </Row>
-      </StyledRow>
-    )
-  }
+const NavBar = props => {
+  return (
+    <StyledRow>
+      <Row>
+        <Link to='/'>
+          <StyledLogo src={logo} />
+        </Link>
+      </Row>
+      <Row>
+        <Link to='/tournaments'>Tournaments</Link>
+        <Link to='/about'>About</Link>
+      </Row>
+      <Row>
+        <Link to='/login'>Login</Link>
+        <Link to='/signup'>Sign up</Link>
+      </Row>
+      <Row>
+        <Button onClick={props.changeTheme}>Darkmode</Button>
+      </Row>
+    </StyledRow>
+  )
 }
+
+export default NavBar

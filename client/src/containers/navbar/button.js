@@ -2,16 +2,17 @@ import styled from 'styled-components'
 
 const Button = styled.button`
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 2em;
+  font-size: 1em;
   color: ${props => props.theme.background.base};
 
   background: ${props => props.theme.primary.base};
   border: 0.05em solid ${props => props.theme.primary.base};
   border-radius: 0.2em;
 
-  width: 7.5em;
-  height: 2.25em;
-  margin: 1em 0;
+  width: 6em;
+  height: 2em;
+
+  margin: 1em 0 0 0;
 
   transition: ${props => props.theme.transition};
 

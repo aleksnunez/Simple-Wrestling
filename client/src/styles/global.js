@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: normal;
     line-height: normal;
+
+    transition: ${props => props.theme.transition};
     color: ${props => props.theme.foreground.base};
     background: ${props => props.theme.background.base};
   }

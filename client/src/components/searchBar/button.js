@@ -12,7 +12,7 @@ const Button = styled.button`
   width: 6em;
   height: 2.5em;
 
-  transition: background 0.25s, color 0.25s;
+  transition: ${props => props.theme.transition};
 
   &:hover, &:focus {
     background: ${props => props.theme.background.base};

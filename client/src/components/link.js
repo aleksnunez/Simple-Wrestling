@@ -8,7 +8,7 @@ const StyledLink = styled(Link)`
 
   margin: 1em 0 0;
 
-  transition: text-decoration-color 0.25s, color 0.25s;
+  transition: ${props => props.theme.transition};
 
   &:hover, &:active {
     text-decoration-color: ${props => props.theme.foreground.active};
