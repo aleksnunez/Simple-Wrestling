@@ -1,34 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Link from './navLink'
+import Link from './link'
 import Button from './button'
-import logo from 'assets/logo.png'
+import Logo from './logo'
 
 const Row = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
 `
-const StyledRow = styled(Row)`
+const Nav = styled(Row)`
   flex-wrap: wrap;
   align-items: center;
   width: 96vw;
   z-index: 100;
 `
-const StyledLogo = styled.img`
-  background-image: ${`url(${logo})`};
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-`
 
 const NavBar = props => {
   return (
-    <StyledRow>
+    <Nav>
       <Row>
         <Link to='/'>
-          <StyledLogo src={logo} />
+          <Logo />
         </Link>
       </Row>
       <Row>
@@ -42,7 +36,7 @@ const NavBar = props => {
       <Row>
         <Button onClick={props.changeTheme}>Darkmode</Button>
       </Row>
-    </StyledRow>
+    </Nav>
   )
 }
 
