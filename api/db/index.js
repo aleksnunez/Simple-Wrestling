@@ -1,4 +1,4 @@
-const queries = require "./queries"
+const queries = require('./queries')
 
 const Pool = require('pg').Pool
 const pool = new Pool({
@@ -10,7 +10,7 @@ const pool = new Pool({
 })
 
 const addCoach = (request, response) => {
-  pool.query(queries.CREATE_COACH,[coach_name, email, password] (error, results) => {
+  pool.query(queries.CREATE_COACH,[coach_name, email, password], (error, results) => {
     if (error) {
       throw error
     }
@@ -19,7 +19,7 @@ const addCoach = (request, response) => {
 }
 
 const addAdmin = (request, response) => {
-  pool.query(queries.CREATE_ADMIN,[admin_name, email, password] (error, results) => {
+  pool.query(queries.CREATE_ADMIN,[admin_name, email, password], (error, results) => {
     if (error) {
       throw error
     }
@@ -28,7 +28,7 @@ const addAdmin = (request, response) => {
 }
 
 const addWrestler = (request, response) => {
-  pool.query(queries.CREATE_WRESTLER,[user_name, email, password] (error, results) => {
+  pool.query(queries.CREATE_WRESTLER,[user_name, email, password], (error, results) => {
     if (error) {
       throw error
     }
