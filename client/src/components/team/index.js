@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import request from 'api'
 
 import TeamMember from './teamMember'
 
@@ -14,8 +15,7 @@ const Team = (props) => {
   const [team, setTeam] = useState([{}])
 
   useEffect(() => {
-    fetch('./team/team.json')
-    .then(res => res.json())
+    request({endpoint: './team/team.json', method: 'GET'})
     .then(team => setTeam(team))
     .catch(err => new Error(err))
   }, [props])

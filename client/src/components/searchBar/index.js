@@ -9,7 +9,13 @@ const Col = styled.div`
   align-items: center;
 `
 const Form = styled.form`
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-evenly;
+
   margin: 0.5em;
+  width: 85vw;
+  max-width: 40em;
 `
 const Input = styled.input`
   font-family: 'IBM Plex Sans', sans-serif;
@@ -17,7 +23,7 @@ const Input = styled.input`
   font-size: 1em;
 
   height: 2.5em;
-  width: 20em;
+  width: 75%;
   padding-left: 0.5em;
 
   box-sizing: border-box;

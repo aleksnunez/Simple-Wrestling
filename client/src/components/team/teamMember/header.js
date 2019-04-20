@@ -6,16 +6,15 @@ import Name from './name'
 
 const Wrapper = styled.div`
   position: absolute;
-  left: 8em;
+  left: 20%;
 
-  width: 32em;
+  width: 80%;
   height: 2em;
 
   background: ${props => props.theme.primary.base};
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
-  left: 8em;
 `
 
 const Header = (props) => {
@@ -26,7 +25,7 @@ const Header = (props) => {
     rows: 1,
     color: '#C4C4C4',
     ready: name ? true : false,
-    style: {left: '16em', width: '24em', height: '2em'},
+    style: {left: '40%', width: '60%', height: '2em'},
     showLoadingAnimation: true
   }
 

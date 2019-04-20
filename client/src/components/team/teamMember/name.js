@@ -4,9 +4,9 @@ import Text from 'components/text'
 
 const Name = styled(Text)`
   position: absolute;
-  left: 8em;
+  left: 25%;
 
-  width: 24em;
+  width: 75%;
   height: 2em;
   margin: 0.5em 0 0;
 

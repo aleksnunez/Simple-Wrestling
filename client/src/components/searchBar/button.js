@@ -7,7 +7,8 @@ const StyledButton = styled(Button)`
 
   border-radius: 0 0.2em 0.2em 0;
 
-  width: 6em;
+  width: 25%;
+  min-width: 5em;
   height: 2.5em;
 `
 
