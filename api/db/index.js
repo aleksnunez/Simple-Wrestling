@@ -9,14 +9,7 @@ const pool = new Pool({
   port: 5432,
 })
 
-const addCoach = (request, response) => {
-  pool.query(queries.CREATE_COACH,[coach_name, email, password], (error, results) => {
-    if (error) {
-      throw error
-    }
-    response.status(201).send(`User added with ID: ${result.insertId}`)
-  })
-}
+const addCoach = values => pool.query(queries.CREATE_COACH, values)
 
 const addAdmin = (request, response) => {
   pool.query(queries.CREATE_ADMIN,[admin_name, email, password], (error, results) => {
