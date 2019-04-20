@@ -11,6 +11,8 @@ const pool = new Pool({
 
 const addCoach = values => pool.query(queries.CREATE_COACH, values)
 
+// need to tweak the rest of the query functions below
+
 const addAdmin = (request, response) => {
   pool.query(queries.CREATE_ADMIN,[admin_name, email, password], (error, results) => {
     if (error) {
