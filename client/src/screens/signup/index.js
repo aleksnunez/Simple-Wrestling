@@ -25,7 +25,7 @@ const SignUp = () => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    request({endpoint: '/api/signup/post', body: JSON.stringify(state)})
+    request({endpoint: '/api/signup/addCoach', body: JSON.stringify(state)})
     .then(res => console.log(JSON.stringify(res)))
     .catch(err => new Error(err))
   }
