@@ -1,5 +1,8 @@
 const express = require('express');
 const router  = express.Router();
+const passport = require('passport');
+const bcrypt = require('bcrypt');
+const session = require('express-session');
 
 router.get('/get', function (req, res) {
   body ={
@@ -13,14 +16,13 @@ router.post('/post', function(req,res){
   const data = JSON.stringify(req.body);
   console.log(req.body.email);
   
-  res.json(req.body);
-  
-
-
   /*
   body.email
   body.password
    */
+
+  res.json(req.body);
+
 });
 
 module.exports = router;

@@ -4,13 +4,16 @@ const app = express();
 const port = process.env.PORT || 5000;
 const database = require('./db');
 const endpoints = require('./endpoints');
+const passport = require('passport');
 
-
-//database.database();
+database();
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/api',endpoints);
 
