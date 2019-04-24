@@ -12,8 +12,16 @@ database();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+app.use(passport.session({
+  store: new RedisStore({
+    url: config.redisStore.url
+  }),
+  secret: config.redisStore.secret,
+  resave: false,
+  saveUninitialized: false
+}));
 app.use(passport.initialize());
-app.use(passport.session());
+passport.use(passport.session())
 
 app.use('/api',endpoints);
 

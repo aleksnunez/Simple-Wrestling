@@ -19,6 +19,7 @@
   "homepage": "https://github.com/CSC-648-SFSU/csc648-sp19-team206#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "connect-redis": "^3.4.1",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "passport": "^0.4.0",
