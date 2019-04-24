@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(passport.initialize());
 passport.use(passport.session());
 
+app.use( cookieParse('secure cookeie'));
 app.use('/api',endpoints);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
