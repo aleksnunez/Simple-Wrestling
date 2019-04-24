@@ -4,6 +4,7 @@ import request from 'api'
 
 import SearchBar from 'components/searchBar'
 import Header from 'components/header'
+import TournamentCards from 'components/cards/tournaments'
 
 const Wrapper = styled.section`
   position: relative;
@@ -31,6 +32,7 @@ const Tournaments = props => {
     <Wrapper>
       <Header text='Tournaments' />
       <SearchBar submit={onSubmit} onchange={handleChange} />
+      <TournamentCards />
     </Wrapper>
   )
 }

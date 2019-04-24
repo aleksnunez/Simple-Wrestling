@@ -1,0 +1,18 @@
+{
+	"Tournaments": [{
+			"name": "San Francisco Classic",
+			"picture": "url",
+			"background": "background"
+		},
+		{
+			"name": "California State Something",
+			"picture": "url",
+			"background": "background"
+		},
+		{
+			"name": "Chad's House",
+			"picture": "url",
+			"background": "background"
+		}
+	]
+}
