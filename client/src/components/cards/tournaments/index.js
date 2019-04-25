@@ -1,13 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import request from 'api'
 
 import Tournament from './tournament'
 
-const Tournaments = (props) => {
+const Row = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+  margin: 2em 0;
+`
+
+const Tournaments = props => {
+  const cards = props.tournaments.map((tournament, i) => {
+    return (
+      <Tournament key={i} {...tournament}/>
+    )
+  })
+
   return (
-    <Tournament />
+    <Row>
+      {cards}
+    </Row>
   )
 }
+
+Tournaments.defaultProps = {
+  tournaments: [{}, {}, {}]
+}
+
 
 export default Tournaments

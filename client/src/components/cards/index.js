@@ -1,18 +1,28 @@
 
 import styled from 'styled-components'
 
+import Background from './background'
+import Picture from './picture'
 import Button from 'components/button'
 
-const CardWrapper = styled(Button)`
+const Wrapper = styled(Button)`
   position: relative;
 
   display: flex;
+
   flex-direction: column;
   align-items: center;
 
-  width: 12.5em;
+  border: none;
+
+  width: 15em;
   height: 15em;
-  padding: 1em 0;
+  padding: 0.5em;
+  margin: 2em;
+
+  &:hover, &:focus {
+    background: ${props => props.theme.background.active};
+  }
 `
 
-export { CardWrapper }
+export { Wrapper, Background, Picture }
