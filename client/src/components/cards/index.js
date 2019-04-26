@@ -7,22 +7,16 @@ import Button from 'components/button'
 
 const Wrapper = styled(Button)`
   position: relative;
-
   display: flex;
-
   flex-direction: column;
   align-items: center;
 
-  border: none;
+  color: ${props => props.theme.background.base};
 
   width: 15em;
-  height: 15em;
+  height: 17em;
   padding: 0.5em;
   margin: 2em;
-
-  &:hover, &:focus {
-    background: ${props => props.theme.background.active};
-  }
 `
 
 export { Wrapper, Background, Picture }

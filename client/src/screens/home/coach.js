@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import request from 'api'
 
 import Header from 'components/header'
-import Text from 'components/text'
+import Roster from 'components/spreadsheet/roster'
 
 const Wrapper = styled.section`
   position: relative;
@@ -12,7 +11,8 @@ const Wrapper = styled.section`
 const Home = props => {
   return (
     <Wrapper>
-      <Header text={'Home'} />
+      <Header text={'Coach Dashboard'} />
+      <Roster />
     </Wrapper>
   )
 }

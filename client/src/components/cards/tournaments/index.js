@@ -14,7 +14,7 @@ const Row = styled.div`
 const Tournaments = props => {
   const cards = props.tournaments.map((tournament, i) => {
     return (
-      <Tournament key={i} {...tournament}/>
+      <Tournament key={i} {...tournament} />
     )
   })
 
@@ -26,7 +26,7 @@ const Tournaments = props => {
 }
 
 Tournaments.defaultProps = {
-  tournaments: [{}, {}, {}]
+  tournaments: []
 }
 
 

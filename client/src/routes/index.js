@@ -15,6 +15,7 @@ const Routes = props => {
         <NavBar {...props} />
         <Switch>
           <Route exact path='/' component={screens.Home} />
+          <Route path='/coach' component={screens.HomeCoach} />
           <Route path='/login' component={screens.Login} />
           <Route path='/signup' component={screens.SignUp} />
           <Route path='/about' component={screens.About} />
