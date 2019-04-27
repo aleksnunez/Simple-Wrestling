@@ -16,11 +16,10 @@ const Wrapper = styled.div`
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
-
-  margin: 2em;
-
   left: 16em;
   top: 2em;
+  
+  margin: 2em;
 `
 
 const Description = (props) => {

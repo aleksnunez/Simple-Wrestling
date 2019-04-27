@@ -5,7 +5,6 @@ const InputWrapper = styled.div`
   width: 100%;
 `
 const Input = styled.input`
-  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: lighter;
   font-size: 1em;
 

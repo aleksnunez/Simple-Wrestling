@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledLink = styled(Link)`
-  font-family: 'IBM Plex Sans', sans-serif;
-
   color: ${props => props.theme.foreground.base};
   text-decoration-color: ${props => props.theme.foreground.base};
 

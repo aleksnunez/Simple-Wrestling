@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const Button = styled.button`
-  font-family: 'IBM Plex Sans', sans-serif;
   color: ${props => props.theme.background.base};
 
   background: ${props => props.theme.primary.base};
