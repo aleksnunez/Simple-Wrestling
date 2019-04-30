@@ -21,6 +21,7 @@ router.post('/postCoachHomePage', function (req,res){
     RecordLost: 10,
     TournamentsClose: ['SFSU Wrestling', 'College Tournaments']
   }
+  //get wrestler stats
   res.json(body);
 })
 
