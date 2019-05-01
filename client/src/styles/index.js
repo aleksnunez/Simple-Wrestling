@@ -1,17 +1,27 @@
 import React, { useState } from 'react'
-import Routes from 'routes'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 import { light, dark } from './theme'
+import Routes from 'routes'
 import GlobalStyle from './global'
 
 const Styles = () => {
   const [theme, setTheme] = useState(light)
 
+  const onChangeTheme = e => {
+    e.preventDefault()
+
+    if (theme === light) {
+      setTheme(dark)
+    } else if (theme === dark) {
+      setTheme(light)
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <Routes />
+        <Routes changeTheme={onChangeTheme} />
         <GlobalStyle />
       </div>
     </ThemeProvider>

@@ -6,7 +6,7 @@ import { ReactComponent as GitHub } from 'assets/github.svg'
 
 const StyledGitHub = styled(GitHub)`
   position: absolute;
-  left: 40em;
+  left: 100%;
 
   width: 2em;
   height: 2em;

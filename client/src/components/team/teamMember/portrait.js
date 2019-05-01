@@ -6,8 +6,9 @@ const Image = styled.div`
   position: absolute;
   z-index: 500;
 
-  width: 16em;
-  height: 16em;
+  width: 0;
+  height: 0;
+  padding: 20%;
 
   border-radius: 100%;
   background: ${props => props.theme.primary.base};
@@ -29,7 +30,7 @@ const Portrait = (props) => {
     type: 'round',
     color: '#C4C4C4',
     ready: path ? path.includes('./team/portraits/') : false,
-    style: {width: '16em', height: '16em'},
+    style: {width: '0', height: '0', padding: '20%'},
     showLoadingAnimation: true
   }
 
