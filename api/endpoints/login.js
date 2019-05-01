@@ -31,7 +31,10 @@ function validUser(user) {
 router.post("/post", function(req, res) {
   console.log(typeof req.body.email);
   if (validUser(req.body)) {
-    db.SEARCH_FOR_UNIQUE_COACH_EMAIL;
+    console.log();
+    db.SEARCH_FOR_UNIQUE_COACH_EMAIL(req.body.email).then(user => {
+      console.log("user", user);
+    });
     //query the the database to check to see if email has been taken
     //if not taken then hashpassword
     //insert user, pw into db

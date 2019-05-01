@@ -1,13 +1,21 @@
 const queries = require("./queries");
 
 const Pool = require("pg").Pool;
+// const pool = new Pool({
+//   user: "wrestlingUsername",
+//   host: "wrestlingidentifier.chgoxg8wubk2.us-west-2.rds.amazonaws.com",
+//   database: "WrestlingDatabaseName",
+//   password: "wrestle123",
+//   port: 5432
+// });
 const pool = new Pool({
-  user: "wrestlingUsername",
-  host: "wrestlingidentifier.chgoxg8wubk2.us-west-2.rds.amazonaws.com",
-  database: "WrestlingDatabaseName",
-  password: "wrestle123",
-  port: 5432
-});
+  user: 'me',
+  host: 'localhost',
+  database: 'api',
+  password: 'password',
+  port: 5432,
+})
+
 
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
 
@@ -70,6 +78,14 @@ const deleteWrestler = (request, response) => {
     }
     response.status(200).send(`User deleted with ID: ${id}`);
   });
+};
+
+const getOnebyEmai = item => {
+  const email = item.email;
+  console.log(email);
+  return DB("user")
+    .where("email", email)
+    .first();
 };
 
 module.exports = {
