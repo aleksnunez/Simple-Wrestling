@@ -1,55 +1,98 @@
-const Sequelize = require('sequelize');
-const awsKeys = require('../config/awsConfig')
+const queries = require("./queries");
+
+const Pool = require("pg").Pool;
+// const pool = new Pool({
+//   user: "wrestlingUsername",
+//   host: "wrestlingidentifier.chgoxg8wubk2.us-west-2.rds.amazonaws.com",
+//   database: "WrestlingDatabaseName",
+//   password: "wrestle123",
+//   port: 5432
+// });
+const pool = new Pool({
+  user: 'me',
+  host: 'localhost',
+  database: 'api',
+  password: 'password',
+  port: 5432,
+})
 
 
-/*const connection = require('./sequalize');
-const DBtest = require('./DBtest');
-const query = require('./query');
-const add = require('./addData');*/
+const addCoach = values => pool.query(queries.CREATE_COACH, values);
 
+// need to tweak the rest of the query functions below
 
-
-let database = (searchTerm) =>{
-  const sequelize = new Sequelize(awsKeys.databaseName, awsKeys.masterUserName, awsKeys.password, {
-    host: 'wrestlingtournments.chgoxg8wubk2.us-west-2.rds.amazonaws.com',
-    dialect: 'postgres',
-  });
-
-  sequelize
-  .authenticate()
-    .then(() => {
-      console.log('Connection has been established successfully.');
-    })
-    .catch(err => {
-      console.error('Unable to connect to the database:', err);
-    });
-
-  const model = Sequelize.Model
-
-  class Wrestler extends model {}
-  Wrestler.init({
-    // attributes
-    userName: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    school: {
-      type: Sequelize.STRING
-      // allowNull defaults to true
+const addAdmin = (request, response) => {
+  pool.query(
+    queries.CREATE_ADMIN,
+    [admin_name, email, password],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(201).send(`User added with ID: ${result.insertId}`);
     }
-  }, {
-    sequelize,
-    modelName: 'wrestler'
-    // options
-  });
+  );
+};
 
-  Wrestler.sync({ force: true }).then(() => {
-    // Now the `users` table in the database corresponds to the model definition
-    return Wrestler.create({
-      userName: 'Mike',
-      school: 'SFSU'
-    });
-  });
-}
+const addWrestler = (request, response) => {
+  pool.query(
+    queries.CREATE_WRESTLER,
+    [user_name, email, password],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(201).send(`User added with ID: ${result.insertId}`);
+    }
+  );
+};
 
-module.exports.database = database;
+const deleteCoach = (request, response) => {
+  const id = parseInt(request.params.id);
+
+  pool.query(REMOVE_COACH_BY_ID, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).send(`User deleted with ID: ${id}`);
+  });
+};
+
+const deleteAdmin = (request, response) => {
+  const id = parseInt(request.params.id);
+
+  pool.query(REMOVE_ADMIN_BY_ID, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).send(`User deleted with ID: ${id}`);
+  });
+};
+
+const deleteWrestler = (request, response) => {
+  const id = parseInt(request.params.id);
+
+  pool.query(REMOVE_WRESTLER_BY_ID, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).send(`User deleted with ID: ${id}`);
+  });
+};
+
+const getOnebyEmai = item => {
+  const email = item.email;
+  console.log(email);
+  return DB("user")
+    .where("email", email)
+    .first();
+};
+
+module.exports = {
+  addCoach,
+  addAdmin,
+  addWrestler,
+  deleteCoach,
+  deleteAdmin,
+  deleteWrestler
+};
