@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import Header from './header'
-import Sidebar from './sidebar'
+import SideBar from './sideBar'
+import SideButton from './sideButton'
 import Table from './table'
 import Cell from './cell'
 
@@ -13,4 +14,4 @@ const Wrapper = styled.form`
   align-items: center;
 `
 
-export { Wrapper, Header, Sidebar, Table, Cell }
+export { Wrapper, Header, SideBar, SideButton, Table, Cell }

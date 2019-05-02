@@ -34,8 +34,4 @@ const Player = props => {
   )
 }
 
-Player.defaultProps = {
-  stats: {name: "Chad", age: 18, weight: 140, class: 140}
-}
-
 export default Player

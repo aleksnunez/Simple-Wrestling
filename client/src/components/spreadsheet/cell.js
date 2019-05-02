@@ -12,8 +12,8 @@ const Cell = styled(Button)`
   color: ${props => props.theme.foreground.base};
 
   &:hover, &:focus {
-    background: ${props => props.theme.primary.base};
     color: ${props => props.theme.background.base};
+    background: ${props => props.theme.primary.base};
     cursor: pointer;
   }
 `

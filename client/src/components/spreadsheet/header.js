@@ -10,6 +10,7 @@ const Header = styled.div`
 
   height: 2em;
   width: 100%;
+  min-width: 10vw;
 `
 
 export default Header
