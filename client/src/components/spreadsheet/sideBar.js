@@ -7,10 +7,10 @@ const Sidebar = styled.div`
 
   background: ${props => props.theme.primary.base};
 
-  height: 14em;
+  height: auto;
   width: 10vw;
   min-width: 5em;
-  padding: 2em 0 0;
+  padding: 2em 0;
 `
 
 export default Sidebar

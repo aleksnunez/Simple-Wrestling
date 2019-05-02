@@ -11,7 +11,7 @@ const Wrapper = styled.section`
 
 const Home = props => {
   const [team, setTeam] = useState({})
-  const { roster, history } = team
+  const { name, roster, history } = team
 
   useEffect(() => {
     request({
@@ -28,7 +28,7 @@ const Home = props => {
   return (
     <Wrapper>
       <Header text={'Coach Dashboard'} />
-      <Roster roster={roster} />
+      <Roster {...{name, roster}} />
     </Wrapper>
   )
 }

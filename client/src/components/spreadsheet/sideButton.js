@@ -6,7 +6,7 @@ const SideButton = styled(Button)`
   height: 3em;
   width: calc(10vw - 1em);
   min-width: 5em;
-  margin: 0 0.5em;
+  margin: 1em 0.5em;
 
   border-radius: 0.5em;
 

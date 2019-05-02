@@ -2,8 +2,8 @@ import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import { Wrapper, Header, SideBar, SideButton, Table } from '../'
-import Title from 'components/header'
+import { Wrapper, Header, Table } from '../'
+import SideBar from './sideBar'
 import Player from './player'
 
 const Row = styled.div`
@@ -16,7 +16,7 @@ const Cells = styled.div`
 `
 
 const Roster = props => {
-  const { roster } = props
+  const { name, roster } = props
   const rows = players =>
     players.map((player, i) => <Player key={i} stats={player} />)
 
@@ -24,27 +24,16 @@ const Roster = props => {
     type: 'rect',
     color: '#C4C4C4',
     ready: props.roster ? true : false,
-    style: {width: '20vw', height: '3em', margin: '0'},
+    style: {width: '20vw', height: '2em', margin: '0.5em 1em'},
     showLoadingAnimation: true
   }
 
   return (
     <Wrapper>
-      <Title text='Roster' />
       <Row>
-        <SideBar>
-          <SideButton>
-            Some Function
-          </SideButton>
-          <SideButton>
-            Some Function
-          </SideButton>
-          <SideButton>
-            Some Function
-          </SideButton>
-        </SideBar>
+        <SideBar />
         <Table>
-          <Header />
+          <Header title={`${name ? name : 'Untitled'} Roster`}/>
           <Cells>
             <ReactPlaceholder {...SKELETON}>
               {roster ? rows(roster) : <div />}
