@@ -18,11 +18,23 @@
   },
   "homepage": "https://github.com/CSC-648-SFSU/csc648-sp19-team206#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "connect-redis": "^3.4.1",
+    "email-validator": "^2.0.4",
     "express": "^4.16.4",
-    "pg": "^7.9.0",
+    "express-session": "^1.16.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.10.0",
     "pg-hstore": "^2.3.2",
+<<<<<<< HEAD
     "pg-promise": "^8.6.4",
     "sequelize": "^5.8.1",
     "sequelize-cli": "^5.4.0"
+=======
+    "pg-promise": "^8.6.5",
+    "sequelize-cli": "^5.4.0",
+    "validator": "^10.11.0"
+>>>>>>> 824d095864829926e50d373cfef5cb09351a274f
   }
 }

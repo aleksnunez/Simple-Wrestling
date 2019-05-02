@@ -2,36 +2,24 @@ import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import { light, primary } from 'styles/themes'
 import Formatter from 'components/formatter'
 
 const Wrapper = styled.div`
   position: absolute;
-  left: 8em;
+  left: 40%;
   top: 2em;
 
-  width: 31.9em;
+  width: 60%;
   height: 14em;
 
-  background: ${light.base};
-  box-shadow: 0.1em -0.1em ${primary.base};
-`
-const Content = styled.div`
-  position: relative;
-
-  width: 23.9em;
-  height: 14em;
-  left: 8em;
-
-  padding: 0;
+  box-shadow: -0.1em 0 ${props => props.theme.primary.base} inset;
 `
 const StyledPlaceholder = styled(ReactPlaceholder)`
   position: absolute;
-
-  margin: 2em;
-
   left: 16em;
   top: 2em;
+  
+  margin: 2em;
 `
 
 const Description = (props) => {
@@ -52,16 +40,14 @@ const Description = (props) => {
     rows: 4,
     color: '#EEEEEE',
     ready: description ? true : false,
-    style: {width: '21.9em', height: '14em'},
+    style: {width: '50%', height: '14em'},
     showLoadingAnimation: true
   }
 
   return (
     <StyledPlaceholder {...SKELETON}>
       <Wrapper>
-        <Content>
-          <Formatter text={description} cutoff={8}/>
-        </Content>
+        <Formatter text={description} cutoff={8}/>
       </Wrapper>
     </StyledPlaceholder>
   )

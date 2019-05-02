@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Input } from 'components/forms'
 import Button from './button'
 
 const Col = styled.div`
@@ -9,31 +10,24 @@ const Col = styled.div`
   align-items: center;
 `
 const Form = styled.form`
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-evenly;
+
   margin: 0.5em;
+  width: 85vw;
+  max-width: 40em;
 `
-const Input = styled.input`
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: lighter;
-  font-size: 1em;
-
+const StyledInput = styled(Input)`
   height: 2.5em;
-  width: 20em;
-  padding-left: 0.5em;
-
-  box-sizing: border-box;
-  border: 1px solid #C4C4C4;
-
-  &:focus {
-    outline: none !important;
-    border: 1px solid #888888;
-  }
+  width: 75%;
 `
 
-const SearchBar = (props) => {
+const SearchBar = props => {
   return (
     <Col>
       <Form>
-        <Input name='search' onChange={props.onchange} />
+        <StyledInput name='search' onChange={props.onchange} />
         <Button onClick={props.submit}>Search</Button>
       </Form>
     </Col>

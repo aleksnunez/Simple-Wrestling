@@ -1,26 +1,15 @@
 import styled from 'styled-components'
 
-import { light, primary } from 'styles/themes'
+import Button from 'components/button'
 
-const Button = styled.button`
-  font-family: 'IBM Plex Sans', sans-serif;
+const StyledButton = styled(Button)`
   font-size: 1em;
-  color: ${light.base};
 
-  background: ${primary.base};
-  border: 0.05em solid ${primary.base};
   border-radius: 0 0.2em 0.2em 0;
 
-  width: 6em;
+  width: 25%;
+  min-width: 5em;
   height: 2.5em;
-
-  transition: background 0.25s, color 0.25s;
-
-  &:hover, &:focus {
-    background: ${light.base};
-    color: ${primary.base};
-    cursor: pointer;
-  }
 `
 
-export default Button
+export default StyledButton

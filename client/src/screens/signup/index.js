@@ -12,7 +12,7 @@ const Col = styled.section`
   margin-top: 2em;
 `
 
-const SignUp = () => {
+const SignUp = props => {
   const [state, setState] = useState({})
 
   const handleChange = (e) => {
@@ -25,8 +25,8 @@ const SignUp = () => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    request({endpoint: 'https://jsonplaceholder.typicode.com/posts', body: JSON.stringify(state)})
-    .then(res => alert(JSON.stringify(res)))
+    request({endpoint: '/api/signup/addCoach', body: JSON.stringify(state)})
+    .then(res => console.log(JSON.stringify(res)))
     .catch(err => new Error(err))
   }
 
