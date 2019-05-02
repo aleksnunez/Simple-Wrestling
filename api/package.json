@@ -27,14 +27,9 @@
     "passport-local": "^1.0.0",
     "pg": "^7.10.0",
     "pg-hstore": "^2.3.2",
-<<<<<<< HEAD
     "pg-promise": "^8.6.4",
     "sequelize": "^5.8.1",
-    "sequelize-cli": "^5.4.0"
-=======
-    "pg-promise": "^8.6.5",
     "sequelize-cli": "^5.4.0",
     "validator": "^10.11.0"
->>>>>>> 824d095864829926e50d373cfef5cb09351a274f
   }
 }
