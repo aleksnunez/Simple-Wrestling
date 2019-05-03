@@ -1,19 +1,18 @@
 import React from 'react'
 
-import { SideBar, SideButton } from '../'
+import { SideBar, Link } from '../'
 
 const RosterSideBar = props => {
+  const { teams } = props
+  const link = (name, i) => (
+      <Link key={i} to={`/coach/${i}`}>
+        {name}
+      </Link>
+    )
+
   return (
     <SideBar>
-      <SideButton>
-        The Testerinos
-      </SideButton>
-      <SideButton>
-        Team 2
-      </SideButton>
-      <SideButton>
-        Team 3
-      </SideButton>
+      {teams && teams.map(link)}
     </SideBar>
   )
 }

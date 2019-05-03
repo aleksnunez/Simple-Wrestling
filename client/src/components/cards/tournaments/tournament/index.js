@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
 import Button from 'components/button'
@@ -28,13 +29,23 @@ const Location = styled.p`
 
 const Tournament = props => {
   const { name, location, picture, background } = props
+  const SKELETON = {
+    type: 'rect',
+    color: '#C4C4C4',
+    ready: props.name ? true : false,
+    style: {margin: '2em', padding: '0.5em', width: '15em', height: '17em'},
+    showLoadingAnimation: true
+  }
+
   return (
-    <Wrapper>
-      <Background background={background} />
-      <Picture picture={picture} />
-      <Name>{name}</Name>
-      <Location>{location}</Location>
-    </Wrapper>
+    <ReactPlaceholder {...SKELETON}>
+      <Wrapper>
+        <Background background={background} />
+        <Picture picture={picture} />
+        <Name>{name}</Name>
+        <Location>{location}</Location>
+      </Wrapper>
+    </ReactPlaceholder>
   )
 }
 

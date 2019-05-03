@@ -12,14 +12,10 @@ const Row = styled.div`
 `
 
 const Tournaments = props => {
-  const cards = props.tournaments.map((tournament, i) => {
-    return <Tournament key={i} {...tournament} />
-  })
+  const { tournaments } = props
+  const card = (tournament, i) => <Tournament key={i} {...tournament} />
 
-  return <Row>{cards}</Row>
+  return <Row>{tournaments.map(card)}</Row>
 }
-
-Tournaments.defaultProps = { tournaments: [] }
-
 
 export default Tournaments
