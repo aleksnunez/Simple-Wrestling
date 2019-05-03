@@ -5,7 +5,7 @@ import Button from 'components/button'
 const Cell = styled(Button)`
   height: 3em;
   width: 10vw;
-  min-width: 6em;
+  min-width: 6rem;
   border-radius: 0;
 
   background: ${props => props.theme.background.base};

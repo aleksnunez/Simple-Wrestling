@@ -6,10 +6,11 @@ const Sidebar = styled.div`
   align-items: center;
 
   background: ${props => props.theme.primary.base};
+  box-shadow: -0.1em 0 ${props => props.theme.primary.base} inset;
 
   height: auto;
   width: 10vw;
-  min-width: 5em;
+  min-width: 6em;
   padding: 2em 0;
 `
 

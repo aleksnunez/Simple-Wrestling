@@ -12,28 +12,30 @@ const Row = styled.div`
   align-items: flex-start;
 `
 const Cells = styled.div`
+  position: relative;
   margin: 0 0 0 1vw;
 `
 
 const Roster = props => {
-  const { name, roster } = props
-  const rows = players =>
-    players.map((player, i) => <Player key={i} stats={player} />)
+  const { name, roster, teams } = props
+  const rows = players => players.map((player, i) => (
+    <Player key={i} stats={player} />
+  ))
 
   const SKELETON = {
     type: 'rect',
     color: '#C4C4C4',
     ready: props.roster ? true : false,
-    style: {width: '20vw', height: '2em', margin: '0.5em 1em'},
+    style: {width: '28em', height: '2em', margin: '0.5em 1em'},
     showLoadingAnimation: true
   }
 
   return (
     <Wrapper>
       <Row>
-        <SideBar />
+        <SideBar teams={teams} />
         <Table>
-          <Header title={`${name ? name : 'Untitled'} Roster`}/>
+          <Header title={name ? `${name} Roster` : '...'}/>
           <Cells>
             <ReactPlaceholder {...SKELETON}>
               {roster ? rows(roster) : <div />}
