@@ -28,7 +28,7 @@ const Home = props => {
 
   return (
     <Wrapper>
-      <Header text={'Coach Dashboard'} />
+      <Header text={'Admin Dashboard'} />
       <Row>
         <Tournaments {...{tournaments}} />
       </Row>

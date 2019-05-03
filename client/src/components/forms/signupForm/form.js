@@ -8,6 +8,33 @@ const Form = (props) => {
   return (
     <FormWrapper>
       <InputWrapper>
+        <Text margin='0 0 0.5em'>First Name</Text>
+        <Input
+          autoFocus
+          required
+          type='text'
+          name='first'
+          onChange={props.onchange}/>
+      </InputWrapper>
+      <InputWrapper>
+        <Text margin='0 0 0.5em'>Last Name</Text>
+        <Input
+          autoFocus
+          required
+          type='text'
+          name='last'
+          onChange={props.onchange}/>
+      </InputWrapper>
+      <InputWrapper>
+        <Text margin='0 0 0.5em'>Wrestling Team/ Club</Text>
+        <Input
+          required
+          type='text'
+          name='team'
+          autoComplete='off'
+          onChange={props.onchange}/>
+      </InputWrapper>
+      <InputWrapper>
         <Text margin='0 0 0.5em'>Email</Text>
         <Input
           autoFocus

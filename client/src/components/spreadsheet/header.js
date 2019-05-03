@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   background: ${props => props.theme.primary.base};
+  box-shadow: -1em 0 ${props => props.theme.primary.base};
 
   height: 2em;
   width: 100%;
