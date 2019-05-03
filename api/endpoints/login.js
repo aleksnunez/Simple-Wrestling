@@ -31,23 +31,24 @@ function validUser(user) {
 router.post("/post", function(req, res) {
   console.log(typeof req.body.email);
   if (validUser(req.body)) {
-    console.log();
+
+    // console.log();
     db.SEARCH_FOR_UNIQUE_COACH_EMAIL(req.body.email).then(user => {
       console.log("user", user);
     });
-    //query the the database to check to see if email has been taken
-    //if not taken then hashpassword
-    //insert user, pw into db
-    //redirect
-    bcrypt.hash(myPlaintextPassword, saltRounds).then(hash => {
-      const user = {
-        email: req.body.email,
-        password: hash
-      };
-      res.json({
-        success: "your user/password was successfully made"
-      });
-    });
+    // //query the the database to check to see if email has been taken
+    // //if not taken then hashpassword
+    // //insert user, pw into db
+    // //redirect
+    // bcrypt.hash(myPlaintextPassword, saltRounds).then(hash => {
+    //   const user = {
+    //     email: req.body.email,
+    //     password: hash
+    //   };
+    //   res.json({
+    //     success: "your user/password was successfully made"
+    //   });
+    // });
   } else {
     res.json({
       error: "please enter valid username and password"

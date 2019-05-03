@@ -80,13 +80,14 @@ const deleteWrestler = (request, response) => {
   });
 };
 
-const getOnebyEmai = item => {
-  const email = item.email;
-  console.log(email);
-  return DB("user")
-    .where("email", email)
-    .first();
-};
+const searchEmail = (request,response) =>{
+  const email = request.params.email;
+  pool.query(SEARCH_FOR_UNIQUE_COACH_EMAIL, [],(error, results)=>{
+    if(error){
+      throw error
+    }
+  })
+}
 
 module.exports = {
   addCoach,

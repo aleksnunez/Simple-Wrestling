@@ -11,6 +11,6 @@ router.use("/home", home);
 router.use("/coachTeamRegisteration", coachTeamRegisteration);
 router.use("/login", login);
 router.use("/signup", signup);
-router.use("tournaments", tournaments);
+router.use("/tournaments", tournaments);
 
 module.exports = router;
