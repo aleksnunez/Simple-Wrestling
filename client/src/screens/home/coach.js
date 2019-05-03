@@ -17,7 +17,7 @@ const Row = styled.div`
 const Home = props => {
   const [team, setTeam] = useState({})
   const [teams, setTeams] = useState([])
-  const { name, roster, history } = team
+  const { name, roster } = team
 
   useEffect(() => {
     request({
@@ -36,7 +36,6 @@ const Home = props => {
   }, [])
 
   // console.table(roster)
-  // console.table(history)
   // console.table(teams)
 
   return (
