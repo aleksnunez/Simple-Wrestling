@@ -14,6 +14,11 @@ npm install
 
 ###### open two terminal command lines, one inside `/` and one inside `/client`
 
+## IMPORTANT
+This project uses absolute paths, append this line to your `.env` file,
+```
+NODE_PATH=src/
+```
 
 ## Run Instructions
 #### _(step 1)_ start express backend
