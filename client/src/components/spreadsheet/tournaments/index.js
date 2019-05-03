@@ -11,25 +11,27 @@ const Cells = styled.div`
 `
 
 const Roster = props => {
-  const { name, roster, teams } = props
-  const row = (item, i) => <CellRow key={i} data={item} />
+  const { tournaments } = props
+  const row = (item, i) =><CellRow key={i} data={item} />
 
   const SKELETON = {
     type: 'rect',
     color: '#C4C4C4',
-    ready: props.roster ? true : false,
+    ready: props.tournaments ? true : false,
     style: {width: '28em', height: '2em', margin: '0.5em 1em'},
     showLoadingAnimation: true
   }
 
   return (
     <Wrapper>
-      <SideBar links={teams} location={'coach'} />
+      <SideBar
+        links={["Northern California", "Southern California"]}
+        location={'admin'} />
       <Table>
-        <Header title={name ? `${name} Roster` : '...'}/>
+        <Header title={'Tournaments'}/>
         <Cells>
           <ReactPlaceholder {...SKELETON}>
-            {safeMap(roster, row)}
+            {safeMap(tournaments, row)}
           </ReactPlaceholder>
         </Cells>
       </Table>

@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
-import safeMap from 'util/safeMap'
-import Tournament from './tournament'
+import Header from 'components/header'
+import Tournaments from 'components/spreadsheet/tournaments'
 
+const Wrapper = styled.section`
+  position: relative;
+`
 const Row = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
-
-  margin: 2em 0;
+  justify-content: center;
 `
 
-const Tournaments = props => {
+const Home = props => {
   const [tournaments, setTournaments] = useState([])
-  const card = (tournament, i) => <Tournament key={i} {...tournament} />
 
   useEffect(() => {
     request({
@@ -26,7 +26,14 @@ const Tournaments = props => {
     .catch(err => new Error(err))
   }, [])
 
-  return <Row>{safeMap(tournaments, card)}</Row>
+  return (
+    <Wrapper>
+      <Header text={'Coach Dashboard'} />
+      <Row>
+        <Tournaments {...{tournaments}} />
+      </Row>
+    </Wrapper>
+  )
 }
 
-export default Tournaments
+export default Home

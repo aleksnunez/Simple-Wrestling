@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
@@ -11,12 +11,11 @@ const Wrapper = styled.section`
 `
 
 const Tournaments = props => {
-  const [state, setState] = useState({})
-  const [data, setData] = useState([{}, {}, {}])
+  const [searchBar, setSearchBar] = useState({})
 
   const handleChange = (e) => {
-    setState({
-      ...state,
+    setSearchBar({
+      ...searchBar,
       [e.target.name]: e.target.value
     })
   }
@@ -26,26 +25,17 @@ const Tournaments = props => {
 
     request({
       endpoint: 'https://jsonplaceholder.typicode.com/posts',
-      body: JSON.stringify(state)
+      body: JSON.stringify(searchBar)
     })
     .then(res => alert(JSON.stringify(res)))
     .catch(err => new Error(err))
   }
 
-  useEffect(() => {
-    request({
-      endpoint: 'https://my-json-server.typicode.com/swabisan/demo/Tournaments',
-      method: 'GET'
-    })
-    .then(res => setData([...res]))
-    .catch(err => new Error(err))
-  }, [])
-
   return (
     <Wrapper>
       <Header text='Tournaments' />
       <SearchBar submit={onSubmit} onchange={handleChange} />
-      <TournamentCards tournaments={data}/>
+      <TournamentCards />
     </Wrapper>
   )
 }
