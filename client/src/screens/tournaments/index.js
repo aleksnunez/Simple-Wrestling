@@ -12,7 +12,7 @@ const Wrapper = styled.section`
 
 const Tournaments = props => {
   const [state, setState] = useState({})
-  const [data, setData] = useState()
+  const [data, setData] = useState([{}, {}, {}])
 
   const handleChange = (e) => {
     setState({
@@ -37,9 +37,11 @@ const Tournaments = props => {
       endpoint: 'https://my-json-server.typicode.com/swabisan/demo/Tournaments',
       method: 'GET'
     })
-    .then(res => setData(res))
+    .then(res => setData([...res]))
     .catch(err => new Error(err))
   }, [])
+
+  console.log(data)
 
   return (
     <Wrapper>
