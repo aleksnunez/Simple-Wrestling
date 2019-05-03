@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 
   height: 2em;
   width: 100%;
-  min-width: 6em;
+  min-width: 18em;
 `
 const Title = styled(Text)`
   color: ${props => props.theme.background.base};

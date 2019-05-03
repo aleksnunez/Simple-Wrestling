@@ -1,6 +1,10 @@
+import React from 'react'
 import styled from 'styled-components'
 
-const Sidebar = styled.div`
+import safeMap from 'util/safeMap'
+import Link from './link'
+
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,4 +18,15 @@ const Sidebar = styled.div`
   padding: 2em 0;
 `
 
-export default Sidebar
+const SideBar = props => {
+  const { links, location } = props
+  const link = (name, i) => (
+      <Link key={i} to={`/${location}/${i}`}>
+        {name}
+      </Link>
+    )
+
+  return <Wrapper>{safeMap(links, link)}</Wrapper>
+}
+
+export default SideBar
