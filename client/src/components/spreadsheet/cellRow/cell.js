@@ -4,7 +4,7 @@ import Button from 'components/button'
 
 const Cell = styled(Button)`
   height: 3em;
-  width: 10vw;
+  width: 15vw;
   min-width: 6rem;
   border-radius: 0;
 
