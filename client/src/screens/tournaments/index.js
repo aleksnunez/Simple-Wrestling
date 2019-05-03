@@ -41,8 +41,6 @@ const Tournaments = props => {
     .catch(err => new Error(err))
   }, [])
 
-  console.log(data)
-
   return (
     <Wrapper>
       <Header text='Tournaments' />
