@@ -36,8 +36,6 @@ export default class NavBar extends Component {
         <Row>
           <Link to='/tournaments'>Tournaments</Link>
           <Link to='/about'>About</Link>
-        </Row>
-        <Row>
           <Link to='/login'>Login</Link>
           <Link to='/signup'>Sign up</Link>
         </Row>

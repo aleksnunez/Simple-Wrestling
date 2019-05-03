@@ -28,9 +28,7 @@ const Form = (props) => {
       <Button onClick={props.submit}>
         Sign Up
       </Button>
-      <Link to='/forgot'>
-        Forgot Password
-      </Link>
+    
     </FormWrapper>
   )
 }
