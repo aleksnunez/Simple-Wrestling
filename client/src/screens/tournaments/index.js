@@ -34,7 +34,9 @@ const Tournaments = props => {
   return (
     <Wrapper>
       <Header text='Tournaments' />
-      <SearchBar submit={onSubmit} onchange={handleChange} />
+      <SearchBar submit={onSubmit} onchange={handleChange}>
+        search for a tournament...
+      </SearchBar>
       <TournamentCards />
     </Wrapper>
   )

@@ -27,7 +27,10 @@ const SearchBar = props => {
   return (
     <Col>
       <Form>
-        <StyledInput name='search' onChange={props.onchange} />
+        <StyledInput
+          name='search'
+          onChange={props.onchange}
+          placeholder={props.children} />
         <Button onClick={props.submit}>Search</Button>
       </Form>
     </Col>
