@@ -1,14 +1,8 @@
 import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
-import styled from 'styled-components'
 
 import safeMap from 'util/safeMap'
 import { Wrapper, Header, SideBar, Table, CellRow } from '../'
-
-const Cells = styled.div`
-  position: relative;
-  margin: 0 0 0 1vw;
-`
 
 const Roster = props => {
   const { name, roster, teams } = props
@@ -27,11 +21,9 @@ const Roster = props => {
       <SideBar links={teams} location={'coach'} />
       <Table>
         <Header title={name ? `${name} Roster` : '...'}/>
-        <Cells>
-          <ReactPlaceholder {...SKELETON}>
-            {safeMap(roster, row)}
-          </ReactPlaceholder>
-        </Cells>
+        <ReactPlaceholder {...SKELETON}>
+          {safeMap(roster, row)}
+        </ReactPlaceholder>
       </Table>
     </Wrapper>
   )

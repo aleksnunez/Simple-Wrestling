@@ -1,16 +1,10 @@
 import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
-import styled from 'styled-components'
 
 import safeMap from 'util/safeMap'
 import { Wrapper, Header, SideBar, Table, CellRow } from '../'
 
-const Cells = styled.div`
-  position: relative;
-  margin: 0 0 0 1vw;
-`
-
-const Roster = props => {
+const Tournaments = props => {
   const { tournaments } = props
   const row = (item, i) =><CellRow key={i} data={item} />
 
@@ -29,14 +23,12 @@ const Roster = props => {
         location={'admin'} />
       <Table>
         <Header title={'Tournaments'}/>
-        <Cells>
-          <ReactPlaceholder {...SKELETON}>
-            {safeMap(tournaments, row)}
-          </ReactPlaceholder>
-        </Cells>
+        <ReactPlaceholder {...SKELETON}>
+          {safeMap(tournaments, row)}
+        </ReactPlaceholder>
       </Table>
     </Wrapper>
   )
 }
 
-export default Roster
+export default Tournaments
