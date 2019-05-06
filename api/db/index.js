@@ -9,16 +9,16 @@ const Pool = require("pg").Pool;
 //   port: 5432
 // });
 const pool = new Pool({
-  user: 'me',
-  host: 'localhost',
-  database: 'api',
-  password: 'password',
-  port: 5432,
-})
-
+  user: "me",
+  host: "localhost",
+  database: "api",
+  password: "password",
+  port: 5432
+});
 
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
-
+const searchCoach = values =>
+  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, values);
 // need to tweak the rest of the query functions below
 
 const addAdmin = (request, response) => {
@@ -80,14 +80,14 @@ const deleteWrestler = (request, response) => {
   });
 };
 
-const searchEmail = (request,response) =>{
+const searchEmail = (request, response) => {
   const email = request.params.email;
-  pool.query(SEARCH_FOR_UNIQUE_COACH_EMAIL, [],(error, results)=>{
-    if(error){
-      throw error
+  pool.query(SEARCH_FOR_UNIQUE_COACH_EMAIL, [], (error, results) => {
+    if (error) {
+      throw error;
     }
-  })
-}
+  });
+};
 
 module.exports = {
   addCoach,
@@ -95,5 +95,6 @@ module.exports = {
   addWrestler,
   deleteCoach,
   deleteAdmin,
-  deleteWrestler
+  deleteWrestler,
+  searchCoach
 };

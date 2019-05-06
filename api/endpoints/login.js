@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const db = require("../db/queries");
+const db = require("../db");
 
 const validator = "validator/";
 const EmailValidator = "email-validator";
@@ -29,11 +29,10 @@ function validUser(user) {
   return validEmail && validPassword;
 }
 router.post("/post", function(req, res) {
-  console.log(typeof req.body.email);
+  console.log(req.body.email);
   if (validUser(req.body)) {
-
     // console.log();
-    db.SEARCH_FOR_UNIQUE_COACH_EMAIL(req.body.email).then(user => {
+    db.searchCoach(req.body.email).then(user => {
       console.log("user", user);
     });
     // //query the the database to check to see if email has been taken
