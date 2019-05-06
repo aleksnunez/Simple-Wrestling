@@ -26,7 +26,7 @@ const SignUp = props => {
     e.preventDefault()
 
     request({endpoint: '/api/signup/addCoach', body: JSON.stringify(state)})
-    .then(res => console.log(JSON.stringify(res)))
+    .then(res => console.log(res))
     .catch(err => new Error(err))
   }
 

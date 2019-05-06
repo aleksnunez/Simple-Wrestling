@@ -7,7 +7,7 @@ router.post('/addCoach', (req, res) => {
   const values = [email, email, password]
 
   console.log('\n', `received POST: ${JSON.stringify(req.body)}`)
-  console.log(`querying database with values: ${JSON.stringify(values)}`)
+  console.log(`querying database with values: ${JSON.stringify(values)}`, '\n')
 
   db.addCoach(values)
     .then(query => {
@@ -15,7 +15,7 @@ router.post('/addCoach', (req, res) => {
       res.json(query)
     })
     .catch(err => {
-      console.error(err.stack, '\n')
+      console.log(err.stack, '\n')
       res.json(err)
     })
 })
