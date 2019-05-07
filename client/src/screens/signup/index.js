@@ -15,14 +15,24 @@ const Col = styled.section`
 const SignUp = props => {
   const [state, setState] = useState({})
 
-  const handleChange = (e) => {
+  const change = (e) => {
     setState({
       ...state,
       [e.target.name]: e.target.value
     })
   }
 
-  const onSubmit = (e) => {
+  const isFilled = state.first && state.last && state.email && state.password
+
+  const isValid = () => {
+    if (!isFilled) {
+      return false
+    }
+    // ... more checks
+    return true
+  }
+
+  const submit = (e) => {
     e.preventDefault()
 
     request({endpoint: '/api/signup/addCoach', body: JSON.stringify(state)})
@@ -32,7 +42,7 @@ const SignUp = props => {
 
   return (
     <Col>
-      <SignupForm submit={onSubmit} onchange={handleChange} />
+      <SignupForm {...{change, isValid, submit}} />
     </Col>
   )
 }

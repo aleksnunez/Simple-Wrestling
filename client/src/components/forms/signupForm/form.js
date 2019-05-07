@@ -5,54 +5,40 @@ import Link from 'components/link'
 import { FormWrapper, InputWrapper, Input, Button } from '../'
 
 const Form = (props) => {
+  const {change, isValid, submit} = props
   return (
     <FormWrapper>
       <InputWrapper>
         <Text margin='0 0 0.5em'>First Name</Text>
-        <Input
-          autoFocus
-          required
-          type='text'
-          name='first'
-          onChange={props.onchange}/>
+        <Input autoFocus required
+          type='text' name='first'
+          onChange={change} />
       </InputWrapper>
       <InputWrapper>
         <Text margin='0 0 0.5em'>Last Name</Text>
-        <Input
-          autoFocus
-          required
-          type='text'
-          name='last'
-          onChange={props.onchange}/>
+        <Input autoFocus required
+          type='text' name='last'
+          onChange={change} />
       </InputWrapper>
       <InputWrapper>
         <Text margin='0 0 0.5em'>Wrestling Team/ Club</Text>
-        <Input
-          required
-          type='text'
-          name='team'
-          autoComplete='off'
-          onChange={props.onchange}/>
+        <Input required autoComplete='off'
+          type='text' name='team'
+          onChange={change} />
       </InputWrapper>
       <InputWrapper>
         <Text margin='0 0 0.5em'>Email</Text>
-        <Input
-          autoFocus
-          required
-          type='email'
-          name='email'
-          onChange={props.onchange}/>
+        <Input autoFocus required
+          type='email' name='email'
+          onChange={change} />
       </InputWrapper>
       <InputWrapper>
         <Text margin='0 0 0.5em'>Password</Text>
-        <Input
-          required
-          type='password'
-          name='password'
-          autoComplete='off'
-          onChange={props.onchange}/>
+        <Input required autoComplete='off'
+          type='password' name='password'
+          onChange={change} />
       </InputWrapper>
-      <Button onClick={props.submit}>
+      <Button disabled={!isValid()} onClick={submit}>
         Sign Up
       </Button>
       <Link to='/forgot'>
