@@ -3,8 +3,8 @@ const router  = express.Router()
 const db = require('../db')
 
 router.post('/addCoach', (req, res) => {
-  const { email, password } = req.body
-  const values = [email, email, password]
+  const { name, email, password } = req.body
+  const values = [name, email, password]
 
   console.log('\n', `received POST: ${JSON.stringify(req.body)}`)
   console.log(`querying database with values: ${JSON.stringify(values)}`, '\n')

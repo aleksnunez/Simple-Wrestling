@@ -5,7 +5,7 @@ import Link from 'components/link'
 import { FormWrapper, InputWrapper, Input, Button } from '../'
 
 const Form = (props) => {
-  const {change, isValid, submit} = props
+  const { change, isValid, submit } = props
   return (
     <FormWrapper>
       <InputWrapper>

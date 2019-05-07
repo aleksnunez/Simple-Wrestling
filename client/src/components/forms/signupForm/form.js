@@ -5,36 +5,24 @@ import Link from 'components/link'
 import { FormWrapper, InputWrapper, Input, Button } from '../'
 
 const Form = (props) => {
-  const {change, isValid, submit} = props
+  const { change, isValid, submit } = props
   return (
     <FormWrapper>
       <InputWrapper>
-        <Text margin='0 0 0.5em'>First Name</Text>
+        <Text margin='0 0 0.5em'>Name*</Text>
         <Input autoFocus required
-          type='text' name='first'
+          type='text' name='name'
           onChange={change} />
       </InputWrapper>
       <InputWrapper>
-        <Text margin='0 0 0.5em'>Last Name</Text>
-        <Input autoFocus required
-          type='text' name='last'
-          onChange={change} />
-      </InputWrapper>
-      <InputWrapper>
-        <Text margin='0 0 0.5em'>Wrestling Team/ Club</Text>
-        <Input required autoComplete='off'
-          type='text' name='team'
-          onChange={change} />
-      </InputWrapper>
-      <InputWrapper>
-        <Text margin='0 0 0.5em'>Email</Text>
-        <Input autoFocus required
+        <Text margin='0 0 0.5em'>Email*</Text>
+        <Input required
           type='email' name='email'
           onChange={change} />
       </InputWrapper>
       <InputWrapper>
-        <Text margin='0 0 0.5em'>Password</Text>
-        <Input required autoComplete='off'
+        <Text margin='0 0 0.5em'>Password*</Text>
+        <Input required
           type='password' name='password'
           onChange={change} />
       </InputWrapper>
