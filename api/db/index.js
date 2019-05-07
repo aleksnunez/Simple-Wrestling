@@ -1,5 +1,5 @@
 const queries = require("./queries");
-
+const pgp = require("pg-promise")();
 const Pool = require("pg").Pool;
 // const pool = new Pool({
 //   user: "wrestlingUsername",
@@ -9,18 +9,18 @@ const Pool = require("pg").Pool;
 //   port: 5432
 // });
 const pool = new Pool({
-  user: "me",
   host: "localhost",
-  database: "api",
-  password: "password",
-  port: 5432
+  user: "user",
+  database: "postgres",
+  password: "huy"
 });
-
+// const pool = pgp(pg);
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
-const searchCoach = values =>
-  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, values);
-// need to tweak the rest of the query functions below
 
+// need to tweak the rest of the query functions below
+const searchCoach = values => {
+  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, [values[0]]);
+};
 const addAdmin = (request, response) => {
   pool.query(
     queries.CREATE_ADMIN,

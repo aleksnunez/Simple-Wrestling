@@ -3,7 +3,6 @@ const router = express.Router();
 
 const db = require("../db");
 
-const validator = "validator/";
 const EmailValidator = "email-validator";
 const passport = require("passport");
 const bcrypt = require("bcrypt");
