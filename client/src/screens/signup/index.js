@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
-import { required, isEmail } from 'util/validators'
-import { updateForm, isValid } from 'util/validate'
+import { required, isEmail } from 'util/formControl/validators'
+import { updateForm, isValid } from 'util/formControl'
 import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
@@ -16,9 +16,9 @@ const Col = styled.section`
 
 const SignUp = props => {
   const [formControl, setFormControl] = useState({
-    name: {validators: [required]},
-    email: {validators: [required, isEmail]},
-    password: {validators: [required]}
+    name: {validators: [required], errors: []},
+    email: {validators: [required, isEmail], errors: []},
+    password: {validators: [required], errors: []}
   })
 
   const onChange = (e) => {
@@ -40,9 +40,16 @@ const SignUp = props => {
       .catch(err => new Error(err))
   }
 
+  // looking for a way to generate programmatically
+  const errors = {
+    name: formControl.name.errors,
+    email: formControl.email.errors,
+    password: formControl.password.errors
+  }
+
   return (
     <Col>
-      <SignupForm {...{onChange, isDisabled, onSubmit}} />
+      <SignupForm {...{onChange, isDisabled, onSubmit, errors}} />
     </Col>
   )
 }

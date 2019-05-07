@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
-import { required, isEmail } from 'util/validators'
-import { updateForm, isValid } from 'util/validate'
+import { required, isEmail } from 'util/formControl/validators'
+import { updateForm, isValid } from 'util/formControl'
 import LoginForm from 'components/forms/loginForm'
 
 const Col = styled.section`
@@ -39,9 +39,15 @@ const Login = props => {
       .catch(err => new Error(err))
   }
 
+  // looking for a way to generate programmatically
+  const errors = {
+    email: formControl.email.errors,
+    password: formControl.password.errors
+  }
+
   return (
     <Col>
-      <LoginForm {...{onChange, isDisabled, onSubmit}} />
+      <LoginForm {...{onChange, isDisabled, onSubmit, errors}} />
     </Col>
   )
 }
