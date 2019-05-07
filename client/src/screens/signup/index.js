@@ -15,18 +15,17 @@ const Col = styled.section`
 
 const SignUp = props => {
   const [state, setState] = useState({
-    name: {name: "name", validators: [required]},
-    email: {name: "email", validators: [required, isEmail]},
-    password: {name: "password", validators: [required]}
+    name: {id: "name", validators: [required]},
+    email: {id: "email", validators: [required, isEmail]},
+    password: {id: "password", validators: [required]}
   })
 
   const change = (e) => {
     setState({
       ...state,
       [e.target.name]: {
-        name: state[e.target.name].name,
+        ...state[e.target.name],
         value: e.target.value,
-        validators: state[e.target.name].validators
       }
     })
   }
@@ -36,7 +35,6 @@ const SignUp = props => {
       field.validators.reduce((acc, validator) =>
         !validator(field.value), false)
       )
-    console.log(errors)
     return errors.length === 0
   }
 
