@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import request from 'api'
 
 import { required, isEmail } from 'util/validators'
+import { validateInput} from 'util/validate'
 import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
@@ -15,27 +16,33 @@ const Col = styled.section`
 
 const SignUp = props => {
   const [state, setState] = useState({
-    name: {id: "name", validators: [required]},
-    email: {id: "email", validators: [required, isEmail]},
-    password: {id: "password", validators: [required]}
+    name: {id: "name", validators: [required], ready: false},
+    email: {id: "email", validators: [required, isEmail], ready: false},
+    password: {id: "password", validators: [required], ready: false}
   })
 
   const change = (e) => {
+    const { name, value} = e.target
+    const input = {
+      ...state[name],
+      ...{value}
+    }
     setState({
       ...state,
-      [e.target.name]: {
-        ...state[e.target.name],
-        value: e.target.value,
+      [name]: {
+        ...input,
+        ready: validateInput(input).errors.length === 0
       }
     })
+
   }
 
+  // make better
   const isValid = () => {
-    const errors = Object.values(state).filter(field =>
-      field.validators.reduce((acc, validator) =>
-        !validator(field.value), false)
-      )
-    return errors.length === 0
+    const name = state.name.ready
+    const email = state.email.ready
+    const password = state.password.ready
+    return name && email && password
   }
 
   const submit = (e) => {
