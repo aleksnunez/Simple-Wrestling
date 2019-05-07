@@ -1,8 +1,5 @@
 const required = input => {
-  if (input) {
-    return true
-  }
-  return false
+  return input ? true : false
 }
 
 const isEmail = input => {

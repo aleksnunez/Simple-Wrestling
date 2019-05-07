@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
+import { required, isEmail } from 'util/validators'
+import { updateForm, isValid } from 'util/validate'
 import LoginForm from 'components/forms/loginForm'
 
 const Col = styled.section`
@@ -13,36 +15,33 @@ const Col = styled.section`
 `
 
 const Login = props => {
-  const [state, setState] = useState({})
+  const [formControl, setFormControl] = useState({
+    email: {validators: [required, isEmail]},
+    password: {validators: [required]}
+  })
 
-  const change = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
-    })
+  const onChange = (e) => {
+    updateForm(e, formControl, setFormControl)
   }
 
-  const isFilled = state.email && state.password
-
-  const isValid = () => {
-    if (!isFilled) {
-      return false
-    }
-    // ... more checks
-    return true
+  const isDisabled = () => {
+    return !isValid(formControl)
   }
 
-  const submit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault()
 
-    request({endpoint: '/api/login/post', body: JSON.stringify(state)})
-    .then(res => alert(JSON.stringify(res)))
-    .catch(err => new Error(err))
+    request({
+      endpoint: '/api/login/post',
+      body: JSON.stringify(formControl)
+    })
+      .then(res => alert(JSON.stringify(res)))
+      .catch(err => new Error(err))
   }
 
   return (
     <Col>
-      <LoginForm {...{change, isValid, submit}} />
+      <LoginForm {...{onChange, isDisabled, onSubmit}} />
     </Col>
   )
 }
