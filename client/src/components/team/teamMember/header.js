@@ -13,9 +13,6 @@ const Wrapper = styled.div`
 
   background: ${props => props.theme.primary.base};
 `
-const StyledPlaceholder = styled(ReactPlaceholder)`
-  position: absolute;
-`
 
 const Header = (props) => {
   const { name } = props
@@ -25,16 +22,19 @@ const Header = (props) => {
     rows: 1,
     color: '#C4C4C4',
     ready: name ? true : false,
-    style: {left: '40%', width: '60%', height: '2em'},
+    style: {
+      position: 'absolute', left: '40%', 
+      width: '60%', height: '2em'
+    },
     showLoadingAnimation: true
   }
 
   return (
-    <StyledPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...SKELETON}>
       <Wrapper>
         <Name>{name}</Name>
       </Wrapper>
-    </StyledPlaceholder>
+    </ReactPlaceholder>
   )
 }
 

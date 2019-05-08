@@ -11,7 +11,7 @@ const Row = styled.div`
   justify-content: space-evenly;
 `
 
-const Team = (props) => {
+const Team = props => {
   const [team, setTeam] = useState([{}])
 
   useEffect(() => {

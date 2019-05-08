@@ -14,13 +14,6 @@ const Wrapper = styled.div`
 
   box-shadow: -0.1em 0 ${props => props.theme.primary.base} inset;
 `
-const StyledPlaceholder = styled(ReactPlaceholder)`
-  position: absolute;
-  left: 16em;
-  top: 2em;
-  
-  margin: 2em;
-`
 
 const Description = (props) => {
   const { path } = props
@@ -40,16 +33,19 @@ const Description = (props) => {
     rows: 4,
     color: '#EEEEEE',
     ready: description ? true : false,
-    style: {width: '50%', height: '14em'},
+    style: {
+      position: 'absolute', left: '40%', top: '2em',
+      width: '60%', height: '14em', margin: '1em 0.5em'
+    },
     showLoadingAnimation: true
   }
 
   return (
-    <StyledPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...SKELETON}>
       <Wrapper>
         <Formatter text={description} cutoff={8}/>
       </Wrapper>
-    </StyledPlaceholder>
+    </ReactPlaceholder>
   )
 }
 
