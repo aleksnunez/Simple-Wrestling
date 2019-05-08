@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Button from './button'
-import { InputWrapper, FormInput, Input } from './input'
+import { InputWrapper, ValidatedInput, Input } from './input'
 
 const FormWrapper = styled.form`
   position: relative;
@@ -15,4 +15,4 @@ const FormWrapper = styled.form`
   padding: 1em 0;
 `
 
-export { FormWrapper, InputWrapper, FormInput, Input, Button }
+export { FormWrapper, InputWrapper, ValidatedInput, Input, Button }

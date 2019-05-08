@@ -37,7 +37,7 @@ const ErrorMessage = styled(Text)`
   font-size: 0.75em;
 `
 
-const FormInput = props => {
+const ValidatedInput = props => {
   const { name, required, errors } = props
   const error = (detail, i) =>
     <ErrorMessage key={i}>{detail}</ErrorMessage>
@@ -52,4 +52,4 @@ const FormInput = props => {
   )
 }
 
-export { InputWrapper, FormInput, Input }
+export { InputWrapper, ValidatedInput, Input }

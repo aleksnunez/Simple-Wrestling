@@ -1,16 +1,16 @@
 import React from 'react'
 
 import Link from 'components/link'
-import { FormWrapper, FormInput, Button } from '../'
+import { FormWrapper, ValidatedInput, Button } from '../'
 
 const Form = (props) => {
   const { onChange, isDisabled, onSubmit, errors } = props
   return (
     <FormWrapper>
-      <FormInput autoFocus required
+      <ValidatedInput autoFocus required
         type='email' name='email'
         onChange={onChange} errors={errors.email} />
-      <FormInput required autoComplete='off'
+      <ValidatedInput required autoComplete='off'
         type='password' name='password'
         onChange={onChange} errors={errors.password} />
       <Button disabled={isDisabled()} onClick={onSubmit}>
