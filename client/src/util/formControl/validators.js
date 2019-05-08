@@ -3,6 +3,7 @@ const required = {
   details: '* field is required'
 }
 
+// replace check with a real validation function
 const isEmail = {
   check: input => input && input.includes('@'),
   details: 'not an email address'
