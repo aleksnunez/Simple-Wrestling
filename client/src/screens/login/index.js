@@ -24,10 +24,6 @@ const Login = props => {
     updateForm(e, formControl, setFormControl)
   }
 
-  const isDisabled = () => {
-    return !isValid(formControl)
-  }
-
   const onSubmit = (e) => {
     e.preventDefault()
 
@@ -39,11 +35,12 @@ const Login = props => {
       .catch(err => new Error(err))
   }
 
+  const disabled = !isValid(formControl)
   const errors = getErrors(formControl)
 
   return (
     <Col>
-      <LoginForm {...{onChange, isDisabled, onSubmit, errors}} />
+      <LoginForm {...{onChange, disabled, onSubmit, errors}} />
     </Col>
   )
 }
