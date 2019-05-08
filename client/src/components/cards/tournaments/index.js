@@ -14,7 +14,7 @@ const Row = styled.div`
 `
 
 const Tournaments = props => {
-  const [tournaments, setTournaments] = useState([])
+  const [tournaments, setTournaments] = useState([{}, {}, {}])
   const card = (tournament, i) => <Tournament key={i} {...tournament} />
 
   useEffect(() => {

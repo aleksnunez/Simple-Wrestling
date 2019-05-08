@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
+import { required, isEmail } from 'util/formControl/validators'
+import { updateForm, isValid } from 'util/formControl'
 import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
@@ -13,26 +15,41 @@ const Col = styled.section`
 `
 
 const SignUp = props => {
-  const [state, setState] = useState({})
+  const [formControl, setFormControl] = useState({
+    name: {validators: [required], errors: []},
+    email: {validators: [required, isEmail], errors: []},
+    password: {validators: [required], errors: []}
+  })
 
-  const handleChange = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
-    })
+  const onChange = (e) => {
+    updateForm(e, formControl, setFormControl)
+  }
+
+  const isDisabled = () => {
+    return !isValid(formControl)
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    request({endpoint: '/api/signup/addCoach', body: JSON.stringify(state)})
-    .then(res => console.log(JSON.stringify(res)))
-    .catch(err => new Error(err))
+    request({
+      endpoint: '/api/signup/addCoach',
+      body: JSON.stringify(formControl)
+    })
+      .then(res => console.log(res))
+      .catch(err => new Error(err))
+  }
+
+  // looking for a way to generate programmatically
+  const errors = {
+    name: formControl.name.errors,
+    email: formControl.email.errors,
+    password: formControl.password.errors
   }
 
   return (
     <Col>
-      <SignupForm submit={onSubmit} onchange={handleChange} />
+      <SignupForm {...{onChange, isDisabled, onSubmit, errors}} />
     </Col>
   )
 }

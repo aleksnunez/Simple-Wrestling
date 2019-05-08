@@ -9,10 +9,10 @@ const Pool = require("pg").Pool;
 //   port: 5432
 // });
 const pool = new Pool({
-  user: 'me',
+  user: 'swabisan',
   host: 'localhost',
-  database: 'api',
-  password: 'password',
+  database: 'wrestlingapp',
+  password: 'swabisan',
   port: 5432,
 })
 

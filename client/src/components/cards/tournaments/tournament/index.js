@@ -33,7 +33,7 @@ const Tournament = props => {
     type: 'rect',
     color: '#C4C4C4',
     ready: props.name ? true : false,
-    style: {margin: '2.5em', width: '13em', height: '15em'},
+    style: {margin: '1em', width: '13em', height: '15em'},
     showLoadingAnimation: true
   }
 
