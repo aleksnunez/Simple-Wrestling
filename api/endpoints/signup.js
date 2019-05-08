@@ -21,26 +21,30 @@ router.post("/addCoach", (req, res) => {
 
   console.log("\n", `received POST: ${JSON.stringify(req.body)}`);
   console.log(`querying database with values: ${JSON.stringify(values)}`);
-  db.searchCoach(values)
-    .then(query => {
-      console.log(`this is the result of the query ${query}`);
-      if (query != email) {
-        //not in db
-      }
-    })
-    .catch(err => {
-      console.error(err.stack, "\n");
-      res.json(err);
-    });
-  // db.addCoach(values)
+  console.log("values", values[0]);
+  // db.searchCoach(values[0])
   //   .then(query => {
-  //     console.log(`sending response: ${JSON.stringify(query)}`, "\n");
-  //     res.json(query);
+  //     console.log("query data");
+  //     console.log(`${query}`);
+  //     if (!query) {
+  //       console.log(`this is the result of the query ${query}`);
+  //     }
   //   })
   //   .catch(err => {
   //     console.error(err.stack, "\n");
   //     res.json(err);
   //   });
+  db.addCoach(values)
+    .then(query => {
+      // console.log(`sending response: ${JSON.stringify(query)}`, "\n");
+      console.log(query, "success");
+      res.json(query);
+    })
+    .catch(err => {
+      // console.error(err.stack, "\n");
+      console.log("key already exist ");
+      res.json(err);
+    });
 });
 
 router.post("/", function(req, res) {

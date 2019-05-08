@@ -1,8 +1,6 @@
 const CREATE_COACH = `INSERT INTO coaches (coach_name, email, password) VALUES ($1, $2, $3) RETURNING coach_name`;
 
-const SEARCH_FOR_UNIQUE_COACH_EMAIL = `SELECT   email FROM coaches WHERE email= $1`;
-
-// const SEARCH_FOR_UNIQUE_COACH_EMAIL = `SELECT DISTINCT email FROM C`;
+const SEARCH_FOR_UNIQUE_COACH_EMAIL = `SELECT email FROM coaches WHERE email LIKE $1`;
 
 const CREATE_ADMIN = `INSERT INTO admin (admin_name, email, password) VALUES ($1, $2, $3) RETURNING coach_name`;
 
