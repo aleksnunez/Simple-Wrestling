@@ -7,4 +7,13 @@ import HomeAdmin from './home/admin'
 import Tournaments from './tournaments'
 import NotFound from './notFound'
 
-export default { About, Login, SignUp, Home, HomeCoach, HomeAdmin, Tournaments, NotFound }
+export default {
+  About,
+  Login,
+  SignUp,
+  Home,
+  HomeCoach,
+  HomeAdmin,
+  Tournaments,
+  NotFound
+}

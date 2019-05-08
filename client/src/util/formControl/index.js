@@ -1,11 +1,11 @@
-const validateForm = formControl => {
+export const validateForm = formControl => {
   const formErrors = Object.values(formControl)
     .map(validateInput)
     .filter(inputError => inputError.length > 0)
   return formErrors
 }
 
-const validateInput = input => {
+export const validateInput = input => {
   const invalid = validator => !validator.check(input.value)
   const inputErrors = input.validators
     .filter(invalid)
@@ -13,7 +13,7 @@ const validateInput = input => {
   return inputErrors
 }
 
-const updateForm = (e, formControl, setFormControl) => {
+export const updateForm = (e, formControl, setFormControl) => {
   const { name, value } = e.target
   const input = {...formControl[name], ...{value}}
   const errors = validateInput(input)
@@ -28,14 +28,12 @@ const updateForm = (e, formControl, setFormControl) => {
   })
 }
 
-const isValid = formControl => {
+export const isValid = formControl => {
   const isReady = input => input.ready
   return Object.values(formControl).every(isReady)
 }
 
-const getErrors = formControl => {
+export const getErrors = formControl => {
   const reducer = (acc, input) => ({...acc, [input[0]]: input[1].errors})
   return Object.entries(formControl).reduce(reducer, {})
 }
-
-export { validateForm, validateInput, updateForm, isValid, getErrors }
