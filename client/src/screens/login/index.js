@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import request from 'api'
 
 import { required, isEmail } from 'util/formControl/validators'
-import { updateForm, isValid } from 'util/formControl'
+import { updateForm, isValid, getErrors } from 'util/formControl'
 import LoginForm from 'components/forms/loginForm'
 
 const Col = styled.section`
@@ -39,11 +39,7 @@ const Login = props => {
       .catch(err => new Error(err))
   }
 
-  // looking for a way to generate programmatically
-  const errors = {
-    email: formControl.email.errors,
-    password: formControl.password.errors
-  }
+  const errors = getErrors(formControl)
 
   return (
     <Col>

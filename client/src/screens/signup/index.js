@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import request from 'api'
 
 import { required, isEmail } from 'util/formControl/validators'
-import { updateForm, isValid } from 'util/formControl'
+import { updateForm, isValid, getErrors } from 'util/formControl'
 import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
@@ -16,9 +16,9 @@ const Col = styled.section`
 
 const SignUp = props => {
   const [formControl, setFormControl] = useState({
-    name: {validators: [required], errors: []},
-    email: {validators: [required, isEmail], errors: []},
-    password: {validators: [required], errors: []}
+    name: {validators: [required]},
+    email: {validators: [required, isEmail]},
+    password: {validators: [required]}
   })
 
   const onChange = (e) => {
@@ -40,12 +40,7 @@ const SignUp = props => {
       .catch(err => new Error(err))
   }
 
-  // looking for a way to generate programmatically
-  const errors = {
-    name: formControl.name.errors,
-    email: formControl.email.errors,
-    password: formControl.password.errors
-  }
+  const errors = getErrors(formControl)
 
   return (
     <Col>

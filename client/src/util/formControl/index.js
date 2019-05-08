@@ -33,4 +33,9 @@ const isValid = formControl => {
   return Object.values(formControl).every(isReady)
 }
 
-export { validateForm, validateInput, updateForm, isValid }
+const getErrors = formControl => {
+  const reducer = (acc, input) => ({...acc, [input[0]]: input[1].errors})
+  return Object.entries(formControl).reduce(reducer, {})
+}
+
+export { validateForm, validateInput, updateForm, isValid, getErrors }
