@@ -9,7 +9,7 @@ const InputWrapper = styled.div`
   padding: 1em 0;
   width: 100%;
 `
-const StyledInput = styled.input`
+const Input = styled.input`
   font-weight: lighter;
   font-size: 1em;
 
@@ -37,7 +37,7 @@ const ErrorMessage = styled(Text)`
   font-size: 0.75em;
 `
 
-const Input = props => {
+const FormInput = props => {
   const { name, required, errors } = props
   const error = (detail, i) =>
     <ErrorMessage key={i}>{detail}</ErrorMessage>
@@ -46,10 +46,10 @@ const Input = props => {
       <Text margin='0 0 0.5em'>
         {`${uppercaseFirst(name)}${required ? '*' : ''}`}
       </Text>
-      <StyledInput {...props} />
+      <Input {...props} />
       {safeMap(errors, error)}
     </InputWrapper>
   )
 }
 
-export { InputWrapper, Input }
+export { InputWrapper, FormInput, Input }
