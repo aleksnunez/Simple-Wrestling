@@ -25,10 +25,21 @@ router.post("/", function(req, res) {
       .then(query => {
         bcrypt.compare(password, query.rows[0].password, function(err, res) {
           console.log(res);
+          if (res) {
+            res.cookie("user_id", query.rows[0].id, {
+              httpOnly: true,
+              signed: true,
+              secure: false
+            });
+            res.json({
+              message: "logged in "
+            });
+          } else {
+            res.json({
+              message: "invalid login"
+            });
+          }
 
-          res.json({
-            message: "logged in "
-          });
           // res == true
         });
         // bcrypt.compare(req.body.password,query.rows[0].password).then(result => {

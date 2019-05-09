@@ -9,10 +9,10 @@ const Pool = require("pg").Pool;
 //   port: 5432
 // });
 const pool = new Pool({
-  host: "localhost",
-  user: "user",
-  database: "postgres",
-  password: "huy"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD
 });
 // const pool = pgp(pg);
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
