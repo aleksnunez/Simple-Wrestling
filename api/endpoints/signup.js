@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 const emailValidator = "email-validator";
-const bcrypt = "bcrypt";
+const bcrypt = require("bcrypt");
 
 function validUser(user) {
   const validEmail = true; //emailValidator.validate(user.email)
@@ -23,19 +23,19 @@ router.post("/addCoach", (req, res) => {
   console.log("\n", `received POST: ${JSON.stringify(req.body)}`);
   console.log(`querying database with values: ${JSON.stringify(values)}`);
 
-  db.addCoach(values)
-    .then(query => {
-      console.log(query);
-      bcrypt.hash(password, 10, function(err, hash) {
-        // Store hash in your password DB.
-        console.log(hash);
+  bcrypt.hash(password, 10, function(err, hash) {
+    // Store hash in your password DB.
+    values[2] = hash;
+    console.log(values);
+    db.addCoach(values)
+      .then(query => {
         res.json(query);
+      })
+      .catch(err => {
+        console.error(err.stack, "\n");
+        res.json(err);
       });
-    })
-    .catch(err => {
-      console.error(err.stack, "\n");
-      res.json(err);
-    });
+  });
 });
 
 module.exports = router;
