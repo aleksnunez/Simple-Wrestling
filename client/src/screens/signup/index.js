@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import request from 'api'
 
 import { required, isEmail } from 'util/formControl/validators'
-import { updateForm, isValid, getErrors } from 'util/formControl'
+import { updateForm, isValid, getValues, getErrors } from 'util/formControl'
 import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
@@ -20,6 +20,9 @@ const SignUp = props => {
     email: {validators: [required, isEmail]},
     password: {validators: [required]}
   })
+  const formData = getValues(formControl)
+  const disabled = !isValid(formControl)
+  const errors = getErrors(formControl)
 
   const onChange = (e) => {
     updateForm(e, formControl, setFormControl)
@@ -30,14 +33,11 @@ const SignUp = props => {
 
     request({
       endpoint: '/api/signup/addCoach',
-      body: JSON.stringify(formControl)
+      body: JSON.stringify(formData)
     })
       .then(res => console.log(res))
       .catch(err => new Error(err))
   }
-
-  const disabled = !isValid(formControl)
-  const errors = getErrors(formControl)
 
   return (
     <Col>
