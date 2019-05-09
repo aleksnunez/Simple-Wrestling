@@ -36,8 +36,8 @@ export const isValid = formControl => {
 const errors = (acc, input) => ({...acc, [input[0]]: input[1].errors})
 const values = (acc, input) => ({...acc, [input[0]]: input[1].value})
 
-export const getErrors = (formControl) =>
+export const formErrors = (formControl) =>
   Object.entries(formControl).reduce(errors, {})
 
-export const getValues = (formControl) =>
+export const formValues = (formControl) =>
   Object.entries(formControl).reduce(values, {})
