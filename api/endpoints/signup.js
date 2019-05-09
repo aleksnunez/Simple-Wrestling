@@ -20,22 +20,29 @@ router.post("/addCoach", (req, res) => {
   const { email, password } = req.body;
   const values = [email, email, password];
 
-  console.log("\n", `received POST: ${JSON.stringify(req.body)}`);
-  console.log(`querying database with values: ${JSON.stringify(values)}`);
-
-  bcrypt.hash(password, 10, function(err, hash) {
-    // Store hash in your password DB.
-    values[2] = hash;
-    console.log(values);
-    db.addCoach(values)
-      .then(query => {
-        res.json(query);
-      })
-      .catch(err => {
-        console.error(err.stack, "\n");
-        res.json(err);
-      });
-  });
+  // console.log("\n", `received POST: ${JSON.stringify(req.body)}`);
+  // console.log(`querying database with values: ${JSON.stringify(values)}`);
+  db.searchCoach(email)
+    .then(query => {
+      if (query.rows.length === 0) {
+        bcrypt.hash(password, 10, function(err, hash) {
+          console.log(hash);
+          values[2] = hash;
+          db.addCoach(values)
+            .then(query => {
+              res.json(query);
+            })
+            .catch(err => {
+              console.error(err.stack, "\n error in insert");
+              res.json(err);
+            });
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err.stack, "\n error in hash");
+      res.json(err);
+    });
 });
 
 module.exports = router;

@@ -19,9 +19,8 @@ const addCoach = values => pool.query(queries.CREATE_COACH, values);
 
 // need to tweak the rest of the query functions below
 
-const searchCoach = values => {
-  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, [values[0]]);
-};
+const searchCoach = values =>
+  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, [values]);
 
 const addAdmin = (request, response) => {
   pool.query(
