@@ -24,9 +24,7 @@ const SignUp = props => {
   const disabled = !isValid(formControl)
   const errors = formErrors(formControl)
 
-  const onChange = (e) => {
-    updateForm(e, formControl, setFormControl)
-  }
+  const onChange = (e) => updateForm(e, formControl, setFormControl)
 
   const onSubmit = (e) => {
     e.preventDefault()
