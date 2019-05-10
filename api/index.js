@@ -2,11 +2,11 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
+const cookieParser = require("cookie-parser");
+
 const port = process.env.PORT || 5000;
-const database = require("./db/");
 const endpoints = require("./endpoints");
 const passport = require("passport");
-const cookieParser = require("cookie-parser");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +33,6 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  // res.render("error");
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

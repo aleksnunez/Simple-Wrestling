@@ -19,18 +19,20 @@ function validUser(user) {
 
 router.post("/", function(req, res) {
   const { email, password } = req.body;
-  const values = [email, email, password];
+  console.log(req.body);
   if (validUser(req.body)) {
     db.searchCoach(email)
       .then(query => {
-        bcrypt.compare(password, query.rows[0].password, function(err, res) {
-          console.log(res);
-          if (res) {
+        bcrypt.compare(password, query.rows[0].password, function(err, result) {
+          console.log(result, "successful login");
+          if (result) {
+            console.log("successful hello ");
             res.cookie("user_id", query.rows[0].id, {
               httpOnly: true,
               signed: true,
               secure: false
             });
+
             res.json({
               message: "logged in "
             });
