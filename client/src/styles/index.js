@@ -5,7 +5,7 @@ import { light, dark } from './theme'
 import Routes from 'routes'
 import GlobalStyle from './global'
 
-const Styles = () => {
+const Styles = props => {
   const [theme, setTheme] = useState(light)
 
   const onChangeTheme = e => {

@@ -18,7 +18,7 @@ const Home = props => {
     .catch(err => new Error(err))
   }, [])
 
-  console.table(data)
+  // console.table(data)
 
   return (
     <Wrapper>

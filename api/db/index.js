@@ -15,6 +15,7 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD
 });
 // const pool = pgp(pg);
+
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
 
 // need to tweak the rest of the query functions below
