@@ -1,19 +1,25 @@
-import React from 'react'
-import ReactPlaceholder from 'react-placeholder'
+import React, { useState, useEffect } from 'react'
 
-import safeMap from 'util/safeMap'
-import { Wrapper, Header, SideBar, Table, CellRow } from '../'
+import { Wrapper, SideBar, Table } from '../'
 
 const Tournaments = props => {
-  const { tournaments } = props
-  const row = (item, i) =><CellRow key={i} data={item} />
+  const { name, tournaments } = props
 
-  const SKELETON = {
-    type: 'rect',
-    color: '#C4C4C4',
-    ready: props.tournaments ? true : false,
-    style: {width: '28em', height: '2em', margin: '0.5em 1em'},
-    showLoadingAnimation: true
+  const [form, setForm] = useState({})
+  useEffect(() => {
+    setForm({...form, ...tournaments})
+  }, [tournaments])
+
+  const onChange = (e) => {
+    const { name, stat } = JSON.parse(e.target.name)
+    const { value } = e.target
+    setForm({
+      ...form,
+      [name]: {
+        ...form[name],
+        [stat.toLowerCase()]: value
+      }
+    })
   }
 
   return (
@@ -21,12 +27,8 @@ const Tournaments = props => {
       <SideBar
         links={["Northern California", "Southern California"]}
         location={'admin'} />
-      <Table>
-        <Header title={'Tournaments'}/>
-        <ReactPlaceholder {...SKELETON}>
-          {safeMap(tournaments, row)}
-        </ReactPlaceholder>
-      </Table>
+      <Table title={name ? `${name}` : '...'}
+        data={form} {...{onChange}} />
     </Wrapper>
   )
 }

@@ -10,19 +10,13 @@ const Row = styled.div`
   align-items: center;
   width: 100%;
 `
-const Key = styled.div`
-`
-const Value = styled.div`
-`
 
 const CellRow = props => {
-  const { data } = props
+  const { name, data, onChange } = props
 
   const cells = Object.entries(data).map((tuple, i) => (
-      <Cell key={i}>
-        <Key>{uppercaseFirst(tuple[0])}</Key>
-        <Value>{tuple[1]}</Value>
-      </Cell>
+      <Cell key={i} {...{name, onChange}}
+        stat={uppercaseFirst(tuple[0])} value={tuple[1]} />
   ))
 
   return (
