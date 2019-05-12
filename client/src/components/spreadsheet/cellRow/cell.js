@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import uppercaseFirst from 'util/uppercaseFirst'
 import Button from 'components/button'
 
 const Wrapper = styled.div`
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
 
   color: ${props => props.theme.foreground.base};
 `
-const Stat = styled.div`
+const Key = styled.div`
 `
 const Value = styled.div`
 `
@@ -47,7 +48,7 @@ const Close = styled(Button)`
 `
 
 const Cell = props => {
-  const { name, onChange, stat, value } = props
+  const { onChange, row, col, value } = props
   const [state, setState] = useState(false)
 
   const open = (e) => {
@@ -65,7 +66,7 @@ const Cell = props => {
       return (
         <Wrapper>
           <Input autoFocus
-            type='text' name={JSON.stringify({name: name, stat: stat})}
+            type='text' name={JSON.stringify({row: row, col: col})}
             value={value} onChange={onChange} />
           <Close onClick={close}>X</Close>
         </Wrapper>
@@ -73,7 +74,7 @@ const Cell = props => {
     }
     return (
       <Wrapper onClick={open}>
-        <Stat>{stat}</Stat>
+        <Key>{uppercaseFirst(col)}</Key>
         <Value>{value}</Value>
       </Wrapper>
     )

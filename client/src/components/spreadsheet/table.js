@@ -18,7 +18,7 @@ const Table = props => {
 
   const row = (tuple, i) =>
     <CellRow key={i}
-      name={tuple[0]} data={tuple[1]}
+      row={tuple[0]} data={tuple[1]}
       onChange={onChange} />
 
   const SKELETON = {
