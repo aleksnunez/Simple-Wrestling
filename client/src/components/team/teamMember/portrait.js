@@ -18,10 +18,6 @@ const Image = styled.div`
   background-size: cover;
   background-position: center;
 `
-const StyledPlaceholder = styled(ReactPlaceholder)`
-  position: absolute;
-  z-index: 500;
-`
 
 const Portrait = (props) => {
   const { path } = props
@@ -30,14 +26,17 @@ const Portrait = (props) => {
     type: 'round',
     color: '#C4C4C4',
     ready: path ? path.includes('./team/portraits/') : false,
-    style: {width: '0', height: '0', padding: '20%'},
+    style: {
+      position: 'absolute', zIndex: 500,
+      width: '0', height: '0', padding: '20%'
+    },
     showLoadingAnimation: true
   }
 
   return (
-    <StyledPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...SKELETON}>
       <Image path={path} />
-    </StyledPlaceholder>
+    </ReactPlaceholder>
   )
 }
 

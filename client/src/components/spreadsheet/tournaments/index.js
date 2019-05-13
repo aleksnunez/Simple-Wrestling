@@ -1,25 +1,25 @@
-import React from 'react'
-import ReactPlaceholder from 'react-placeholder'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
 
-import safeMap from 'util/safeMap'
-import { Wrapper, Header, SideBar, Table, CellRow } from '../'
+import { Wrapper, SideBar, Table } from '../'
 
-const Cells = styled.div`
-  position: relative;
-  margin: 0 0 0 1vw;
-`
+const Tournaments = props => {
+  const { name, tournaments } = props
 
-const Roster = props => {
-  const { tournaments } = props
-  const row = (item, i) =><CellRow key={i} data={item} />
+  const [form, setForm] = useState({})
+  useEffect(() => {
+    setForm({...form, ...tournaments})
+  }, [tournaments])
 
-  const SKELETON = {
-    type: 'rect',
-    color: '#C4C4C4',
-    ready: props.tournaments ? true : false,
-    style: {width: '28em', height: '2em', margin: '0.5em 1em'},
-    showLoadingAnimation: true
+  const onChange = (e) => {
+    const { row, col } = JSON.parse(e.target.name)
+    const { value } = e.target
+    setForm({
+      ...form,
+      [row]: {
+        ...form[row],
+        [col.toLowerCase()]: value
+      }
+    })
   }
 
   return (
@@ -27,16 +27,10 @@ const Roster = props => {
       <SideBar
         links={["Northern California", "Southern California"]}
         location={'admin'} />
-      <Table>
-        <Header title={'Tournaments'}/>
-        <Cells>
-          <ReactPlaceholder {...SKELETON}>
-            {safeMap(tournaments, row)}
-          </ReactPlaceholder>
-        </Cells>
-      </Table>
+      <Table title={name ? `${name}` : '...'}
+        data={form} {...{onChange}} />
     </Wrapper>
   )
 }
 
-export default Roster
+export default Tournaments

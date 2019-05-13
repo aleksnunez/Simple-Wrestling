@@ -1,38 +1,39 @@
-import React from 'react'
-import ReactPlaceholder from 'react-placeholder'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
 
-import safeMap from 'util/safeMap'
-import { Wrapper, Header, SideBar, Table, CellRow } from '../'
-
-const Cells = styled.div`
-  position: relative;
-  margin: 0 0 0 1vw;
-`
+import Button from 'components/button'
+import { Wrapper, SideBar, Table } from '../'
 
 const Roster = props => {
   const { name, roster, teams } = props
-  const row = (item, i) => <CellRow key={i} data={item} />
 
-  const SKELETON = {
-    type: 'rect',
-    color: '#C4C4C4',
-    ready: props.roster ? true : false,
-    style: {width: '28em', height: '2em', margin: '0.5em 1em'},
-    showLoadingAnimation: true
+  const [form, setForm] = useState({})
+  useEffect(() => {
+    setForm({...form, ...roster})
+  }, [roster])
+
+  const onChange = (e) => {
+    const { row, col } = JSON.parse(e.target.name)
+    const { value } = e.target
+    setForm({
+      ...form,
+      [row]: {
+        ...form[row],
+        [col.toLowerCase()]: value
+      }
+    })
+  }
+
+  const displayForm = (e) => {
+    e.preventDefault()
+    console.log(form)
   }
 
   return (
     <Wrapper>
       <SideBar links={teams} location={'coach'} />
-      <Table>
-        <Header title={name ? `${name} Roster` : '...'}/>
-        <Cells>
-          <ReactPlaceholder {...SKELETON}>
-            {safeMap(roster, row)}
-          </ReactPlaceholder>
-        </Cells>
-      </Table>
+      <Table title={name ? `${name} Roster` : '...'}
+        data={form} {...{onChange}} />
+      <Button onClick={displayForm}>Save Roster</Button>
     </Wrapper>
   )
 }

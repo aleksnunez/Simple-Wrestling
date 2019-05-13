@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
+import { required, isEmail } from 'util/formControl/validators'
+import { updateForm, isValid, formValues, formErrors } from 'util/formControl'
 import LoginForm from 'components/forms/loginForm'
 
 const Col = styled.section`
@@ -13,26 +15,30 @@ const Col = styled.section`
 `
 
 const Login = props => {
-  const [state, setState] = useState({})
+  const [formControl, setFormControl] = useState({
+    email: {validators: [required, isEmail]},
+    password: {validators: [required]}
+  })
+  const formData = formValues(formControl)
+  const disabled = !isValid(formControl)
+  const errors = formErrors(formControl)
 
-  const handleChange = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
-    })
-  }
+  const onChange = (e) => updateForm(e, formControl, setFormControl)
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    request({endpoint: '/api/login/post', body: JSON.stringify(state)})
-    .then(res => alert(JSON.stringify(res)))
-    .catch(err => new Error(err))
+    request({
+      endpoint: '/api/login',
+      body: JSON.stringify(formData)
+    })
+      .then(res => alert(JSON.stringify(res)))
+      .catch(err => new Error(err))
   }
 
   return (
     <Col>
-      <LoginForm submit={onSubmit} onchange={handleChange} />
+      <LoginForm {...{onChange, disabled, onSubmit, errors}} />
     </Col>
   )
 }
