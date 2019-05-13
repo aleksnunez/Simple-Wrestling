@@ -16,7 +16,7 @@ const Search = props => {
   const handleChange = (e) => {
     setSearchBar({
       ...searchBar,
-      [e.target.name]: e.target.value
+      search: e.target.value
     })
   }
 
@@ -24,8 +24,8 @@ const Search = props => {
     e.preventDefault()
 
     request({
-      endpoint: 'https://jsonplaceholder.typicode.com/posts',
-      body: JSON.stringify(searchBar)
+      endpoint: `api/tournaments/${searchBar.search}`,
+      method: 'GET'
     })
     .then(res => alert(JSON.stringify(res)))
     .catch(err => new Error(err))
