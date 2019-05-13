@@ -1,5 +1,7 @@
 const CREATE_COACH = `INSERT INTO coaches (coach_name, email, password) VALUES ($1, $2, $3) RETURNING coach_name`;
 
+const SEARCH_FOR_UNIQUE_COACH_EMAIL = `SELECT * FROM coaches WHERE email = $1`;
+
 const CREATE_ADMIN = `INSERT INTO admin (admin_name, email, password) VALUES ($1, $2, $3) RETURNING coach_name`;
 
 const CREATE_WRESTLER = `INSERT INTO wrestler(user_name, dob, weight) VALUES ($1, $2, $3) RETURNING user_name`;

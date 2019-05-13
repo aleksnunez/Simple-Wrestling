@@ -1,5 +1,5 @@
 const queries = require("./queries");
-
+const pgp = require("pg-promise")();
 const Pool = require("pg").Pool;
 // const pool = new Pool({
 //   user: "wrestlingUsername",
@@ -9,17 +9,19 @@ const Pool = require("pg").Pool;
 //   port: 5432
 // });
 const pool = new Pool({
-  user: "me",
-  host: "localhost",
-  database: "api",
-  password: "password",
-  port: 5432
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD
 });
+// const pool = pgp(pg);
 
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
-const searchCoach = values =>
-  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, values);
+
 // need to tweak the rest of the query functions below
+
+const searchCoach = values =>
+  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, [values]);
 
 const addAdmin = (request, response) => {
   pool.query(
@@ -81,9 +83,8 @@ const deleteWrestler = (request, response) => {
 };
 
 const searchEmail = (request, response) => {
-  console.log("this is the email of the request" + request.params.email);
   const email = request.params.email;
-  pool.query(SEARCH_FOR_UNIQUE_COACH_EMAIL, [email], (error, results) => {
+  pool.query(SEARCH_FOR_UNIQUE_COACH_EMAIL, [], (error, results) => {
     if (error) {
       throw error;
     }
@@ -97,6 +98,5 @@ module.exports = {
   deleteCoach,
   deleteAdmin,
   deleteWrestler,
-  searchEmail,
   searchCoach
 };
