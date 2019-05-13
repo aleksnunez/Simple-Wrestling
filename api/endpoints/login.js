@@ -3,64 +3,14 @@ const router = express.Router();
 
 const db = require("../db");
 
-<<<<<<< HEAD
 const validator = "email-validator";
-=======
 const EmailValidator = "email-validator";
->>>>>>> 2967a354e7097b905a0ede66a6d9e79e5f7632f5
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 
 const session = require("express-session");
 const LocalStrategy = require("passport-local").Strategy;
 
-<<<<<<< HEAD
-router.get("/get", function(req, res) {
-  body = {
-    email: "email",
-    password: "password"
-  };
-  res.json(body);
-});
-
-function validUser(user) {
-  const validEmail = typeof user.email == "string" && user.email.trim() != "";
-  const validPassword =
-    typeof user.password == "string" &&
-    user.password.trim() != "" &&
-    user.password.trim() >= 6;
-
-  return true;
-}
-router.post("/post", function(req, res) {
-  if (validUser(req.body.email)) {
-    console.log("hello world");
-    db.searchCoach(req.body.email).then(user => {
-      console.log("user", user);
-    });
-    //query the the database to check to see if email has been taken
-    //if not taken then hashpassword
-    //insert user, pw into db
-    //redirect
-    // bcrypt.hash(myPlaintextPassword, saltRounds).then(hash => {
-    //   const user = {
-    //     email: req.body.email,
-    //     password: hash
-    //   };
-    //   res.json({
-    //     success: "your user/password was successfully made"
-    //   });
-    // });
-  } else {
-    res.json({
-      error: "please enter valid username and password"
-    });
-  }
-  /*
-  body.email
-  body.password
-   */
-=======
 function validUser(user) {
   const validEmail = typeof user.email == "string" && user.email.trim() != "";
   const validPassword =
@@ -83,8 +33,6 @@ router.post("/", function(req, res) {
               signed: true,
               secure: false
             });
->>>>>>> 2967a354e7097b905a0ede66a6d9e79e5f7632f5
-
             res.json({
               message: "logged in "
             });
