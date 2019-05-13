@@ -3,6 +3,7 @@ const router = express.Router();
 
 const db = require("../db");
 
+const validator = "email-validator";
 const EmailValidator = "email-validator";
 const passport = require("passport");
 const bcrypt = require("bcrypt");
@@ -32,7 +33,6 @@ router.post("/", function(req, res) {
               signed: true,
               secure: false
             });
-
             res.json({
               message: "logged in "
             });
