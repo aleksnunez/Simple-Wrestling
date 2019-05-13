@@ -13,10 +13,10 @@ const pool = new Pool({
 const addCoach = values => pool.query(queries.CREATE_COACH, values);
 
 const searchCoach = values =>
-  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, [values]);
+  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, values);
 
 const searchTournament = values =>
-  pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, [values]);
+  pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, values);
 
 const addAdmin = (request, response) => {
   pool.query(
@@ -93,5 +93,6 @@ module.exports = {
   deleteCoach,
   deleteAdmin,
   deleteWrestler,
-  searchCoach
+  searchCoach,
+  searchTournament
 };

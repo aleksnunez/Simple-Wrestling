@@ -7,9 +7,11 @@ router.get("/", function(req, res) {
 
 });
 
-router.post("/$name", function(req,res) {
-  const { name } = req.params
-  db.searchTournament(name)
+router.post("/search", function(req, res) {
+  const { search } = req.body
+  const values = [search]
+
+  db.searchTournament(values)
     .then(query => res.json(query))
     .catch(err => {
       console.error(err.stack);

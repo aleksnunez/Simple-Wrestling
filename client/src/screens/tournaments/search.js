@@ -22,10 +22,10 @@ const Search = props => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-
+    
     request({
-      endpoint: `api/tournaments/${searchBar.search}`,
-      method: 'GET'
+      endpoint: `api/tournaments/search`,
+      body: JSON.stringify(searchBar)
     })
     .then(res => alert(JSON.stringify(res)))
     .catch(err => new Error(err))
