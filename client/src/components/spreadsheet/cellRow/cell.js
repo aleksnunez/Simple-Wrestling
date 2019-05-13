@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import uppercaseFirst from 'util/uppercaseFirst'
-import Button from 'components/button'
 
 const Wrapper = styled.div`
   position: relative;
@@ -16,35 +15,50 @@ const Wrapper = styled.div`
   min-width: 6rem;
 
   background: ${props => props.theme.background.base};
-  border: 0.05em solid ${props => props.theme.primary.base};
+  border-top: 1px solid ${props => props.theme.background.base};
+  border-left: 1px solid ${props => props.theme.background.base};
+  border-bottom: 1px solid ${props => props.theme.primary.active};
+  border-right: 1px solid ${props => props.theme.primary.active};
   border-radius: 0;
 
   color: ${props => props.theme.foreground.base};
+  font-size: 0.8rem;
+`
+const Hoverable = styled(Wrapper)`
+  &:hover, &:focus {
+    outline: 2px solid ${props => props.theme.primary.active};
+    border-bottom: 1px solid ${props => props.theme.background.base};
+    border-right: 1px solid ${props => props.theme.background.base};
+    cursor: cell;
+    z-index: 500;
+  }
+
+  &:active {
+    text-shadow:
+      -0.25px -0.25px 0 ${props => props.theme.background.base},
+      0.25px 0.25px 0 ${props => props.theme.background.base};
+  }
+`
+const Input = styled.input`
+  position: absolute;
+  top: 0.05em;
+  left: 0.05em;
+
+  color: ${props => props.theme.foreground.base};
+  font-size: 0.8rem;
+  font-weight: lighter;
+  text-align: center;
+
+  height: calc(100% - 0.1em);
+  width: calc(100% - 0.1em);
+
+  box-sizing: border-box;
+  border: 1px dotted ${props => props.theme.primary.active};
+  outline: none !important;
 `
 const Key = styled.div`
 `
 const Value = styled.div`
-`
-const Input = styled.input`
-  font-weight: lighter;
-  text-align: center;
-
-  height: 100%;
-  width: 100%;
-  padding-left: 2.5%;
-
-  box-sizing: border-box;
-  border: none;
-
-  &:focus {
-    outline: none !important;
-  }
-
-`
-const Close = styled(Button)`
-  position: absolute;
-
-  z-index: 500;
 `
 
 const Cell = props => {
@@ -67,16 +81,15 @@ const Cell = props => {
         <Wrapper>
           <Input autoFocus
             type='text' name={JSON.stringify({row: row, col: col})}
-            value={value} onChange={onChange} />
-          <Close onClick={close}>X</Close>
+            value={value} onChange={onChange} onBlur={close} />
         </Wrapper>
       )
     }
     return (
-      <Wrapper onClick={open}>
+      <Hoverable onClick={open}>
         <Key>{uppercaseFirst(col)}</Key>
         <Value>{value}</Value>
-      </Wrapper>
+      </Hoverable>
     )
   }
 

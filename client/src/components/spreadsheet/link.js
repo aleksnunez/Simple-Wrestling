@@ -9,9 +9,10 @@ const StyledLink = styled(Link)`
   justify-content: center;
 
   height: 3em;
-  width: calc(10vw - 1em);
+  width: calc(8vw - 1em);
   min-width: 5em;
   margin: 1em 0.5em;
+  padding: 0 0.1em;
 
   color: ${props => props.theme.background.base};
   text-align: center;
