@@ -29,7 +29,7 @@ const Login = props => {
     e.preventDefault()
 
     request({
-      endpoint: '/api/login/post',
+      endpoint: '/api/login',
       body: JSON.stringify(formData)
     })
       .then(res => alert(JSON.stringify(res)))
