@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import request from 'api'
 
 import { required, isEmail } from 'util/formControl/validators'
-import { updateForm, isValid } from 'util/formControl'
+import { updateForm, isValid, formValues, formErrors } from 'util/formControl'
 import LoginForm from 'components/forms/loginForm'
 
 const Col = styled.section`
@@ -19,35 +19,26 @@ const Login = props => {
     email: {validators: [required, isEmail]},
     password: {validators: [required]}
   })
+  const formData = formValues(formControl)
+  const disabled = !isValid(formControl)
+  const errors = formErrors(formControl)
 
-  const onChange = (e) => {
-    updateForm(e, formControl, setFormControl)
-  }
-
-  const isDisabled = () => {
-    return !isValid(formControl)
-  }
+  const onChange = (e) => updateForm(e, formControl, setFormControl)
 
   const onSubmit = (e) => {
     e.preventDefault()
 
     request({
-      endpoint: '/api/login/post',
-      body: JSON.stringify(formControl)
+      endpoint: '/api/login',
+      body: JSON.stringify(formData)
     })
       .then(res => alert(JSON.stringify(res)))
       .catch(err => new Error(err))
   }
 
-  // looking for a way to generate programmatically
-  const errors = {
-    email: formControl.email.errors,
-    password: formControl.password.errors
-  }
-
   return (
     <Col>
-      <LoginForm {...{onChange, isDisabled, onSubmit, errors}} />
+      <LoginForm {...{onChange, disabled, onSubmit, errors}} />
     </Col>
   )
 }
