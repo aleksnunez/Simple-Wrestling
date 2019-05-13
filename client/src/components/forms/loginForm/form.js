@@ -4,7 +4,7 @@ import Link from 'components/link'
 import { FormWrapper, ValidatedInput, Button } from '../'
 
 const Form = (props) => {
-  const { onChange, isDisabled, onSubmit, errors } = props
+  const { onChange, disabled, onSubmit, errors } = props
   return (
     <FormWrapper>
       <ValidatedInput autoFocus required
@@ -13,7 +13,7 @@ const Form = (props) => {
       <ValidatedInput required autoComplete='off'
         type='password' name='password'
         onChange={onChange} errors={errors.password} />
-      <Button disabled={isDisabled()} onClick={onSubmit}>
+      <Button disabled={disabled} onClick={onSubmit}>
         Login
       </Button>
       <Link to='/forgot'>
