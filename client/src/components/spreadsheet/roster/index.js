@@ -12,8 +12,9 @@ const Roster = props => {
   }, [roster])
 
   const onChange = (e) => {
-    const { row, col } = JSON.parse(e.target.name)
+    const { row, col } = e.target.dataset
     const { value } = e.target
+
     setForm({
       ...form,
       [row]: {

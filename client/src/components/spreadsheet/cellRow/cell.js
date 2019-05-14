@@ -87,7 +87,7 @@ const Cell = props => {
       return (
         <Wrapper>
           <Input autoFocus
-            type='text' name={JSON.stringify({row: row, col: col})}
+            type='text' data-row={row} data-col={col}
             value={value} onChange={onChange} onBlur={close}
             onKeyDown={onKeyDown} />
         </Wrapper>
