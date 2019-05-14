@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
+import { required, isEmail } from 'util/formControl/validators'
+import { updateForm, isValid, formValues, formErrors } from 'util/formControl'
 import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
@@ -12,27 +14,32 @@ const Col = styled.section`
   margin-top: 2em;
 `
 
-const SignUp = () => {
-  const [state, setState] = useState({})
+const SignUp = props => {
+  const [formControl, setFormControl] = useState({
+    name: {validators: [required]},
+    email: {validators: [required, isEmail]},
+    password: {validators: [required]}
+  })
+  const formData = formValues(formControl)
+  const disabled = !isValid(formControl)
+  const errors = formErrors(formControl)
 
-  const handleChange = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
-    })
-  }
+  const onChange = (e) => updateForm(e, formControl, setFormControl)
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    request({endpoint: 'https://jsonplaceholder.typicode.com/posts', body: JSON.stringify(state)})
-    .then(res => alert(JSON.stringify(res)))
-    .catch(err => new Error(err))
+    request({
+      endpoint: '/api/signup/addCoach',
+      body: JSON.stringify(formData)
+    })
+      .then(res => console.log(res))
+      .catch(err => new Error(err))
   }
 
   return (
     <Col>
-      <SignupForm submit={onSubmit} onchange={handleChange} />
+      <SignupForm {...{onChange, disabled, onSubmit, errors}} />
     </Col>
   )
 }

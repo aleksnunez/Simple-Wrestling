@@ -2,26 +2,21 @@ import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
-import { primary } from 'styles/themes'
-
 const Image = styled.div`
   position: absolute;
   z-index: 500;
 
-  width: 16em;
-  height: 16em;
+  width: 0;
+  height: 0;
+  padding: 20%;
 
   border-radius: 100%;
-  background: ${primary.base};
+  background: ${props => props.theme.primary.base};
   background-image: ${props =>
     props ? `url(${props.path})` : 'none'
   };
   background-size: cover;
   background-position: center;
-`
-const StyledPlaceholder = styled(ReactPlaceholder)`
-  position: absolute;
-  z-index: 500;
 `
 
 const Portrait = (props) => {
@@ -31,14 +26,17 @@ const Portrait = (props) => {
     type: 'round',
     color: '#C4C4C4',
     ready: path ? path.includes('./team/portraits/') : false,
-    style: {width: '16em', height: '16em'},
+    style: {
+      position: 'absolute', zIndex: 500,
+      width: '0', height: '0', padding: '20%'
+    },
     showLoadingAnimation: true
   }
 
   return (
-    <StyledPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...SKELETON}>
       <Image path={path} />
-    </StyledPlaceholder>
+    </ReactPlaceholder>
   )
 }
 

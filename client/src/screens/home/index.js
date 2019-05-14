@@ -9,7 +9,7 @@ const Wrapper = styled.section`
   position: relative;
 `
 
-const Home = () => {
+const Home = props => {
   const [data, setData] = useState()
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Home = () => {
     .catch(err => new Error(err))
   }, [])
 
-  console.table(data)
+  // console.table(data)
 
   return (
     <Wrapper>

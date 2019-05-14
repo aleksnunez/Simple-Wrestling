@@ -1,37 +1,20 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import request from 'api'
+import React from 'react'
+import {
+  Route,
+  Switch
+} from 'react-router-dom'
 
-import SearchBar from 'components/searchBar'
-import Header from 'components/header'
+import Tournament from './tournament'
+import Search from './search'
 
-const Wrapper = styled.section`
-  position: relative;
-`
-
-const Tournaments = () => {
-  const [state, setState] = useState({})
-
-  const handleChange = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-
-    request({endpoint: 'https://jsonplaceholder.typicode.com/posts', body: JSON.stringify(state)})
-    .then(res => alert(JSON.stringify(res)))
-    .catch(err => new Error(err))
-  }
-
+const Tournaments = ({ match }) => {
   return (
-    <Wrapper>
-      <Header text='Tournaments' />
-      <SearchBar submit={onSubmit} onchange={handleChange} />
-    </Wrapper>
+    <Switch>
+      <Route path={`${match.path}/:tournament`}
+        component={Tournament} />
+      <Route exact path={`${match.path}`}
+        component={Search} />
+    </Switch>
   )
 }
 

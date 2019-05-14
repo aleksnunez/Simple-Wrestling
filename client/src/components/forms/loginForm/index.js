@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { light, primary } from 'styles/themes'
 import Header from 'components/header'
-import SignupLink from './signupLink'
+import Link from 'components/forms/link'
 import Form from './form'
 
 const Col = styled.div`
@@ -12,8 +11,7 @@ const Col = styled.div`
   align-items: center;
 `
 const Wrapper = styled(Col)`
-  border: 0.25em solid ${primary.base};
-  background: ${light.base};
+  border: 0.25em solid ${props => props.theme.primary.base};
 
   padding: 1em 5em;
 `
@@ -23,7 +21,11 @@ const LoginForm = (props) => {
     <Wrapper>
       <Col>
         <Header text='Login' />
-        <SignupLink />
+        <Link
+          to={'/signup'}
+          prompt={'Don\'t Have an Account?'}>
+          Sign up here
+        </Link>
       </Col>
       <Form {...props} />
     </Wrapper>

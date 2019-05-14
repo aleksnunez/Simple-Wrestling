@@ -1,91 +1,98 @@
-const Sequelize = require('sequelize');
-const awsKeys = require('../config/awsConfig')
+const queries = require("./queries");
+const pgp = require("pg-promise")();
+const Pool = require("pg").Pool;
 
+const pool = new Pool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD
+});
+// const pool = pgp(pg);
 
-/*const connection = require('./sequalize');
-const DBtest = require('./DBtest');
-const query = require('./query');
-const add = require('./addData');*/
+const addCoach = values => pool.query(queries.CREATE_COACH, values);
 
+const searchCoach = values =>
+  pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, values);
 
+const searchTournament = values =>
+  pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, values);
 
-let database = (searchTerm) =>{
-  const sequelize = new Sequelize(awsKeys.databaseName, awsKeys.masterUserName, awsKeys.password, {
-    host: 'wrestlingtournments.chgoxg8wubk2.us-west-2.rds.amazonaws.com',
-    dialect: 'postgres',
-  });
-
-  sequelize
-  .authenticate()
-    .then(() => {
-      console.log('Connection has been established successfully.');
-    })
-    .catch(err => {
-      console.error('Unable to connect to the database:', err);
-    });
-
-  const model = Sequelize.Model
-
-  class Wrestler extends model {}
-  Wrestler.init({
-    // attributes
-    userName: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    school: {
-      type: Sequelize.STRING
-      // allowNull defaults to true
+const addAdmin = (request, response) => {
+  pool.query(
+    queries.CREATE_ADMIN,
+    [admin_name, email, password],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(201).send(`User added with ID: ${result.insertId}`);
     }
-  }, {
-    sequelize,
-    modelName: 'wrestler'
-    // options
+  );
+};
+
+const addWrestler = (request, response) => {
+  pool.query(
+    queries.CREATE_WRESTLER,
+    [user_name, email, password],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(201).send(`User added with ID: ${result.insertId}`);
+    }
+  );
+};
+
+const deleteCoach = (request, response) => {
+  const id = parseInt(request.params.id);
+
+  pool.query(REMOVE_COACH_BY_ID, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).send(`User deleted with ID: ${id}`);
   });
+};
 
-  Wrestler.sync({ force: true }).then(() => {
-    // Now the `users` table in the database corresponds to the model definition
-    return Wrestler.create({
-      userName: 'Mike',
-      school: 'SFSU'
-    });
+const deleteAdmin = (request, response) => {
+  const id = parseInt(request.params.id);
+
+  pool.query(REMOVE_ADMIN_BY_ID, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).send(`User deleted with ID: ${id}`);
   });
+};
 
+const deleteWrestler = (request, response) => {
+  const id = parseInt(request.params.id);
 
-  Model.findAll({
-    where: {
-      userName: searchTerm
+  pool.query(REMOVE_WRESTLER_BY_ID, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).send(`User deleted with ID: ${id}`);
+  });
+};
+
+const searchEmail = (request, response) => {
+  const email = request.params.email;
+  pool.query(SEARCH_FOR_UNIQUE_COACH_EMAIL, [], (error, results) => {
+    if (error) {
+      throw error;
     }
   });
+};
 
-  /*Wrestler.findAll().then(users => {
-    console.log("All users:", JSON.stringify(users, userName, school));
-  });*/
-  /*User = connection.define('user',{
-    username: Sequelize.STRING,
-    password: Sequelize.STRING,
-    age: Sequelize.INTEGER,
-    weightClass: Sequelize.INTEGER
-  });
-=======
-
->>>>>>> 46d61f99dd3e3dfab22f79c8497d2bfbba03bd95
-
-let database = () =>{
-
-<<<<<<< HEAD
-  Coach = connection.define('coach',{
-    username: Sequelize.STRING,
-    password: Sequelize.STRING,
-    age: Sequelize.INTEGER,
-    weightClass: Sequelize.INTEGER
-  });
-  add.addCoach();
-  query.queryFindAll().then((admin)=>{
-    console.log(admin);
-  });*/
-
-
-}
-
-module.exports.database = database;
+module.exports = {
+  addCoach,
+  addAdmin,
+  addWrestler,
+  deleteCoach,
+  deleteAdmin,
+  deleteWrestler,
+  searchCoach,
+  searchTournament
+};
