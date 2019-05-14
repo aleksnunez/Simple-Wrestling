@@ -1,32 +1,24 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
+const db = require("../db");
 
-
-
-router.get('/getWrestlerInformation', function (req, res) {
-  //coach register team
-  let body ={
-    WrestlerName:'joe',
-    Organization:'SFSU wrestling club',
-    School:'San Francisco State University'
-  }
+router.get("/getWrestlerInformation", function(req, res) {
   res.json(body);
-})
+});
 
-router.get('/getWrestlerInformations', function (req,res){
-  const {hellos, world} = req.query;
-  console.log(hello);
-
-  let body = {
-    WrestlerName:['joe','james'],
-    Organization:'SFSU wrestling club',
-    School:'San Francisco State University'
-  }
-  //console.log(res);
-
-  console.log(`this is the request ${req}`);
-  res.json(body);
-
-})
+router.post("/addWrestler", function(req, res) {
+  const { user_name, dob, weight, team } = req.body;
+  const values = [user_name, dob, weight, team];
+  console.log(values);
+  db.addWrestler(values)
+    .then(query => {
+      console.log(success);
+      res.json(query);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+});
 
 module.exports = router;
