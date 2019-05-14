@@ -38,13 +38,17 @@ const Search = props => {
       .catch(err => new Error(err))
   }, [])
 
+  const redirect = id => {
+    alert(id)
+  }
+
   return (
     <Wrapper>
       <Header text='Tournaments' />
       <SearchBar submit={onSubmit} onchange={handleChange}>
         search for a tournament...
       </SearchBar>
-      <TournamentCards tournaments={tournaments} />
+      <TournamentCards tournaments={tournaments} redirect={redirect} />
     </Wrapper>
   )
 }

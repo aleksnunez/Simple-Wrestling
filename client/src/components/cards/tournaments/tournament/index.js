@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
@@ -29,7 +29,16 @@ const Location = styled.p`
 `
 
 const Tournament = props => {
-  const { tournament_name, location, picture, background } = props
+  const { id, tournament_name, location, picture, background, redirect } = props
+  const [images, setImages] = useState({})
+
+  useEffect(() => {
+    setImages({
+      picture: picture ? picture : randomImg(),
+      background: background ? background : randomImg()
+    })
+  }, [])
+
   const SKELETON = {
     type: 'rect',
     color: '#C4C4C4',
@@ -38,11 +47,15 @@ const Tournament = props => {
     showLoadingAnimation: true
   }
 
+  const onClick = (e) => {
+    redirect(id)
+  }
+
   return (
     <ReactPlaceholder {...SKELETON}>
-      <Wrapper>
-        <Background background={background ? background : randomImg()} />
-        <Picture picture={picture ? picture : randomImg()} />
+      <Wrapper onClick={onClick} >
+        <Background background={images.background} />
+        <Picture picture={images.picture} />
         <Name>{tournament_name}</Name>
         <Location>{location}</Location>
       </Wrapper>
