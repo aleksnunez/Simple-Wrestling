@@ -9,11 +9,28 @@ router.get("/", function(req, res) {
 router.get("/:search/", function(req, res) {
   const { search } = req.params;
   const values = [search];
-  console.log(req.params);
+  console.log(search);
   db.searchTournament(values)
-    .then(query => res.json(query))
+    .then(query => {
+      console.log(query);
+      res.json(query);
+    })
     .catch(err => {
       console.error(err.stack);
+      res.json(err);
+    });
+});
+
+router.post("/createTournament", function(req, res) {
+  const { tournament_name, location, admin_id } = req.body;
+  const values = [tournament_name, location, admin_id];
+  db.createTournament(values)
+    .then(query => {
+      console.log(query);
+      res.json(query);
+    })
+    .catch(err => {
+      console.log(err.stack);
       res.json(err);
     });
 });

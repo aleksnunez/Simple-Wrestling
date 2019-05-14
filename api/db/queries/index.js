@@ -14,7 +14,7 @@ const REMOVE_WRESTLER_BY_ID = `DELETE FROM wrestler WHERE id = $1`;
 
 const SEARCH_FOR_TOURNAMENT_NAME = `SELECT * FROM tournaments WHERE tournament_name = $1`;
 
-const CREATE_TOURNAMENT = `INSERT INTO tournaments (tournament_name,location, admin_id) VALUES ($1, %2, $3)`;
+const CREATE_TOURNAMENT = `INSERT INTO tournaments (tournament_name,location, admin_id) VALUES ($1, $2, $3)`;
 
 module.exports = {
   CREATE_COACH,

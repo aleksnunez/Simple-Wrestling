@@ -18,6 +18,9 @@ const searchCoach = values =>
 const searchTournament = values =>
   pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, values);
 
+const createTournament = values =>
+  pool.query(queries.CREATE_TOURNAMENT, values);
+
 const addAdmin = (request, response) => {
   pool.query(
     queries.CREATE_ADMIN,
@@ -77,15 +80,6 @@ const deleteWrestler = (request, response) => {
   });
 };
 
-const searchEmail = (request, response) => {
-  const email = request.params.email;
-  pool.query(SEARCH_FOR_UNIQUE_COACH_EMAIL, [], (error, results) => {
-    if (error) {
-      throw error;
-    }
-  });
-};
-
 module.exports = {
   addCoach,
   addAdmin,
@@ -94,5 +88,6 @@ module.exports = {
   deleteAdmin,
   deleteWrestler,
   searchCoach,
-  searchTournament
+  searchTournament,
+  createTournament
 };
