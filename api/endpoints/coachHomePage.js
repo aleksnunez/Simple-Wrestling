@@ -19,9 +19,10 @@ router.post('/postCoachHomePage', function (req,res){
     WeightClass:'125',
     RecordWins: 5,
     RecordLost: 10,
-    TournamentsClose by: ['SFSU Wrestling', 'College Tournaments']
+    TournamentsClose: ['SFSU Wrestling', 'College Tournaments']
   }
+  //get wrestler stats
   res.json(body);
 })
 
-module.exports = router;
+module.exports = {router};

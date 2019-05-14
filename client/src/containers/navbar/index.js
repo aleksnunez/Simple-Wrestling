@@ -1,45 +1,43 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import Link from './navLink'
-import logo from 'assets/logo.png'
+import Link from "./link";
+import Button from "./button";
+import Logo from "./logo";
 
 const Row = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
-`
-const StyledRow = styled(Row)`
+`;
+const Nav = styled(Row)`
   flex-wrap: wrap;
   align-items: center;
   width: 96vw;
   z-index: 100;
-`
-const StyledLogo = styled.img`
-  background-image: ${`url(${logo})`};
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-`
+`;
 
-export default class NavBar extends Component {
-  render() {
-    return (
-      <StyledRow>
-        <Row>
-          <Link to='/'>
-            <StyledLogo src={logo} />
-          </Link>
-        </Row>
-        <Row>
-        </Row>
-        <Row>
-          <Link to='/tournaments'>Tournaments</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Sign up</Link>
-        </Row>
-      </StyledRow>
-    )
-  }
-}
+const NavBar = props => {
+  return (
+    <Nav>
+      <Row>
+        <Link to="/">
+          <Logo />
+        </Link>
+      </Row>
+      <Row>
+        <Link to="/tournaments">Tournaments</Link>
+        <Link to="/about">About</Link>
+      </Row>
+      <Row>
+        <Link to="/login">Login</Link>
+        <Link to="/signup">Sign up</Link>
+      </Row>
+      <Row>
+        <Button onClick={props.changeTheme}>Darkmode</Button>
+      </Row>
+    </Nav>
+  );
+};
+
+export default NavBar;

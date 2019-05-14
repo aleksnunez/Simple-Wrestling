@@ -6,7 +6,7 @@ import { ReactComponent as GitHub } from 'assets/github.svg'
 
 const StyledGitHub = styled(GitHub)`
   position: absolute;
-  left: 40em;
+  left: 100%;
 
   width: 2em;
   height: 2em;
@@ -23,7 +23,11 @@ const Social = (props) => {
     type: 'round',
     color: '#C4C4C4',
     ready: github ? github.includes('https://github.com/') : false,
-    style: {width: '2em', height: '2em'},
+    style: {
+      position: 'absolute', left: '100%', 
+      width: '2em', height: '2em',
+      margin: '0.5em'
+    },
     showLoadingAnimation: true
   }
 
