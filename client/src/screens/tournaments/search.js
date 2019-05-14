@@ -16,15 +16,15 @@ const Search = props => {
   const handleChange = (e) => {
     setSearchBar({
       ...searchBar,
-      [e.target.name]: e.target.value
+      search: e.target.value
     })
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
-
+    
     request({
-      endpoint: 'https://jsonplaceholder.typicode.com/posts',
+      endpoint: `api/tournaments/search`,
       body: JSON.stringify(searchBar)
     })
     .then(res => alert(JSON.stringify(res)))

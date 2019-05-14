@@ -7,8 +7,15 @@ router.get("/", function(req, res) {
 
 });
 
-router.post("/$id",function(req,res){
-  //req search string
-  //res (searched) =>  tournaments
+router.post("/search", function(req, res) {
+  const { search } = req.body
+  const values = [search]
+
+  db.searchTournament(values)
+    .then(query => res.json(query))
+    .catch(err => {
+      console.error(err.stack);
+      res.json(err);
+    });
 });
 module.exports = router;

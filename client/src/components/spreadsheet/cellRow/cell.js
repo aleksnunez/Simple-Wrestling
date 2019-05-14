@@ -45,6 +45,7 @@ const Input = styled.input`
   left: 0.05em;
 
   color: ${props => props.theme.foreground.base};
+  background: ${props => props.theme.background.base};
   font-size: 0.8rem;
   font-weight: lighter;
   text-align: center;
@@ -75,13 +76,20 @@ const Cell = props => {
     setState(false)
   }
 
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      close(e)
+    }
+  }
+
   const cell = () => {
     if (state) {
       return (
         <Wrapper>
           <Input autoFocus
             type='text' name={JSON.stringify({row: row, col: col})}
-            value={value} onChange={onChange} onBlur={close} />
+            value={value} onChange={onChange} onBlur={close}
+            onKeyDown={onKeyDown} />
         </Wrapper>
       )
     }
