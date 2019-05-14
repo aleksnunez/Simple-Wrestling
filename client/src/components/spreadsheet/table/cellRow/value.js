@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import uppercaseFirst from 'util/uppercaseFirst'
-
 const Wrapper = styled.div`
   position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   height: 3em;
   width: 15vw;
@@ -57,12 +56,8 @@ const Input = styled.input`
   border: 1px dotted ${props => props.theme.primary.active};
   outline: none !important;
 `
-const Key = styled.div`
-`
-const Value = styled.div`
-`
 
-const Cell = props => {
+const Value = props => {
   const { onChange, row, col, value } = props
   const [state, setState] = useState(false)
 
@@ -95,8 +90,7 @@ const Cell = props => {
     }
     return (
       <Hoverable onClick={open}>
-        <Key>{uppercaseFirst(col)}</Key>
-        <Value>{value}</Value>
+        {value}
       </Hoverable>
     )
   }
@@ -104,4 +98,4 @@ const Cell = props => {
   return cell()
 }
 
-export default Cell
+export default Value

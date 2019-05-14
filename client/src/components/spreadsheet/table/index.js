@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
+import Button from 'components/button'
 import safeMap from 'util/safeMap'
+import shouldShowHeaders from './reducers'
 import Header from './header'
 import CellRow from './cellRow'
 
@@ -15,11 +17,19 @@ const Wrapper = styled.div`
 
 const Table = props => {
   const { data, title, onChange } = props
+  const [headers, setHeaders] = useState([])
 
-  const row = (tuple, i) =>
-    <CellRow key={i}
-      row={tuple[0]} data={tuple[1]}
-      onChange={onChange} />
+  useEffect(() => setHeaders(shouldShowHeaders(data)), [props.data])
+
+  const header = (tuple, i) =>
+    headers[i] ? <CellRow data={tuple[1]} /> : <div />
+
+  const row = (tuple, i) => (
+    <div key={i}>
+      {header(tuple, i)}
+      <CellRow row={tuple[0]} data={tuple[1]} onChange={onChange} />
+    </div>
+  )
 
   const SKELETON = {
     type: 'rect',
@@ -35,6 +45,7 @@ const Table = props => {
       <ReactPlaceholder {...SKELETON}>
         {safeMap(Object.entries(data), row)}
       </ReactPlaceholder>
+      <Button>ADD</Button>
     </Wrapper>
   )
 }
