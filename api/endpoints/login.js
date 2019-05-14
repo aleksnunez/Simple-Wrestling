@@ -25,7 +25,7 @@ router.post("/", function(req, res) {
     db.searchCoach(email)
       .then(query => {
         bcrypt.compare(password, query.rows[0].password, function(err, result) {
-          console.log(result, "successful login");
+          console.log("bcrypt compare result", result);
           if (result) {
             console.log("successful hello ");
             res.cookie("user_id", query.rows[0].id, {
@@ -41,30 +41,12 @@ router.post("/", function(req, res) {
               message: "invalid login"
             });
           }
-
-          // res == true
         });
-        // bcrypt.compare(req.body.password,query.rows[0].password).then(result => {
-        //   const isSecure = req.app.get("env") != "development";
-        //   res.cookie("user_id", user.id, {
-        //     httpOnly: true,
-        //     secure: isSecure,
-        //     signed: true
-        //   });
-        //   res.json({
-        //     message: "logged in"
-        //   });
       })
       .catch(err => {
         console.error(err.stack, "\n error in hash");
         res.json(err);
       });
-    //query to see if username is in db
-    //compare password with hashed pw
-
-    //   //setting the set-cookie header
-    //   //successfully logged in
-    // });
   } else {
     console.log("invalid login ");
   }
