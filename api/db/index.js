@@ -18,6 +18,9 @@ const searchCoach = values =>
 const searchTournament = values =>
   pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, values);
 
+const getTournaments = () =>
+  pool.query(queries.SELECT_ALL_TOURNAMENTS);
+
 const createTournament = values =>
   pool.query(queries.CREATE_TOURNAMENT, values);
 
@@ -77,5 +80,6 @@ module.exports = {
   deleteWrestler,
   searchCoach,
   searchTournament,
-  createTournament
+  createTournament,
+  getTournaments
 };

@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import request from 'api'
 
 import safeMap from 'util/safeMap'
+import Text from 'components/text'
 import Tournament from './tournament'
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+`
 const Row = styled.div`
   display: flex;
   flex-flow: row wrap;
@@ -14,19 +19,20 @@ const Row = styled.div`
 `
 
 const Tournaments = props => {
-  const [tournaments, setTournaments] = useState([{}, {}, {}])
-  const card = (tournament, i) => <Tournament key={i} {...tournament} />
+  const { tournaments, redirect } = props
+  const { length } = tournaments
+  const card = (tournament, i) =>
+    <Tournament key={i} {...tournament} redirect={redirect} />
 
-  useEffect(() => {
-    request({
-      endpoint: 'https://my-json-server.typicode.com/swabisan/demo/Tournaments',
-      method: 'GET'
-    })
-    .then(res => setTournaments([...res]))
-    .catch(err => new Error(err))
-  }, [])
+  const count = `Showing ${length} ${length === 1 ? 'result' : 'results'}`
+  const results = <Text>{length ? count : 'No Results'}</Text>
 
-  return <Row>{safeMap(tournaments, card)}</Row>
+  return (
+    <Wrapper>
+      {results}
+      <Row>{safeMap(tournaments, card)}</Row>
+    </Wrapper>
+  )
 }
 
 export default Tournaments
