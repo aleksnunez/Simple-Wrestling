@@ -2,6 +2,7 @@ import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import styled from 'styled-components'
 
+import randomImg from 'util/randomImg'
 import Button from 'components/button'
 import Background from './background'
 import Picture from './picture'
@@ -28,11 +29,11 @@ const Location = styled.p`
 `
 
 const Tournament = props => {
-  const { name, location, picture, background } = props
+  const { tournament_name, location, picture, background } = props
   const SKELETON = {
     type: 'rect',
     color: '#C4C4C4',
-    ready: props.name ? true : false,
+    ready: tournament_name ? true : false,
     style: {margin: '1em', width: '13em', height: '15em'},
     showLoadingAnimation: true
   }
@@ -40,9 +41,9 @@ const Tournament = props => {
   return (
     <ReactPlaceholder {...SKELETON}>
       <Wrapper>
-        <Background background={background} />
-        <Picture picture={picture} />
-        <Name>{name}</Name>
+        <Background background={background ? background : randomImg()} />
+        <Picture picture={picture ? picture : randomImg()} />
+        <Name>{tournament_name}</Name>
         <Location>{location}</Location>
       </Wrapper>
     </ReactPlaceholder>
