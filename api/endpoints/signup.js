@@ -17,19 +17,17 @@ function validUser(user) {
 }
 
 router.post("/addCoach", (req, res) => {
-  const { email, password } = req.body;
-  const values = [email, email, password];
-
-  // console.log("\n", `received POST: ${JSON.stringify(req.body)}`);
-  // console.log(`querying database with values: ${JSON.stringify(values)}`);
+  const { name, email, password } = req.body;
+  const values = [name, email, password];
+  console.log("\n", `received POST: ${JSON.stringify(req.body)}`);
   db.searchCoach(email)
     .then(query => {
       if (query.rows.length === 0) {
         bcrypt.hash(password, 10, function(err, hash) {
-          console.log(hash);
           values[2] = hash;
           db.addCoach(values)
             .then(query => {
+              console.log("successful", query);
               res.json(query);
             })
             .catch(err => {
