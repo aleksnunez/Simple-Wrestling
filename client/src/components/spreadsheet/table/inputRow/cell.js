@@ -1,28 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  position: relative;
+import Wrapper from '../cell'
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  height: 3em;
-  width: 15vw;
-  min-width: 6rem;
-
-  background: ${props => props.theme.background.base};
-  border-top: 1px solid ${props => props.theme.background.base};
-  border-left: 1px solid ${props => props.theme.background.base};
-  border-bottom: 1px solid ${props => props.theme.primary.active};
-  border-right: 1px solid ${props => props.theme.primary.active};
-  border-radius: 0;
-
-  color: ${props => props.theme.foreground.base};
-  font-size: 0.8rem;
-`
 const Hoverable = styled(Wrapper)`
   &:hover, &:focus {
     outline: 2px solid ${props => props.theme.primary.active};
@@ -57,7 +37,7 @@ const Input = styled.input`
   outline: none !important;
 `
 
-const Value = props => {
+const Cell = props => {
   const { onChange, row, col, value } = props
   const [state, setState] = useState(false)
 
@@ -98,4 +78,4 @@ const Value = props => {
   return cell()
 }
 
-export default Value
+export default Cell

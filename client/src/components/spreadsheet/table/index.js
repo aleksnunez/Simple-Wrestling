@@ -4,9 +4,10 @@ import styled from 'styled-components'
 
 import Button from 'components/button'
 import safeMap from 'util/safeMap'
-import shouldShowHeaders from './reducers'
+import shouldShowHeaders from './shouldShowHeaders'
 import Header from './header'
-import CellRow from './cellRow'
+import KeyRow from './keyRow'
+import InputRow from './inputRow'
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,15 +22,16 @@ const Table = props => {
 
   useEffect(() => setHeaders(shouldShowHeaders(data)), [props.data])
 
-  const header = (tuple, i) =>
-    headers[i] ? <CellRow data={tuple[1]} /> : <div />
 
-  const row = (tuple, i) => (
-    <div key={i}>
-      {header(tuple, i)}
-      <CellRow row={tuple[0]} data={tuple[1]} onChange={onChange} />
-    </div>
-  )
+
+  const row = (tuple, i) => {
+    return (
+      <div key={i}>
+        {headers[tuple[0]] && <KeyRow data={tuple[1]} />}
+        <InputRow row={tuple[0]} data={tuple[1]} onChange={onChange} />
+      </div>
+    )
+  }
 
   const SKELETON = {
     type: 'rect',
