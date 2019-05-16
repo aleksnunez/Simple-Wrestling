@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Cell from './cell'
 
 const Row = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: row;
   align-items: center;

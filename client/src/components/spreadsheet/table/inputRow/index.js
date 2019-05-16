@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Button from 'components/button'
+import DeleteButton from './deleteButton'
 import Cell from './cell'
 
 const Row = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,7 +16,7 @@ const Row = styled.div`
 `
 
 const CellRow = props => {
-  const { row, data, onChange } = props
+  const { row, data, onChange, removeRow } = props
   const cell = (tuple, i) =>
     <Cell key={i} {...{row, onChange}} col={tuple[0]} value={tuple[1]} />
 
@@ -23,9 +25,7 @@ const CellRow = props => {
   return (
     <Row>
       {values}
-      <Button>
-        DELETE
-      </Button>
+      <DeleteButton {...{removeRow, row}} />
     </Row>
   )
 }

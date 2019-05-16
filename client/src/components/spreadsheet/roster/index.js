@@ -29,11 +29,16 @@ const Roster = props => {
     console.log(form)
   }
 
+  const removeRow = row => {
+    delete form[row]
+    setForm({...Object.values(form)})
+  }
+
   return (
     <Wrapper>
       <SideBar links={teams} location={'coach'} />
       <Table title={name ? `${name} Roster` : '...'}
-        data={form} {...{onChange}} />
+        data={form} {...{onChange, removeRow}} />
       <Button onClick={displayForm}>Save Roster</Button>
     </Wrapper>
   )

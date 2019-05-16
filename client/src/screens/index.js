@@ -2,8 +2,8 @@ import About from './about'
 import Login from './login'
 import SignUp from './signup'
 import Home from './home'
-import HomeCoach from './home/coach'
-import HomeAdmin from './home/admin'
+import Coach from './coach'
+import Admin from './admin'
 import Tournaments from './tournaments'
 import NotFound from './notFound'
 
@@ -12,8 +12,8 @@ export default {
   Login,
   SignUp,
   Home,
-  HomeCoach,
-  HomeAdmin,
+  Coach,
+  Admin,
   Tournaments,
   NotFound
 }
