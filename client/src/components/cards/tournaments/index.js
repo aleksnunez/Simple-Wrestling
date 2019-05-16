@@ -19,10 +19,10 @@ const Row = styled.div`
 `
 
 const Tournaments = props => {
-  const { tournaments, redirect } = props
+  const { tournaments } = props
   const { length } = tournaments
   const card = (tournament, i) =>
-    <Tournament key={i} {...tournament} redirect={redirect} />
+    <Tournament key={i} {...tournament} />
 
   const count = `Showing ${length} ${length === 1 ? 'result' : 'results'}`
   const results = <Text>{length ? count : 'No Results'}</Text>

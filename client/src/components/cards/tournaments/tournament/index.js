@@ -1,24 +1,44 @@
 import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import randomImg from 'util/randomImg'
-import Button from 'components/button'
 import Background from './background'
 import Picture from './picture'
 
-const Wrapper = styled(Button)`
+const Wrapper = styled(Link)`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  font-size: 0.75rem;
   color: ${props => props.theme.background.base};
+  text-decoration: none;
 
   width: 15em;
   height: 17em;
   padding: 0.5em;
   margin: 2em;
+
+  background: ${props => props.theme.primary.base};
+  border: 1px solid ${props => props.theme.primary.base};
+  border-radius: 0.2em;
+
+  transition: ${props => props.theme.transition};
+
+  &:hover, &:focus {
+    cursor: pointer;
+    color: ${props => props.theme.primary.base};
+    background: ${props => props.theme.background.base};
+  }
+
+  &:active {
+    text-shadow:
+      -0.25px -0.25px 0 ${props => props.theme.primary.base},
+      0.25px 0.25px 0 ${props => props.theme.primary.base};
+  }
 `
 const Name = styled.p`
   font-weight: 600;
@@ -29,7 +49,7 @@ const Location = styled.p`
 `
 
 const Tournament = props => {
-  const { id, tournament_name, location, picture, background, redirect } = props
+  const { id, tournament_name, location, picture, background } = props
   const [images, setImages] = useState({})
 
   useEffect(() => {
@@ -47,13 +67,9 @@ const Tournament = props => {
     showLoadingAnimation: true
   }
 
-  const onClick = (e) => {
-    redirect(id)
-  }
-
   return (
     <ReactPlaceholder {...SKELETON}>
-      <Wrapper onClick={onClick} >
+      <Wrapper to={`/tournaments/${id}`} >
         <Background background={images.background} />
         <Picture picture={images.picture} />
         <Name>{tournament_name}</Name>

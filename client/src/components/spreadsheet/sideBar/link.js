@@ -26,8 +26,8 @@ const StyledLink = styled(Link)`
   &:hover, &:focus {
     border: 0.05em solid ${props => props.theme.background.base};
     text-shadow:
-    -0.25px -0.25px 0 ${props => props.theme.background.base},
-    0.25px 0.25px 0 ${props => props.theme.background.base};
+      -0.25px -0.25px 0 ${props => props.theme.background.base},
+      0.25px 0.25px 0 ${props => props.theme.background.base};
   }
 `
 
