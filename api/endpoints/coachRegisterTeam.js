@@ -22,4 +22,19 @@ router.post("/addWrestler", function(req, res) {
     });
 });
 
+router.post("/updateTeamroster", function(req, res) {
+  const { id, user_name, dob, weight, win, lost } = req.body;
+  values = [user_name, dob, weight, win, lost, id];
+
+  db.searchForWrestler(values[5]).then(query => {
+    if (query) {
+      db.updateWrestlers(values).then(results => {
+        res.json(results, "pass");
+      });
+    } else {
+      res.json("does not exist");
+    }
+  });
+});
+
 module.exports = router;

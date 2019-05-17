@@ -23,7 +23,15 @@ const getTournaments = () => pool.query(queries.SELECT_ALL_TOURNAMENTS);
 const createTournament = values =>
   pool.query(queries.CREATE_TOURNAMENT, values);
 
+const getAllWrestlers = () => pool.query * queries.SELECT_ALL_WRESTLERS;
+
 const addWrestler = values => pool.query(queries.CREATE_WRESTLER, values);
+
+const searchForWrestler = values =>
+  pool.query(queries.SEARCH_FOR_EXISTING_WRESTLER, values);
+
+const updateWrestlers = values =>
+  pool.query(query.UPDATE_EXISTING_WRESTLER, values);
 
 const addAdmin = (request, response) => {
   pool.query(
@@ -80,5 +88,7 @@ module.exports = {
   searchCoach,
   searchTournament,
   createTournament,
-  getTournaments
+  getTournaments,
+  searchForWrestler,
+  updateWrestlers
 };
