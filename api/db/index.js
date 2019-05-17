@@ -18,11 +18,12 @@ const searchCoach = values =>
 const searchTournament = values =>
   pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, values);
 
-const getTournaments = () =>
-  pool.query(queries.SELECT_ALL_TOURNAMENTS);
+const getTournaments = () => pool.query(queries.SELECT_ALL_TOURNAMENTS);
 
 const createTournament = values =>
   pool.query(queries.CREATE_TOURNAMENT, values);
+
+const addWrestler = values => pool.query(queries.CREATE_WRESTLER, values);
 
 const addAdmin = (request, response) => {
   pool.query(
@@ -36,20 +37,6 @@ const addAdmin = (request, response) => {
     }
   );
 };
-
-const addWrestler = (request, response) => {
-  pool.query(
-    queries.CREATE_WRESTLER,
-    [user_name, email, password],
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(201).send(`User added with ID: ${result.insertId}`);
-    }
-  );
-};
-
 const deleteCoach = (request, response) => {
   const id = parseInt(request.params.id);
 
