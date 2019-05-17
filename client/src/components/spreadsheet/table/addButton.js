@@ -19,7 +19,7 @@ const StyledButton = styled(Button)`
   min-width: 18em;
   margin: 0.4em 0;
 
-  &:hover {
+  &:hover, &:focus {
     color: ${props => props.theme.signal.success};
     border: 0.1em solid ${props => props.theme.signal.success};
   }

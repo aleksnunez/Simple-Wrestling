@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import request from 'api'
 
 import Header from 'components/header'
-import Roster from 'components/spreadsheet/roster'
+import Spreadsheet from 'components/spreadsheet'
 
 const Wrapper = styled.section`
   position: relative;
@@ -42,7 +42,8 @@ const Home = ({ match }) => {
     <Wrapper>
       <Header text={'Coach Dashboard'} />
       <Row>
-        <Roster {...{name, roster, teams}} />
+        <Spreadsheet name={name} location={'coach'}
+          data={roster} links={teams} />
       </Row>
     </Wrapper>
   )
