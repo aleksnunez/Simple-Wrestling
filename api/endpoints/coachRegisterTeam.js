@@ -7,9 +7,9 @@ router.get("/getWrestlerInformation", function(req, res) {
 });
 
 router.post("/addWrestler", function(req, res) {
-  const { user_name, dob, weight, email, password } = req.body;
+  const { user_name, dob, weight, win, lost } = req.body;
   console.log(req.body.dob);
-  const values = [user_name, dob, weight, email, password];
+  const values = [user_name, dob, weight, win, lost];
   console.log(values);
   db.addWrestler(values)
     .then(query => {
