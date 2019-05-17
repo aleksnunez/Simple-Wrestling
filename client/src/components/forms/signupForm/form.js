@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Link from 'components/link'
 import { FormWrapper, ValidatedInput, Button } from '../'
 
 const Form = (props) => {
@@ -19,9 +18,6 @@ const Form = (props) => {
       <Button disabled={disabled} onClick={onSubmit}>
         Sign Up
       </Button>
-      <Link to='/forgot'>
-        Forgot Password
-      </Link>
     </FormWrapper>
   )
 }
