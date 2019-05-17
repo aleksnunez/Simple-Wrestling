@@ -9,7 +9,7 @@ const Button = styled.button`
 
   transition: ${props => props.theme.transition};
 
-  &:hover, &:focus {
+  &:hover {
     background: ${props => props.theme.background.base};
     color: ${props => props.theme.primary.base};
     cursor: pointer;

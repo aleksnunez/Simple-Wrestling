@@ -34,11 +34,24 @@ const Roster = props => {
     setForm({...Object.values(form)})
   }
 
+  const addRow = () => {
+    const generateRow = () => ({name: '', age: '', weight: ''})
+    const copyRow = oldForm => {
+      const clearValues = (acc, curr) => ({...acc, [curr]: ''})
+      return Object.keys(oldForm[oldForm.length - 1]).reduce(clearValues, {})
+    }
+
+    const oldForm = Object.values(form)
+    const newRow = oldForm.length === 0 ? generateRow() : copyRow(oldForm)
+
+    setForm({...[...Object.values(form), newRow]})
+  }
+
   return (
     <Wrapper>
       <SideBar links={teams} location={'coach'} />
       <Table title={name ? `${name} Roster` : '...'}
-        data={form} {...{onChange, removeRow}} />
+        data={form} {...{onChange, removeRow, addRow}} />
       <Button onClick={displayForm}>Save Roster</Button>
     </Wrapper>
   )

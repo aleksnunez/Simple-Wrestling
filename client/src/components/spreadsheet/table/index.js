@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `
 
 const Table = props => {
-  const { data, title, onChange, removeRow } = props
+  const { data, title, onChange, removeRow, addRow } = props
   const [headers, setHeaders] = useState([])
 
   useEffect(() => setHeaders(shouldShowHeaders(data)), [props.data])
@@ -45,7 +45,7 @@ const Table = props => {
       <ReactPlaceholder {...SKELETON}>
         {safeMap(Object.entries(data), row)}
       </ReactPlaceholder>
-      <AddButton>ADD</AddButton>
+      <AddButton {...{addRow}}>ADD</AddButton>
     </Wrapper>
   )
 }

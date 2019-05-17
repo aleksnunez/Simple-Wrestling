@@ -20,19 +20,19 @@ const Input = styled.input`
   box-sizing: border-box;
   border: 1px solid ${props =>
     props.errors &&
-    props.errors.length > 0 ? props.theme.error : props.theme.neutral.base
+    props.errors.length > 0 ? props.theme.signal.danger : props.theme.neutral.base
   };
 
   &:focus {
     outline: none !important;
     border: 1px solid ${props =>
       props.errors &&
-      props.errors.length > 0 ? props.theme.error : props.theme.neutral.active
+      props.errors.length > 0 ? props.theme.signal.danger : props.theme.neutral.active
     };
   }
 `
 const ErrorMessage = styled(Text)`
-  color: ${props => props.theme.error};
+  color: ${props => props.theme.signal.danger};
   font-weight: lighter;
   font-size: 0.75em;
 `

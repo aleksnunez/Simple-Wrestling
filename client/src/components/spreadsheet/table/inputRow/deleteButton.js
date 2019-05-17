@@ -20,15 +20,18 @@ const StyledButton = styled.button`
 
   &:hover {
     width: 6em;
+
     cursor: pointer;
-    background: ${props => props.theme.error};
-    border: 0.1em solid ${props => props.theme.error};
+    color: ${props => props.theme.signal.danger};
+
+    background: ${props => props.theme.background.base};
+    border: 0.1em solid ${props => props.theme.signal.danger};
   }
 
   &:active {
     text-shadow:
-      -0.25px -0.25px 0 ${props => props.theme.background.base},
-      0.25px 0.25px 0 ${props => props.theme.background.base};
+      -0.25px -0.25px 0 ${props => props.theme.signal.danger},
+      0.25px 0.25px 0 ${props => props.theme.signal.danger};
   }
 `
 
