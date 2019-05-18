@@ -82,6 +82,7 @@ module.exports = {
   addCoach,
   addAdmin,
   addWrestler,
+  getAllWrestlers,
   deleteCoach,
   deleteAdmin,
   deleteWrestler,
