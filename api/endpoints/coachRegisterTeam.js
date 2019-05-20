@@ -8,8 +8,11 @@ router.get("/getWrestlerInformation", function(req, res) {
 
 router.post("/updateTeamroster", function(req, res) {
   const dbArray = req.body;
-  values = [user_name, dob, weight, win, lost, id];
-  db.deleteWrestlersFromTable().then(() => {
+  console.log("hello world ");
+  // values = [user_name, dob, weight, win, lost, id];
+  db.deleteWrestlersFromTable().then(result => {
+    console.log(result, "result");
+
     res.json("delete was a success");
   });
 });

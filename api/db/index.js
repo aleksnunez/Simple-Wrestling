@@ -33,7 +33,7 @@ const searchForWrestler = values =>
 const updateWrestlers = values =>
   pool.query(query.UPDATE_EXISTING_WRESTLER, values);
 
-const deleteWrestlersFromTable = () => pool.query(query.DELETE_ALL_WRESTLERS);
+const deleteWrestlersFromTable = () => pool.query(queries.DELETE_ALL_WRESTLERS);
 
 const addAdmin = (request, response) => {
   pool.query(
@@ -77,7 +77,6 @@ module.exports = {
   getAllWrestlers,
   deleteCoach,
   deleteAdmin,
-  deleteWrestler,
   searchCoach,
   searchTournament,
   createTournament,
