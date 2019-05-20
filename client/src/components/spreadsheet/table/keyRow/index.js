@@ -4,25 +4,23 @@ import styled from 'styled-components'
 import Cell from './cell'
 
 const Row = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
+
+  box-shadow: -1px 0 ${props => props.theme.primary.active};
 `
 
 const CellRow = props => {
-  const { row, data, onChange } = props
+  const { data } = props
+  const cell = (key, i) => <Cell key={i} col={key} />
 
-  const cells = Object.entries(data).map((tuple, i) => (
-      <Cell key={i} {...{row, onChange}}
-        col={tuple[0]} value={tuple[1]} />
-  ))
+  const cells = Object.keys(data).map(cell)
 
-  return (
-    <Row>
-      {cells}
-    </Row>
-  )
+  return <Row>{cells}</Row>
 }
 
 export default CellRow

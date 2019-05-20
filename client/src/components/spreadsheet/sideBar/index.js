@@ -21,10 +21,10 @@ const Wrapper = styled.div`
 const SideBar = props => {
   const { links, location } = props
   const link = (name, i) => (
-      <Link key={i} to={`/${location}/${i}`}>
-        {name}
-      </Link>
-    )
+    <Link key={i} to={`/${location}/${i}`}>
+      {name}
+    </Link>
+  )
 
   return <Wrapper>{safeMap(links, link)}</Wrapper>
 }

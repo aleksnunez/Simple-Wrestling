@@ -18,8 +18,8 @@ const Button = styled.button`
   &:active {
     border: 0.1em solid ${props => props.theme.primary.base};
     text-shadow:
-    -0.25px -0.25px 0 ${props => props.theme.primary.base},
-    0.25px 0.25px 0 ${props => props.theme.primary.base};
+      -0.25px -0.25px 0 ${props => props.theme.primary.base},
+      0.25px 0.25px 0 ${props => props.theme.primary.base};
   }
 
   &:disabled {

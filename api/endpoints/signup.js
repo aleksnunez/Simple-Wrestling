@@ -6,7 +6,8 @@ const bcrypt = require("bcrypt");
 router.post("/addCoach", (req, res) => {
   const { name, email, password } = req.body;
   const values = [name, email, password];
-  db.searchCoach(email)
+  console.log(req.body.name);
+  db.searchCoach(values[1])
     .then(query => {
       if (query.rows.length === 0) {
         bcrypt.hash(password, 10, function(err, hash) {

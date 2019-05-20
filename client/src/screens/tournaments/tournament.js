@@ -14,11 +14,12 @@ const Wrapper = styled.section`
   align-items: center;
 `
 const Image = styled.img`
-
+  width: 12em;
+  height: 12em;
+  margin: 2em;
 `
 const StyledButton = styled(Button)`
   padding: 1em 2em;
-  margin: 2em;
 `
 
 const Tournament = props => {

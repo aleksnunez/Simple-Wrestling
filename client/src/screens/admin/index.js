@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import request from 'api'
 
 import Header from 'components/header'
-import Tournaments from 'components/spreadsheet/tournaments'
+import Spreadsheet from 'components/spreadsheet'
 
 const Wrapper = styled.section`
   position: relative;
@@ -30,7 +30,8 @@ const Home = props => {
     <Wrapper>
       <Header text={'Admin Dashboard'} />
       <Row>
-        <Tournaments {...{tournaments}} />
+        <Spreadsheet name={'Tournaments'} location={'coach'}
+          data={tournaments} links={['Northern California', 'Southern California']} />
       </Row>
     </Wrapper>
   )
