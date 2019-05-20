@@ -6,6 +6,8 @@ const CREATE_ADMIN = `INSERT INTO admin (admin_name, email, password) VALUES ($1
 
 const SELECT_ALL_WRESTLERS = `SELECT * FROM wrestlers`;
 
+const DELETE_ALL_WRESTLERS = `DELETE FROM wrestlers`;
+
 const CREATE_WRESTLER = `INSERT INTO wrestlers ("user_name","dob","weight","win","lost") VALUES ($1,$2,$3,$4,$5);`;
 
 const SEARCH_FOR_EXISTING_WRESTLER = `SELECT EXISTS(SELECT * FROM WRESTLERS WHERE id = $1);`;
@@ -31,6 +33,7 @@ module.exports = {
   SEARCH_FOR_EXISTING_WRESTLER,
   UPDATE_EXISTING_WRESTLER,
   SELECT_ALL_WRESTLERS,
+  DELETE_ALL_WRESTLERS,
   REMOVE_COACH_BY_ID,
   REMOVE_ADMIN_BY_ID,
   REMOVE_WRESTLER_BY_ID,

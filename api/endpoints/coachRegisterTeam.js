@@ -6,37 +6,11 @@ router.get("/getWrestlerInformation", function(req, res) {
   res.json("hello world");
 });
 
-router.post("/addWrestler", function(req, res) {
-  const { user_name, dob, weight, win, lost } = req.body;
-  console.log(req.body.dob);
-  const values = [user_name, dob, weight, win, lost];
-  console.log(values);
-  db.addWrestler(values)
-    .then(query => {
-      console.log("at the querys ");
-      res.json(query);
-    })
-    .catch(err => {
-      console.log(err);
-      res.json(err);
-    });
-});
-
 router.post("/updateTeamroster", function(req, res) {
-  const { id, user_name, dob, weight, win, lost } = req.body;
+  const dbArray = req.body;
   values = [user_name, dob, weight, win, lost, id];
-  console.log(values);
-  db.getAllWrestlers().then(wrestlerList => {
-    console.log(wrestlerList);
-  });
-  db.searchForWrestler(values[5]).then(query => {
-    if (query) {
-      db.updateWrestlers(values).then(results => {
-        res.json(results, "pass");
-      });
-    } else {
-      res.json("does not exist");
-    }
+  db.deleteWrestlersFromTable().then(() => {
+    res.json("delete was a success");
   });
 });
 
