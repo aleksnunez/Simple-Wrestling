@@ -9,11 +9,24 @@ router.get("/getWrestlerInformation", function(req, res) {
 router.post("/updateTeamroster", function(req, res) {
   const dbArray = req.body;
   console.log("hello world ");
-  // values = [user_name, dob, weight, win, lost, id];
+  console.log(dbArray);
+  console.log(dbArray[0].user_name, "username");
+
   db.deleteWrestlersFromTable().then(result => {
     console.log(result, "result");
-
-    res.json("delete was a success");
+    for (let i = 0; i < dbArray.length; i++) {
+      const values = [
+        dbArray[i].user_name,
+        dbArray[i].dob,
+        dbArray[i].weight,
+        dbArray[i].win,
+        dbArray[i].lost
+      ];
+      console.log(values, "values");
+      db.addWrestler(values).then(addResponse => {
+        res.json(addResponse);
+      });
+    }
   });
 });
 
