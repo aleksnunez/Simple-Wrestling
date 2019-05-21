@@ -2,24 +2,34 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
-router.get("/getWrestlerInformation", function(req, res) {
-  res.json("hello world");
+router.get("/", function(req, res) {
+  db.getAllWrestlers().then(response => {
+    res.json(response);
+  });
 });
 
-router.post("/addWrestler", function(req, res) {
-  const { user_name, dob, weight } = req.body;
-  console.log(req.body.dob);
-  const values = [user_name, dob, weight, "huy@gmail.com", "password"];
-  console.log(values);
-  db.addWrestler(values)
-    .then(query => {
-      console.log("at the querys ");
-      res.json(query);
-    })
-    .catch(err => {
-      console.log(err);
-      res.json(err);
-    });
+router.post("/updateTeamroster", function(req, res) {
+  const dbArray = req.body;
+  console.log("hello world ");
+  console.log(dbArray);
+  console.log(dbArray[0].user_name, "username");
+
+  db.deleteWrestlersFromTable().then(result => {
+    console.log(result, "result");
+    for (let i = 0; i < dbArray.length; i++) {
+      const values = [
+        dbArray[i].user_name,
+        dbArray[i].dob,
+        dbArray[i].weight,
+        dbArray[i].win,
+        dbArray[i].lost
+      ];
+      console.log(values, "values");
+      db.addWrestler(values).then(addResponse => {
+        res.json(addResponse);
+      });
+    }
+  });
 });
 
 module.exports = router;
