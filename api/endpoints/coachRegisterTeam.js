@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
-router.get("/getWrestlerInformation", function(req, res) {
-  res.json("hello world");
+router.get("/", function(req, res) {
+  db.getAllWrestlers().then(response => {
+    res.json(response);
+  });
 });
 
 router.post("/updateTeamroster", function(req, res) {
