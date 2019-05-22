@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
+import tournament from 'models/tournament'
 import Header from 'components/header'
 import Spreadsheet from 'components/spreadsheet'
 import JoinRequests from 'components/lists/joinRequests'
@@ -49,7 +50,8 @@ const Home = props => {
       <Header text={'Admin Dashboard'} />
       <Row>
         <Spreadsheet name={'Tournaments'} location={'coach'}
-          data={tournaments} links={['Northern California', 'Southern California']} />
+          data={tournaments} links={['Northern California', 'Southern California']}
+          defaultRow={tournament} />
       </Row>
       <JoinRequests data={joinRequests} {...{accept, reject}} />
     </Wrapper>

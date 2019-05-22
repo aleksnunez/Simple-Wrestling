@@ -44,7 +44,7 @@ const ValidatedInput = props => {
   return (
     <InputWrapper>
       <Text margin='0 0 0.5em'>
-        {`${uppercaseFirst(name)}${required ? '*' : ''}`}
+        {`${uppercaseFirst(name)}${required ? '' : ' (optional)'}`}
       </Text>
       <Input {...props} />
       {safeMap(errors, error)}

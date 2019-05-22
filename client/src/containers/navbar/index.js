@@ -7,9 +7,10 @@ import Logo from "./logo";
 
 const Row = styled.div`
   display: flex;
+  flex-flow: row wrap;
   align-items: flex-start;
   justify-content: space-evenly;
-`;
+`
 const Nav = styled(Row)`
   flex-wrap: wrap;
   align-items: center;
@@ -28,8 +29,6 @@ const NavBar = props => {
       <Row>
         <Link to="/tournaments">Tournaments</Link>
         <Link to="/about">About</Link>
-      </Row>
-      <Row>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign up</Link>
       </Row>
