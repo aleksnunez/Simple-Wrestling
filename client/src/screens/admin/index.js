@@ -10,7 +10,7 @@ const Wrapper = styled.section`
   position: relative;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  align-items: center;
 `
 const Row = styled.div`
   display: flex;
@@ -30,10 +30,18 @@ const Home = props => {
     .catch(err => new Error(err))
   }, [])
 
+  const accept = request => {
+    console.log(request)
+  }
+
+  const reject = request => {
+    console.log(request)
+  }
+
   const joinRequests = [
-    {coach: 'jon'},
-    {coach: 'ned'},
-    {coach: 'rob'}
+    {coach: 'jon', team: "shit", tournament: "poop"},
+    {coach: 'ned', team: "shitty", tournament: "poopy"},
+    {coach: 'rob', team: "shitter", tournament: "pooper"}
   ]
 
   return (
@@ -43,7 +51,7 @@ const Home = props => {
         <Spreadsheet name={'Tournaments'} location={'coach'}
           data={tournaments} links={['Northern California', 'Southern California']} />
       </Row>
-      <JoinRequests data={joinRequests} />
+      <JoinRequests data={joinRequests} {...{accept, reject}} />
     </Wrapper>
   )
 }

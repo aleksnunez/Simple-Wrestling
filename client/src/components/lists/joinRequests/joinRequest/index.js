@@ -1,15 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+import Label from './label'
+import Button from './button'
 
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+const Wrapper = styled(Buttons)`
+  margin: 1em;
 `
 
 const JoinTournamentRequests = props => {
-  const { team } = props
+  const { request, accept, reject } = props
   return (
     <Wrapper>
-      {JSON.stringify(team)}
+      <Label {...{request}} />
+      <Buttons>
+        <Button onClick={accept} {...{request}}>
+          Accept
+        </Button>
+        <Button onClick={reject} {...{request}}>
+          Reject
+        </Button>
+      </Buttons>
     </Wrapper>
   )
 }

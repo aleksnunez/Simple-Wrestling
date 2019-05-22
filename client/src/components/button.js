@@ -4,7 +4,7 @@ const Button = styled.button`
   color: ${props => props.theme.background.base};
 
   background: ${props => props.theme.primary.base};
-  border: 0.05em solid ${props => props.theme.primary.base};
+  border: 0.1em solid ${props => props.theme.primary.base};
   border-radius: 0.2em;
 
   transition: ${props => props.theme.transition};
