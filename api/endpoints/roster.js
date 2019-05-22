@@ -8,10 +8,9 @@ router.get("/:id?", function(req, res) {
   });
 });
 
-router.post("/updateTeamroster", function(req, res) {
-  console.log('updateTeamroster')
+router.post("/update/:id?", function(req, res) {
   const dbArray = req.body;
-  console.log(dbArray)
+
   db.deleteWrestlersFromTable()
     .then(result => {
       console.log(result, "result");

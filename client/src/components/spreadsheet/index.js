@@ -17,7 +17,7 @@ const Form = styled.form`
 
 const Spreadsheet = props => {
   const { name, data, links, location, defaultRow } = props
-
+  console.log(data)
   const [form, setForm] = useState({})
   useEffect(() => {
     setForm({...form, ...data})
@@ -38,11 +38,9 @@ const Spreadsheet = props => {
 
   const save = (e) => {
     e.preventDefault()
-    // console.log('saving')
-    // console.log('body', Object.values(form))
     request({
-      endpoint: '/api/coachTeamRegisteration/updateTeamroster',
-      body: Object.values(form)
+      endpoint: '/api/roster/update',
+      body: JSON.stringify(Object.values(form))
     })
       .then(res => console.log(res))
       .catch(err => new Error(err))

@@ -1,9 +1,9 @@
 const wrestler = {
-  user_name: '',
+  name: '',
   dob: '',
   weight: 0,
   win: 0,
-  lost: 0
+  loss: 0
 }
 
 export default wrestler

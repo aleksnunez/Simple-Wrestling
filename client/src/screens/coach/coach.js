@@ -23,7 +23,7 @@ const Home = ({ match }) => {
   useEffect(() => {
     const rosterID = match.params.id ? match.params.id : '0'
     request({
-      endpoint: `/api/coachteamregisteration/${rosterID}`,
+      endpoint: `/api/roster/${rosterID}`,
       method: 'GET'
     })
       .then(res => setTeam(res))
