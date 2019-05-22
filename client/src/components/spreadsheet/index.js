@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import lastOf from 'util/lastOf'
-import Button from 'components/button'
 import SideBar from './sideBar'
 import Table from './table'
 
@@ -39,7 +38,7 @@ const Spreadsheet = props => {
 
   const displayForm = (e) => {
     e.preventDefault()
-    console.log(form)
+    alert(`${name} Saved`)
   }
 
   const removeRow = row => {
@@ -48,7 +47,8 @@ const Spreadsheet = props => {
     setForm({...Object.values(form)})
   }
 
-  const addRow = () => {
+  const addRow = (e) => {
+    e.preventDefault()
     const defaultRow = () => ({name: '', age: '', weight: ''})
     const copyRow = oldForm => {
       const clearValues = (acc, curr) => ({...acc, [curr]: ''})
@@ -65,8 +65,7 @@ const Spreadsheet = props => {
     <Form>
       <SideBar {...{location, links}} />
       <Table title={name ? `${name} Dashboard` : '...'}
-        data={form} {...{onChange, removeRow, addRow}} />
-      <Button onClick={displayForm}>Save</Button>
+        data={form} {...{onChange, removeRow, addRow, displayForm}} />
     </Form>
   )
 }
