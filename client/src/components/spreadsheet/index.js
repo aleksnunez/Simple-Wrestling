@@ -38,6 +38,7 @@ const Spreadsheet = props => {
 
   const displayForm = (e) => {
     e.preventDefault()
+    console.log(Object.values(form))
     alert(`${name} Saved`)
   }
 

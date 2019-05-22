@@ -4,14 +4,18 @@ import request from 'api'
 
 import Header from 'components/header'
 import Spreadsheet from 'components/spreadsheet'
+import JoinRequests from 'components/lists/joinRequests'
 
 const Wrapper = styled.section`
   position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 `
 const Row = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  align-items: center;
 `
 
 const Home = props => {
@@ -26,6 +30,12 @@ const Home = props => {
     .catch(err => new Error(err))
   }, [])
 
+  const joinRequests = [
+    {coach: 'jon'},
+    {coach: 'ned'},
+    {coach: 'rob'}
+  ]
+
   return (
     <Wrapper>
       <Header text={'Admin Dashboard'} />
@@ -33,6 +43,7 @@ const Home = props => {
         <Spreadsheet name={'Tournaments'} location={'coach'}
           data={tournaments} links={['Northern California', 'Southern California']} />
       </Row>
+      <JoinRequests data={joinRequests} />
     </Wrapper>
   )
 }
