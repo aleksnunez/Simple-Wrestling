@@ -6,7 +6,7 @@ const background = {base: '#ffffff', active: '#828282'}
 const neutral = {base: '#828282', active: '#333333'}
 const primary = {base: '#1D2951', active: '#4C516D'}
 const transition = 'all 0.25s'
-const error = 'red'
+const signal = {danger: 'red', success: 'green'}
 
 const light = {
   logo: logo,
@@ -14,7 +14,7 @@ const light = {
   background: {...background},
   neutral: {...neutral},
   primary: {...primary},
-  error,
+  signal,
   transition
 }
 
@@ -24,7 +24,7 @@ const dark = {
   background: {...foreground},
   neutral: {...neutral},
   primary: {...background},
-  error,
+  signal,
   transition
 }
 

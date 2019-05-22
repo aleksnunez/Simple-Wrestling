@@ -8,7 +8,7 @@ const Image = styled.img`
   width: 6em;
   height: 6em;
   margin: 5em 5em 0 5em;
-  z-index: 500;
+  z-index: 2;
 `
 
 const Picture = props => <Image src={props.picture} />

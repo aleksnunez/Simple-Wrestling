@@ -1,11 +1,11 @@
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import request from 'api'
 
-import Header from './header'
 import SideBar from './sideBar'
 import Table from './table'
-import CellRow from './cellRow'
 
-const Wrapper = styled.form`
+const Form = styled.form`
   position: relative;
 
   display: flex;
@@ -15,4 +15,54 @@ const Wrapper = styled.form`
   margin: 1em 5vw;
 `
 
-export { Wrapper, Header, SideBar, Table, CellRow }
+const Spreadsheet = props => {
+  const { name, data, links, location, defaultRow } = props
+  console.log(data)
+  const [form, setForm] = useState({})
+  useEffect(() => {
+    setForm({...form, ...data})
+  }, [data])
+
+  const onChange = (e) => {
+    const { row, col } = e.target.dataset
+    const { value } = e.target
+
+    setForm({
+      ...form,
+      [row]: {
+        ...form[row],
+        [col.toLowerCase()]: value
+      }
+    })
+  }
+
+  const save = (e) => {
+    e.preventDefault()
+    request({
+      endpoint: '/api/roster/update',
+      body: JSON.stringify(Object.values(form))
+    })
+      .then(res => console.log(res))
+      .catch(err => new Error(err))
+  }
+
+  const removeRow = row => {
+    delete form[row]
+    setForm({...Object.values(form)})
+  }
+
+  const addRow = (e) => {
+    e.preventDefault()
+    setForm({...[...Object.values(form), defaultRow]})
+  }
+
+  return (
+    <Form>
+      <SideBar {...{location, links}} />
+      <Table title={name ? `${name} Dashboard` : '...'}
+        data={form} {...{onChange, removeRow, addRow, save}} />
+    </Form>
+  )
+}
+
+export default Spreadsheet

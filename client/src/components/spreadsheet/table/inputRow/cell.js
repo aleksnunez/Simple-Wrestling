@@ -1,29 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import uppercaseFirst from 'util/uppercaseFirst'
+import Wrapper from '../cell'
 
-const Wrapper = styled.div`
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  height: 3em;
-  width: 15vw;
-  min-width: 6rem;
-
-  background: ${props => props.theme.background.base};
-  border-top: 1px solid ${props => props.theme.background.base};
-  border-left: 1px solid ${props => props.theme.background.base};
-  border-bottom: 1px solid ${props => props.theme.primary.active};
-  border-right: 1px solid ${props => props.theme.primary.active};
-  border-radius: 0;
-
-  color: ${props => props.theme.foreground.base};
-  font-size: 0.8rem;
-`
 const Hoverable = styled(Wrapper)`
   &:hover, &:focus {
     outline: 2px solid ${props => props.theme.primary.active};
@@ -57,10 +36,6 @@ const Input = styled.input`
   border: 1px dotted ${props => props.theme.primary.active};
   outline: none !important;
 `
-const Key = styled.div`
-`
-const Value = styled.div`
-`
 
 const Cell = props => {
   const { onChange, row, col, value } = props
@@ -87,7 +62,7 @@ const Cell = props => {
       return (
         <Wrapper>
           <Input autoFocus
-            type='text' name={JSON.stringify({row: row, col: col})}
+            type='text' data-row={row} data-col={col}
             value={value} onChange={onChange} onBlur={close}
             onKeyDown={onKeyDown} />
         </Wrapper>
@@ -95,8 +70,7 @@ const Cell = props => {
     }
     return (
       <Hoverable onClick={open}>
-        <Key>{uppercaseFirst(col)}</Key>
-        <Value>{value}</Value>
+        {value}
       </Hoverable>
     )
   }
