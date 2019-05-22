@@ -4,7 +4,7 @@ const SEARCH_FOR_UNIQUE_COACH_EMAIL = `SELECT * FROM coaches WHERE email = $1`;
 
 const CREATE_ADMIN = `INSERT INTO admin (admin_name, email, password) VALUES ($1, $2, $3) RETURNING coach_name`;
 
-const CREATE_WRESTLER = `INSERT INTO wrestlers ("user_name","dob","weight","email","password") VALUES ($1,$2,$3,$4,$5);`;
+const CREATE_WRESTLER = `INSERT INTO wrestlers ("user_name","dob","weight","win","lost") VALUES ($1,$2,$3,$4,$5);`;
 
 const REMOVE_COACH_BY_ID = `DELETE FROM coaches WHERE id = $1`;
 
