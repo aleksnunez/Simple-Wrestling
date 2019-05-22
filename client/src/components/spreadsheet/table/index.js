@@ -24,7 +24,7 @@ const Buttons = styled.div`
 `
 
 const Table = props => {
-  const { data, title, onChange, removeRow, addRow, displayForm } = props
+  const { data, title, onChange, removeRow, addRow, save } = props
   const [headers, setHeaders] = useState([])
 
   useEffect(() => setHeaders(shouldShowHeaders(data)), [props.data])
@@ -54,7 +54,7 @@ const Table = props => {
       </ReactPlaceholder>
       <Buttons>
         <AddRow onClick={addRow} />
-        <Save onClick={displayForm} />
+        <Save onClick={save} />
       </Buttons>
     </Wrapper>
   )

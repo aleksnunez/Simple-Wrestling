@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import request from 'api'
 
-import lastOf from 'util/lastOf'
 import SideBar from './sideBar'
 import Table from './table'
 
@@ -16,7 +16,7 @@ const Form = styled.form`
 `
 
 const Spreadsheet = props => {
-  const { name, data, links, location } = props
+  const { name, data, links, location, defaultRow } = props
 
   const [form, setForm] = useState({})
   useEffect(() => {
@@ -36,37 +36,33 @@ const Spreadsheet = props => {
     })
   }
 
-  const displayForm = (e) => {
+  const save = (e) => {
     e.preventDefault()
-    console.log(Object.values(form))
-    alert(`${name} Saved`)
+    // console.log('saving')
+    // console.log('body', Object.values(form))
+    request({
+      endpoint: '/api/coachTeamRegisteration/updateTeamroster',
+      body: Object.values(form)
+    })
+      .then(res => console.log(res))
+      .catch(err => new Error(err))
   }
 
   const removeRow = row => {
     delete form[row]
-    // form is converted to an array before spreading to reindex
     setForm({...Object.values(form)})
   }
 
   const addRow = (e) => {
     e.preventDefault()
-    const defaultRow = () => ({name: '', age: '', weight: ''})
-    const copyRow = oldForm => {
-      const clearValues = (acc, curr) => ({...acc, [curr]: ''})
-      return Object.keys(lastOf(oldForm)).reduce(clearValues, {})
-    }
-
-    const oldForm = Object.values(form)
-    const newRow = oldForm.length === 0 ? defaultRow() : copyRow(oldForm)
-    // form is converted to an array before spreading to reindex
-    setForm({...[...oldForm, newRow]})
+    setForm({...[...Object.values(form), defaultRow]})
   }
 
   return (
     <Form>
       <SideBar {...{location, links}} />
       <Table title={name ? `${name} Dashboard` : '...'}
-        data={form} {...{onChange, removeRow, addRow, displayForm}} />
+        data={form} {...{onChange, removeRow, addRow, save}} />
     </Form>
   )
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
+import wrestler from 'models/wrestler'
 import Header from 'components/header'
 import Spreadsheet from 'components/spreadsheet'
 
@@ -22,10 +23,10 @@ const Home = ({ match }) => {
   useEffect(() => {
     const rosterID = match.params.id ? match.params.id : '0'
     request({
-      endpoint: 'https://my-json-server.typicode.com/swabisan/demo/Coach',
+      endpoint: `/api/coachteamregisteration/${rosterID}`,
       method: 'GET'
     })
-      .then(res => setTeam(res[0]))
+      .then(res => setTeam(res))
       .catch(err => new Error(err))
   }, [match.params.id])
 
@@ -43,7 +44,7 @@ const Home = ({ match }) => {
       <Header text={'Coach Dashboard'} />
       <Row>
         <Spreadsheet name={name} location={'coach'}
-          data={roster} links={teams} />
+          data={roster} links={teams} defaultRow={wrestler} />
       </Row>
     </Wrapper>
   )
