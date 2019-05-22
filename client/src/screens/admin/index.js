@@ -49,7 +49,7 @@ const Home = props => {
     <Wrapper>
       <Header text={'Admin Dashboard'} />
       <Row>
-        <Spreadsheet name={'Tournaments'} location={'coach'}
+        <Spreadsheet name={'Tournaments'} location={'admin'}
           data={tournaments} links={['Northern California', 'Southern California']}
           defaultRow={tournament} />
       </Row>
