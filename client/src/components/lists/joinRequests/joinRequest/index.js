@@ -9,6 +9,7 @@ const JoinTournamentRequests = props => {
   const { team } = props
   return (
     <Wrapper>
+      {JSON.stringify(team)}
     </Wrapper>
   )
 }

@@ -11,9 +11,10 @@ const Wrapper = styled.div`
 const JoinTournamentRequests = props => {
   const { data } = props
   const joinRequest = (team, i) =>
-    <JoinRequest />
+    <JoinRequest team={team} key={i} />
   return (
     <Wrapper>
+      {safeMap(data, joinRequest)}
     </Wrapper>
   )
 }
