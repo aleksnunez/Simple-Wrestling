@@ -23,7 +23,17 @@ const getTournaments = () => pool.query(queries.SELECT_ALL_TOURNAMENTS);
 const createTournament = values =>
   pool.query(queries.CREATE_TOURNAMENT, values);
 
+const getAllWrestlers = () => pool.query(queries.SELECT_ALL_WRESTLERS);
+
 const addWrestler = values => pool.query(queries.CREATE_WRESTLER, values);
+
+const searchForWrestler = values =>
+  pool.query(queries.SEARCH_FOR_EXISTING_WRESTLER, [values[5]]);
+
+const updateWrestlers = values =>
+  pool.query(query.UPDATE_EXISTING_WRESTLER, values);
+
+const deleteWrestlersFromTable = () => pool.query(queries.DELETE_ALL_WRESTLERS);
 
 const addAdmin = (request, response) => {
   pool.query(
@@ -59,26 +69,18 @@ const deleteAdmin = (request, response) => {
   });
 };
 
-const deleteWrestler = (request, response) => {
-  const id = parseInt(request.params.id);
-
-  pool.query(REMOVE_WRESTLER_BY_ID, [id], (error, results) => {
-    if (error) {
-      throw error;
-    }
-    response.status(200).send(`User deleted with ID: ${id}`);
-  });
-};
-
 module.exports = {
   addCoach,
   addAdmin,
   addWrestler,
+  deleteWrestlersFromTable,
+  getAllWrestlers,
   deleteCoach,
   deleteAdmin,
-  deleteWrestler,
   searchCoach,
   searchTournament,
   createTournament,
-  getTournaments
+  getTournaments,
+  searchForWrestler,
+  updateWrestlers
 };
