@@ -1,32 +1,34 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
-router.get('/getAdminHomePage', function (req, res) {
-  let body ={
-    TournamentName:'joe',
-    Location:'SFSU wrestling club',
-    WrestlingStyle:'San Francisco State University',
-    DateStart:'04/04/19',
-    DateEnd: '04/05/19',
-    TournamentFlier: '',
+router.get("/getAdminHomePage", function(req, res) {
+  let body = {
+    TournamentName: "joe",
+    Location: "SFSU wrestling club",
+    WrestlingStyle: "San Francisco State University",
+    DateStart: "04/04/19",
+    DateEnd: "04/05/19",
+    TournamentFlier: "",
     NumberOfWrestlers: 10,
-    Notes:'this is a note'
-  }
+    Notes: "this is a note"
+  };
   res.json(body);
-})
+});
 
-router.post('/postAdminHomePage', function (req,res){
-  let body ={
-    TournamentName:'joe ',
-    Location:'SFSU wrestling club',
-    WrestlingStyle:'San Francisco State University',
-    DateStart:'04/04/19',
-    DateEnd: '04/05/19',
-    TournamentFlier: '',
+router.post("/postAdminHomePage", function(req, res) {
+  let body = {
+    TournamentName: "joe ",
+    Location: "SFSU wrestling club",
+    WrestlingStyle: "San Francisco State University",
+    DateStart: "04/04/19",
+    DateEnd: "04/05/19",
+    TournamentFlier: "",
     NumberOfWrestlers: 10,
-    Notes:'this is a note'
-  }
+    Notes: "this is a note"
+  };
   res.json(body);
-})
-
+});
+router.post("populateTournament", function(req, res) {
+  res.json("");
+});
 module.exports = router;

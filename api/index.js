@@ -12,6 +12,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRETS));
 app.use(express.static("../client/build"));
+app.use(
+  cors({
+    credentials: true
+  })
+);
 
 app.use(passport.initialize());
 passport.use(passport.session());

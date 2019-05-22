@@ -11,33 +11,31 @@ const LocalStrategy = require("passport-local").Strategy;
 
 router.post("/", function(req, res) {
   const { email, password } = req.body;
-  if (validUser(req.body)) {
-    db.searchCoach(email)
-      .then(query => {
-        bcrypt.compare(password, query.rows[0].password, function(err, result) {
-          if (result) {
-            res.cookie("user_id", query.rows[0].id, {
-              httpOnly: true,
-              signed: true,
-              secure: false
-            });
-            res.json({
-              message: "logged in "
-            });
-          } else {
-            res.json({
-              message: "invalid login"
-            });
-          }
-        });
-      })
-      .catch(err => {
-        console.error(err.stack, "\n error in hash");
-        res.json(err);
+  const isSecure = req.app.get("env") != "development";
+  db.searchCoach([email])
+    .then(query => {
+      bcrypt.compare(password, query.rows[0].password, function(err, result) {
+        if (result) {
+          res.cookie("user_id", query.rows[0].id, {
+            httpOnly: true,
+            signed: true,
+            secure: true
+          });
+          console.log("logged in");
+          res.json({
+            message: "logged in "
+          });
+        } else {
+          res.json({
+            message: "invalid login"
+          });
+        }
       });
-  } else {
-    console.log("invalid login ");
-  }
+    })
+    .catch(err => {
+      console.error(err.stack, "\n error in hash");
+      res.json(err);
+    });
 });
 
 module.exports = router;
