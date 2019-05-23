@@ -19,12 +19,12 @@ const StyledLink = styled.a`
 const Social = (props) => {
   const { github } = props
 
-  const SKELETON = {
+  const settings = {
     type: 'round',
     color: '#C4C4C4',
     ready: github ? github.includes('https://github.com/') : false,
     style: {
-      position: 'absolute', left: '100%', 
+      position: 'absolute', left: '100%',
       width: '2em', height: '2em',
       margin: '0.5em'
     },
@@ -32,7 +32,7 @@ const Social = (props) => {
   }
 
   return (
-    <ReactPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...settings}>
       <StyledLink href={github} target='_blank'><StyledGitHub /></StyledLink>
     </ReactPlaceholder>
   )

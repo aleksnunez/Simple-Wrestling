@@ -17,20 +17,20 @@ const Wrapper = styled.div`
 const Header = (props) => {
   const { name } = props
 
-  const SKELETON = {
+  const settings = {
     type: 'text',
     rows: 1,
     color: '#C4C4C4',
     ready: name ? true : false,
     style: {
-      position: 'absolute', left: '40%', 
+      position: 'absolute', left: '40%',
       width: '60%', height: '2em'
     },
     showLoadingAnimation: true
   }
 
   return (
-    <ReactPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...settings}>
       <Wrapper>
         <Name>{name}</Name>
       </Wrapper>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
-import styled, { withTheme} from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import safeMap from 'util/safeMap'
 import shouldShowHeaders from './shouldShowHeaders'
@@ -38,7 +38,7 @@ const Table = props => {
     )
   }
 
-  const SKELETON = {
+  const settings = {
     type: 'rect',
     color: '#C4C4C4',
     ready: data ? true : false,
@@ -49,7 +49,7 @@ const Table = props => {
   return (
     <Wrapper>
       <Header title={title} />
-      <ReactPlaceholder {...SKELETON}>
+      <ReactPlaceholder {...settings}>
         {safeMap(Object.entries(data), row)}
       </ReactPlaceholder>
       <Buttons>
