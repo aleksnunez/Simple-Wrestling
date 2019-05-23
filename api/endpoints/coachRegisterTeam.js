@@ -10,10 +10,6 @@ router.get("/", function(req, res) {
 
 router.post("/updateTeamroster", function(req, res) {
   const dbArray = req.body;
-  console.log("hello world ");
-  console.log(dbArray);
-  console.log(dbArray[0].user_name, "username");
-
   db.deleteWrestlersFromTable().then(result => {
     console.log(result, "result");
     for (let i = 0; i < dbArray.length; i++) {
