@@ -5,6 +5,8 @@ const db = require("../db");
 router.post("/dashboard", function(req, res) {
   const { name, location, picture, background } = req.body;
   const values = [name, location, picture, background, 1];
+  //jwt
+  //
   db.getTournaments()
     .then(tournaments => {
       res.json(tournaments);
