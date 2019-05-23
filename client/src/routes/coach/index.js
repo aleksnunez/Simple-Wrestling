@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   Route,
-  Switch
+  Switch,
+  withRouter
 } from 'react-router-dom'
 
 import Coach from './coach'
@@ -15,4 +16,4 @@ const HomeRouter = ({ match }) => {
   )
 }
 
-export default HomeRouter
+export default withRouter(HomeRouter)
