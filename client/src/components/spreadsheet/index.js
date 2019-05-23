@@ -17,7 +17,7 @@ const Form = styled.form`
 
 const Spreadsheet = props => {
   const { name, data, links, location, defaultRow } = props
-  console.log(data)
+
   const [form, setForm] = useState({})
   useEffect(() => {
     setForm({...form, ...data})
