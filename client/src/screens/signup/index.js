@@ -33,7 +33,7 @@ const SignUp = props => {
       endpoint: '/api/signup/addCoach',
       body: JSON.stringify(formData)
     }, handleErrors)
-      .then(res => console.log(res))
+      .then(res => alert('Signed up!'))
       .catch(err => new Error(err))
   }
 
@@ -43,7 +43,6 @@ const SignUp = props => {
     }
     if (res.status === 500) {
       alert(`500 ${res.statusText}`)
-      return res
     }
     return res.status === 200 ? res : new Error(res)
   }
