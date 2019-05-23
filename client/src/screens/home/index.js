@@ -3,14 +3,24 @@ import styled from 'styled-components'
 import request from 'api'
 
 import Header from 'components/header'
-import Text from 'components/text'
+import Carousel from 'components/carousel'
 
 const Wrapper = styled.section`
   position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+`
+const Row = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+
+  width: 75vw;
 `
 
 const Home = props => {
-  const [data, setData] = useState()
+  const [data, setData] = useState({})
 
   useEffect(() => {
     request({endpoint: '/api/home/', method: 'GET'})
@@ -18,14 +28,12 @@ const Home = props => {
     .catch(err => new Error(err))
   }, [])
 
-  // console.table(data)
-
   return (
     <Wrapper>
       <Header text={'Home'} />
-      <Text>
-        {JSON.stringify(data)}
-      </Text>
+      <Row>
+        <Carousel images={data.mainCarousel} />
+      </Row>
     </Wrapper>
   )
 }

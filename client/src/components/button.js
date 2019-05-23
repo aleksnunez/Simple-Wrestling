@@ -4,7 +4,7 @@ const Button = styled.button`
   color: ${props => props.theme.background.base};
 
   background: ${props => props.theme.primary.base};
-  border: 0.05em solid ${props => props.theme.primary.base};
+  border: 0.1em solid ${props => props.theme.primary.base};
   border-radius: 0.2em;
 
   transition: ${props => props.theme.transition};
@@ -18,8 +18,8 @@ const Button = styled.button`
   &:active {
     border: 0.1em solid ${props => props.theme.primary.base};
     text-shadow:
-    -0.25px -0.25px 0 ${props => props.theme.primary.base},
-    0.25px 0.25px 0 ${props => props.theme.primary.base};
+      -0.25px -0.25px 0 ${props => props.theme.primary.base},
+      0.25px 0.25px 0 ${props => props.theme.primary.base};
   }
 
   &:disabled {

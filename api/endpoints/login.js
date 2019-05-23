@@ -23,7 +23,8 @@ router.post("/", function(req, res) {
             result
           ) {
             if (result) {
-              return done(null, email);
+              console.log(result);
+              return done(null, result);
             } else {
               res.status(400).json({ error: "error" });
             }
