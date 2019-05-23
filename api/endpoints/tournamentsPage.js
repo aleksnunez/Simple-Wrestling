@@ -25,8 +25,7 @@ router.get("/:search/", function(req, res) {
 
 router.post("/createTournament", function(req, res) {
   const { tournament_name, location, admin_id } = req.body;
-  const values = [tournament_name, location, admin_id];
-
+  const values = [tournament_name, location, picture, background, admin_id];
   db.createTournament(values)
     .then(query => {
       console.log(query);

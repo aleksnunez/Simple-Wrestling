@@ -3,23 +3,27 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const port = process.env.PORT || 5000;
 const endpoints = require("./endpoints");
 const passport = require("passport");
+const session = require("express-session");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRETS));
 app.use(express.static("../client/build"));
-// app.use(
-//   cors({
-//     credentials: true
-//   })
-// );
 
+app.use(
+  session({
+    secret: "secretsession",
+    resave: true,
+    saveUninitialized: true
+  })
+);
 app.use(passport.initialize());
-passport.use(passport.session());
+app.use(passport.session());
 
 app.use("/api", endpoints);
 
