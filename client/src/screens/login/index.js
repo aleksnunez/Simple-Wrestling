@@ -31,10 +31,20 @@ const Login = props => {
     request({
       endpoint: '/api/login',
       body: JSON.stringify(formData)
-    })
-      .then(res => alert(JSON.stringify(res)))
+    }, handleErrors)
+      .then(res => storeAuthToken(res))
       .catch(err => new Error(err))
   }
+
+  const handleErrors = res => {
+    if (res.status === 400) {
+      alert('Auth Failed')
+    }
+    return res.status === 200 ? res : new Error(res)
+  }
+
+  const storeAuthToken = token =>
+    localStorage.setItem('authToken', token)
 
   return (
     <Col>

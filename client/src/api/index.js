@@ -1,4 +1,6 @@
-const request = ({endpoint, body, method='POST', headers='application/json'}) => {
+const request = (
+  {endpoint, body, method='POST', headers='application/json'},
+  handleErrors=defaultHandleErrrors) => {
   const newHeaders = new Headers()
 
   if (headers) {
@@ -11,8 +13,13 @@ const request = ({endpoint, body, method='POST', headers='application/json'}) =>
       headers: newHeaders,
       body: body
     })
+    .then(res => handleErrors(res))
     .then(res => res.json())
   )
+}
+
+const defaultHandleErrrors = res => {
+  return res.status === 200 ? res : new Error(res)
 }
 
 export default request
