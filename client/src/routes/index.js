@@ -5,17 +5,18 @@ import {
   Switch
 } from 'react-router-dom'
 
+import PrivateRoute from './privateRoute'
 import NavBar from 'containers/navbar'
-import NotFound from './notFound'
 import Spinner from 'components/spinner'
+import NotFound from 'screens/notFound'
 
-const Home        = lazy(() => import('./home'))
-const Coach       = lazy(() => import('./coach'))
-const Admin       = lazy(() => import('./admin'))
-const Login       = lazy(() => import('./login'))
-const SignUp      = lazy(() => import('./signup'))
-const About       = lazy(() => import('./about'))
-const Tournaments = lazy(() => import('./tournaments'))
+const Home        = lazy(() => import('screens/home'))
+const Coach       = lazy(() => import('screens/coach'))
+const Admin       = lazy(() => import('screens/admin'))
+const Login       = lazy(() => import('screens/login'))
+const SignUp      = lazy(() => import('screens/signup'))
+const About       = lazy(() => import('screens/about'))
+const Tournaments = lazy(() => import('screens/tournaments'))
 
 const Routes = props => {
   return (
@@ -28,16 +29,16 @@ const Routes = props => {
               <Home />
             </Suspense>
           </Route>
-          <Route path='/coach'>
+          <PrivateRoute path='/coach' component={() => (
             <Suspense fallback={<Spinner />}>
               <Coach />
             </Suspense>
-          </Route>
-          <Route path='/admin'>
+          )}/>
+          <PrivateRoute path='/admin' component={() => (
             <Suspense fallback={<Spinner />}>
               <Admin />
             </Suspense>
-          </Route>
+          )} />
           <Route exact path='/login'>
             <Suspense fallback={<Spinner />}>
               <Login />

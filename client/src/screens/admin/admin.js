@@ -19,17 +19,20 @@ const Row = styled.div`
   align-items: center;
 `
 
-const Home = props => {
-  const [tournaments, setTournaments] = useState([])
+const Home = ({ match }) => {
+  const [region, setRegion] = useState([])
+  const { name, tournaments } = region
+  console.log(region)
 
   useEffect(() => {
+    const regionID = match.params.id ? match.params.id : '0'
     request({
-      endpoint: 'https://my-json-server.typicode.com/swabisan/demo/Tournaments',
+      endpoint: `/api/admin/${regionID}`,
       method: 'GET'
     })
-    .then(res => setTournaments([...res]))
+    .then(res => setRegion(res))
     .catch(err => new Error(err))
-  }, [])
+  }, [match.params.id])
 
   const accept = request => {
     console.log(request)
@@ -37,6 +40,16 @@ const Home = props => {
 
   const reject = request => {
     console.log(request)
+  }
+
+  const update = body => {
+    console.log(body)
+    request({
+      endpoint: '/api/admin/update',
+      body: JSON.stringify(body)
+    })
+      .then(res => console.log(res))
+      .catch(err => new Error(err))
   }
 
   const joinRequests = [
@@ -49,9 +62,9 @@ const Home = props => {
     <Wrapper>
       <Header text={'Admin Dashboard'} />
       <Row>
-        <Spreadsheet name={'Tournaments'} location={'admin'}
+        <Spreadsheet name={name} location={'admin'}
           data={tournaments} links={['Northern California', 'Southern California']}
-          defaultRow={tournament} />
+          defaultRow={tournament} update={update} />
       </Row>
       <JoinRequests data={joinRequests} {...{accept, reject}} />
     </Wrapper>

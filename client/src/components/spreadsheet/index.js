@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import request from 'api'
 
 import SideBar from './sideBar'
 import Table from './table'
@@ -16,7 +15,7 @@ const Form = styled.form`
 `
 
 const Spreadsheet = props => {
-  const { name, data, links, location, defaultRow } = props
+  const { name, data, links, location, defaultRow, update } = props
 
   const [form, setForm] = useState({})
   useEffect(() => {
@@ -38,12 +37,7 @@ const Spreadsheet = props => {
 
   const save = (e) => {
     e.preventDefault()
-    request({
-      endpoint: '/api/roster/update',
-      body: JSON.stringify(Object.values(form))
-    })
-      .then(res => console.log(res))
-      .catch(err => new Error(err))
+    update(Object.values(form))
   }
 
   const removeRow = row => {

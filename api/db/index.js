@@ -18,9 +18,9 @@ const searchCoach = values =>
 const searchTournament = values =>
   pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, values);
 
-const getTournaments = () => pool.query(queries.SELECT_ALL_TOURNAMENTS);
+const getAllTournaments = () => pool.query(queries.SELECT_ALL_TOURNAMENTS);
 
-const createTournament = values =>
+const addTournament = values =>
   pool.query(queries.CREATE_TOURNAMENT, values);
 
 const getAllWrestlers = () => pool.query(queries.SELECT_ALL_WRESTLERS);
@@ -34,6 +34,8 @@ const updateWrestlers = values =>
   pool.query(query.UPDATE_EXISTING_WRESTLER, values);
 
 const deleteWrestlersFromTable = () => pool.query(queries.DELETE_ALL_WRESTLERS);
+
+const deleteTournamentsFromTable = () => pool.query(queries.DELETE_ALL_TOURNAMENTS);
 
 const addAdmin = (request, response) => {
   pool.query(
@@ -74,13 +76,14 @@ module.exports = {
   addAdmin,
   addWrestler,
   deleteWrestlersFromTable,
+  deleteTournamentsFromTable,
   getAllWrestlers,
   deleteCoach,
   deleteAdmin,
   searchCoach,
   searchTournament,
-  createTournament,
-  getTournaments,
+  addTournament,
+  getAllTournaments,
   searchForWrestler,
   updateWrestlers
 };
