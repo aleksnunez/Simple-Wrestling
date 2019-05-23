@@ -32,9 +32,20 @@ const SignUp = props => {
     request({
       endpoint: '/api/signup/addCoach',
       body: JSON.stringify(formData)
-    })
+    }, handleErrors)
       .then(res => console.log(res))
       .catch(err => new Error(err))
+  }
+
+  const handleErrors = res => {
+    if (res.status === 400) {
+      alert('Account already exists!')
+    }
+    if (res.status === 500) {
+      alert(`500 ${res.statusText}`)
+      return res
+    }
+    return res.status === 200 ? res : new Error(res)
   }
 
   return (

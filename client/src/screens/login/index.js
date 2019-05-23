@@ -38,7 +38,7 @@ const Login = props => {
 
   const handleErrors = res => {
     if (res.status === 400) {
-      alert('Auth Failed')
+      alert('Auth failed!')
     }
     return res.status === 200 ? res : new Error(res)
   }
