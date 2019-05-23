@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import safeMap from 'util/safeMap'
 import shouldShowHeaders from './shouldShowHeaders'
 import Header from './header'
 import KeyRow from './keyRow'
 import InputRow from './inputRow'
-import AddButton from './addButton'
+import AddRow from './addRow'
+import Save from './save'
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,9 +16,15 @@ const Wrapper = styled.div`
   align-items: flex-start;
   left: 5em;
 `
+const Buttons = styled.div`
+  display: flex;
+  flex-direciton: row;
+  justify-content: space-evenly;
+  width: 100%;
+`
 
 const Table = props => {
-  const { data, title, onChange, removeRow, addRow } = props
+  const { data, title, onChange, removeRow, addRow, save } = props
   const [headers, setHeaders] = useState([])
 
   useEffect(() => setHeaders(shouldShowHeaders(data)), [props.data])
@@ -31,7 +38,7 @@ const Table = props => {
     )
   }
 
-  const SKELETON = {
+  const settings = {
     type: 'rect',
     color: '#C4C4C4',
     ready: data ? true : false,
@@ -42,12 +49,15 @@ const Table = props => {
   return (
     <Wrapper>
       <Header title={title} />
-      <ReactPlaceholder {...SKELETON}>
+      <ReactPlaceholder {...settings}>
         {safeMap(Object.entries(data), row)}
       </ReactPlaceholder>
-      <AddButton {...{addRow}}>ADD</AddButton>
+      <Buttons>
+        <AddRow onClick={addRow} />
+        <Save onClick={save} />
+      </Buttons>
     </Wrapper>
   )
 }
 
-export default Table
+export default withTheme(Table)

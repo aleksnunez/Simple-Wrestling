@@ -28,7 +28,7 @@ const Description = (props) => {
     }
   }, [path])
 
-  const SKELETON = {
+  const settings = {
     type: 'text',
     rows: 4,
     color: '#EEEEEE',
@@ -41,7 +41,7 @@ const Description = (props) => {
   }
 
   return (
-    <ReactPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...settings}>
       <Wrapper>
         <Formatter text={description} cutoff={8}/>
       </Wrapper>

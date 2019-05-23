@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   Route,
-  Switch
+  Switch,
+  withRouter
 } from 'react-router-dom'
 
 import Tournament from './tournament'
@@ -18,4 +19,4 @@ const Tournaments = ({ match }) => {
   )
 }
 
-export default Tournaments
+export default withRouter(Tournaments)

@@ -22,7 +22,7 @@ const Image = styled.div`
 const Portrait = (props) => {
   const { path } = props
 
-  const SKELETON = {
+  const settings = {
     type: 'round',
     color: '#C4C4C4',
     ready: path ? path.includes('./team/portraits/') : false,
@@ -34,7 +34,7 @@ const Portrait = (props) => {
   }
 
   return (
-    <ReactPlaceholder {...SKELETON}>
+    <ReactPlaceholder {...settings}>
       <Image path={path} />
     </ReactPlaceholder>
   )
