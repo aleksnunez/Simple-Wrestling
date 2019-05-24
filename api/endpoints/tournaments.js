@@ -11,12 +11,14 @@ router.get("/", function(req, res) {
     });
 });
 
-router.get("/:search", function(req, res) {
-  const { search } = req.params;
-  const values = [search];
+router.get("/:id", function(req, res) {
+  const { id } = req.params;
+  const values = [id];
 
   db.searchTournament(values)
-    .then(query => res.json(query.rows))
+    .then(query => {
+      res.json(query.rows[0])
+    })
     .catch(err => {
       console.error(err.stack);
       res.json(err);

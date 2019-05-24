@@ -16,7 +16,7 @@ const searchCoach = values =>
   pool.query(queries.SEARCH_FOR_UNIQUE_COACH_EMAIL, values);
 
 const searchTournament = values =>
-  pool.query(queries.SEARCH_FOR_TOURNAMENT_NAME, values);
+  pool.query(queries.SEARCH_FOR_TOURNAMENT_ID, values);
 
 const getAllTournaments = () => pool.query(queries.SELECT_ALL_TOURNAMENTS);
 
