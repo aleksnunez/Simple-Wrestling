@@ -30,8 +30,8 @@ const Routes = props => {
               <Home />
             </Suspense>
           </Route>
-          <PrivateRoute path='/coach' component={Coach} />
-          <PrivateRoute path='/admin' component={Admin} />
+          <Route path='/coach' component={Coach} />
+          <Route path='/admin' component={Admin} />
           <Route exact path='/login'>
             <Suspense fallback={<Spinner />}>
               <Login />
