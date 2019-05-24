@@ -29,7 +29,7 @@ const Tournament = props => {
     const { tournament } = props.match.params
     console.log(tournament)
     request({
-      endpoint: 'https://my-json-server.typicode.com/swabisan/demo/Tournament',
+      endpoint: 'api/tournaments/',
       method: 'GET'
     })
     .then(res => setTournament(res))

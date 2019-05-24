@@ -3,15 +3,18 @@ const router = express.Router();
 const db = require("../db");
 
 const stripIDs = item => {
-  const { id, ...rest } = item
-  return {...rest}
+  const { admin_id, id, ...rest } = item;
+  return {...rest};
 }
 
 router.get("/:id?", function(req, res) {
-  db.getAllTournaments().then(response =>
-    res.json({ name: "Northern California", tournaments: response.rows.map(stripIDs) })
-  )
-    .catch(err => console.error(err.stack))
+  db.getAllTournaments()
+    .then(response => {
+      const tournaments = response.rows.map(stripIDs);
+      const body = { name: "Northern California", tournaments: tournaments };
+      res.json(body);
+    })
+    .catch(err => console.error(err.stack));
 });
 
 router.post("/update/:id?", function(req, res) {
@@ -26,13 +29,11 @@ router.post("/update/:id?", function(req, res) {
         dbArray[i].background
       ];
 
-      db.addTournament(values).then(addResponse => {
-        res.json(addResponse.rows.map(stripIDs));
-      })
-        .catch(err => console.error(err.stack))
+      db.addTournament(values)
+        .catch(err => console.error(err.stack));
     }
   })
-    .catch(err => console.error(err.stack))
+    .catch(err => console.error(err.stack));
 });
 
 module.exports = router;
