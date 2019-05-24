@@ -10,7 +10,7 @@ const stripIDs = item => {
 router.get("/:id?", function(req, res) {
   db.getAllWrestlers().then(response => {
     const roster = response.rows.map(stripIDs);
-    const body = { name: "The Testerinos", roster: roster };
+    const body = { name: "Dylan's Superteam", roster: roster };
     res.json(body);
   })
     .catch(err => console.error(err.stack));
