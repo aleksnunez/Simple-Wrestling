@@ -10,9 +10,10 @@ import NavBar from 'containers/navbar'
 import Spinner from 'components/spinner'
 import NotFound from 'screens/notFound'
 
+import Coach from 'screens/coach'
+import Admin from 'screens/coach'
+
 const Home        = lazy(() => import('screens/home'))
-const Coach       = lazy(() => import('screens/coach'))
-const Admin       = lazy(() => import('screens/admin'))
 const Login       = lazy(() => import('screens/login'))
 const SignUp      = lazy(() => import('screens/signup'))
 const About       = lazy(() => import('screens/about'))
@@ -29,16 +30,8 @@ const Routes = props => {
               <Home />
             </Suspense>
           </Route>
-          <PrivateRoute path='/coach' component={() => (
-            <Suspense fallback={<Spinner />}>
-              <Coach />
-            </Suspense>
-          )}/>
-          <PrivateRoute path='/admin' component={() => (
-            <Suspense fallback={<Spinner />}>
-              <Admin />
-            </Suspense>
-          )} />
+          <PrivateRoute path='/coach' component={Coach} />
+          <PrivateRoute path='/admin' component={Admin} />
           <Route exact path='/login'>
             <Suspense fallback={<Spinner />}>
               <Login />
