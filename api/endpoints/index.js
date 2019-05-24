@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const home = require("./homePage");
+const home = require("./home");
 const roster = require("./roster");
 const login = require("./login");
 const signup = require("./signup");
-const tournaments = require("./tournamentsPage");
+const tournaments = require("./tournaments");
 const admin = require("./admin");
 
 router.use("/home", home);

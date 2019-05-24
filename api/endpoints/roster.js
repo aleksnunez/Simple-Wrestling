@@ -3,14 +3,17 @@ const router = express.Router();
 const db = require("../db");
 
 const stripIDs = item => {
-  const { id, ...rest } = item
-  return {...rest}
+  const { id, ...rest } = item;
+  return {...rest};
 }
 
 router.get("/:id?", function(req, res) {
-  db.getAllWrestlers().then(response =>
-    res.json({ name: "The Testerinos", roster: response.rows.map(stripIDs) })
-  );
+  db.getAllWrestlers().then(response => {
+    const roster = response.rows.map(stripIDs);
+    const body = { name: "The Testerinos", roster: roster };
+    res.json(body);
+  })
+    .catch(err => console.error(err.stack));
 });
 
 router.post("/update/:id?", function(req, res) {
@@ -26,11 +29,11 @@ router.post("/update/:id?", function(req, res) {
         dbArray[i].loss
       ];
 
-      db.addWrestler(values).then(addResponse => {
-        res.json(addResponse.rows.map(stripIDs));
-      });
+      db.addWrestler(values)
+        .catch(err => console.error(err.stack));
     }
-  });
+  })
+    .catch(err => console.error(err.stack));
 });
 
 module.exports = router;

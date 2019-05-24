@@ -12,7 +12,7 @@ const Wrapper = styled.section`
 `
 const Col = styled.div`
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
 `
 const Row = styled.div`

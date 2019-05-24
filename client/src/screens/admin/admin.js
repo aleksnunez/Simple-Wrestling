@@ -22,7 +22,6 @@ const Row = styled.div`
 const Home = ({ match }) => {
   const [region, setRegion] = useState([])
   const { name, tournaments } = region
-  console.log(region)
 
   useEffect(() => {
     const regionID = match.params.id ? match.params.id : '0'
@@ -43,12 +42,11 @@ const Home = ({ match }) => {
   }
 
   const update = body => {
-    console.log(body)
     request({
       endpoint: '/api/admin/update',
       body: JSON.stringify(body)
     })
-      .then(res => console.log(res))
+      .then(res => alert(`${name} saved`))
       .catch(err => new Error(err))
   }
 

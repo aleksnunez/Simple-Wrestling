@@ -44,7 +44,7 @@ const Home = ({ match }) => {
       endpoint: '/api/roster/update',
       body: JSON.stringify(body)
     })
-      .then(res => console.log(res))
+      .then(res => alert(`${name} saved`))
       .catch(err => new Error(err))
   }
 
