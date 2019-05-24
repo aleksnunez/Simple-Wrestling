@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
+import randomImg from 'util/randomImg'
 import Header from 'components/header'
 import Text from 'components/text'
 import Button from 'components/button'
@@ -22,25 +23,27 @@ const StyledButton = styled(Button)`
   padding: 1em 2em;
 `
 
-const Tournament = props => {
+const Tournament = ({ match }) => {
   const [tournament, setTournament] = useState({})
 
   useEffect(() => {
-    const { tournament } = props.match.params
-    console.log(tournament)
+    const { tournament } = match.params
     request({
-      endpoint: 'api/tournaments/',
+      endpoint: `/api/tournaments/${tournament}`,
       method: 'GET'
     })
     .then(res => setTournament(res))
     .catch(err => new Error(err))
-  }, [])
+  }, [match.parmas])
+
+  console.log(tournament)
 
   return (
     <Wrapper>
-      <Header text={tournament.name} />
+      <Header text={tournament.tournament_name} />
       <Text>{tournament.location}</Text>
-      <Image src={tournament.picture} />
+      <Image
+        src={tournament.picture ? tournament.picture : randomImg(2000, 1500)} />
       <StyledButton>Register</StyledButton>
     </Wrapper>
   )
