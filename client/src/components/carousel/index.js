@@ -24,7 +24,7 @@ const Carousel = props => {
       naturalSlideHeight={1125}
       isPlaying={true}
       totalSlides={totalSlides}
-      visibleSlides={totalSlides < 3 ? totalSlides : totalSlides}>
+      visibleSlides={totalSlides < 3 ? totalSlides : 3}>
       <Slider>
         {safeMap(images, slide)}
       </Slider>

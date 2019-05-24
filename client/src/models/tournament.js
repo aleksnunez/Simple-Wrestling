@@ -1,5 +1,5 @@
 const tournament = {
-  name: '',
+  tournament_name: '',
   location: '',
   picture: '',
   background: ''

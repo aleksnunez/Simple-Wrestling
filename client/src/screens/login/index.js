@@ -4,7 +4,7 @@ import request from 'api'
 
 import { required, isEmail } from 'util/formControl/validators'
 import { updateForm, isValid, formValues, formErrors } from 'util/formControl'
-import SignupForm from 'components/forms/signupForm'
+import LoginForm from 'components/forms/loginForm'
 
 const Col = styled.section`
   display: flex;
@@ -14,9 +14,8 @@ const Col = styled.section`
   margin-top: 2em;
 `
 
-const SignUp = props => {
+const Login = props => {
   const [formControl, setFormControl] = useState({
-    name: {validators: [required]},
     email: {validators: [required, isEmail]},
     password: {validators: [required]}
   })
@@ -30,18 +29,28 @@ const SignUp = props => {
     e.preventDefault()
 
     request({
-      endpoint: '/api/signup/addCoach',
+      endpoint: '/api/login',
       body: JSON.stringify(formData)
-    })
-      .then(res => console.log(res))
+    }, handleErrors)
+      .then(res => storeAuthToken(res))
       .catch(err => new Error(err))
   }
 
+  const handleErrors = res => {
+    if (res.status === 400) {
+      alert('Auth failed!')
+    }
+    return res.status === 200 ? res : new Error(res)
+  }
+
+  const storeAuthToken = token =>
+    localStorage.setItem('authToken', token)
+
   return (
     <Col>
-      <SignupForm {...{onChange, disabled, onSubmit, errors}} />
+      <LoginForm {...{onChange, disabled, onSubmit, errors}} />
     </Col>
   )
 }
 
-export default SignUp
+export default Login

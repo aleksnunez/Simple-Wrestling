@@ -4,7 +4,7 @@ import request from 'api'
 
 import { required, isEmail } from 'util/formControl/validators'
 import { updateForm, isValid, formValues, formErrors } from 'util/formControl'
-import LoginForm from 'components/forms/loginForm'
+import SignupForm from 'components/forms/signupForm'
 
 const Col = styled.section`
   display: flex;
@@ -14,8 +14,9 @@ const Col = styled.section`
   margin-top: 2em;
 `
 
-const Login = props => {
+const SignUp = props => {
   const [formControl, setFormControl] = useState({
+    name: {validators: [required]},
     email: {validators: [required, isEmail]},
     password: {validators: [required]}
   })
@@ -29,18 +30,28 @@ const Login = props => {
     e.preventDefault()
 
     request({
-      endpoint: '/api/login',
+      endpoint: '/api/signup/addCoach',
       body: JSON.stringify(formData)
-    })
-      .then(res => alert(JSON.stringify(res)))
+    }, handleErrors)
+      .then(res => alert('Signed up!'))
       .catch(err => new Error(err))
+  }
+
+  const handleErrors = res => {
+    if (res.status === 400) {
+      alert('Account already exists!')
+    }
+    if (res.status === 500) {
+      alert(`500 ${res.statusText}`)
+    }
+    return res.status === 200 ? res : new Error(res)
   }
 
   return (
     <Col>
-      <LoginForm {...{onChange, disabled, onSubmit, errors}} />
+      <SignupForm {...{onChange, disabled, onSubmit, errors}} />
     </Col>
   )
 }
 
-export default Login
+export default SignUp

@@ -3,33 +3,33 @@ const router = express.Router();
 const db = require("../db");
 
 const stripIDs = item => {
-  const { id, ...rest } = item;
+  const { admin_id, id, ...rest } = item;
   return {...rest};
 }
 
 router.get("/:id?", function(req, res) {
-  db.getAllWrestlers().then(response => {
-    const roster = response.rows.map(stripIDs);
-    const body = { name: "The Testerinos", roster: roster };
-    res.json(body);
-  })
+  db.getAllTournaments()
+    .then(response => {
+      const tournaments = response.rows.map(stripIDs);
+      const body = { name: "Northern California", tournaments: tournaments };
+      res.json(body);
+    })
     .catch(err => console.error(err.stack));
 });
 
 router.post("/update/:id?", function(req, res) {
   const dbArray = req.body;
 
-  db.deleteWrestlersFromTable().then(result => {
+  db.deleteTournamentsFromTable().then(result => {
     for (let i = 0; i < dbArray.length; i++) {
       const values = [
-        dbArray[i].name,
-        dbArray[i].dob,
-        dbArray[i].weight,
-        dbArray[i].win,
-        dbArray[i].loss
+        dbArray[i].tournament_name,
+        dbArray[i].location,
+        dbArray[i].picture,
+        dbArray[i].background
       ];
 
-      db.addWrestler(values)
+      db.addTournament(values)
         .catch(err => console.error(err.stack));
     }
   })

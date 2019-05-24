@@ -39,12 +39,22 @@ const Home = ({ match }) => {
       .catch(err => new Error(err))
   }, [])
 
+  const update = body => {
+    request({
+      endpoint: '/api/roster/update',
+      body: JSON.stringify(body)
+    })
+      .then(res => alert(`${name} saved`))
+      .catch(err => new Error(err))
+  }
+
   return (
     <Wrapper>
       <Header text={'Coach Dashboard'} />
       <Row>
         <Spreadsheet name={name} location={'coach'}
-          data={roster} links={teams} defaultRow={wrestler} />
+          data={roster} links={teams}
+          defaultRow={wrestler} update={update} />
       </Row>
     </Wrapper>
   )

@@ -2,21 +2,29 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import request from 'api'
 
-import Header from 'components/header'
 import Carousel from 'components/carousel'
+
+import Lorem from './lorem'
+import Ipsum from './ipsum'
 
 const Wrapper = styled.section`
   position: relative;
+`
+const Col = styled.div`
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
 `
 const Row = styled.div`
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: center;
+`
+const CarouselWrapper = styled.div`
+  postion: relative;
 
-  width: 75vw;
+  margin: 1em 0;
+  width: 100vw;
 `
 
 const Home = props => {
@@ -30,9 +38,18 @@ const Home = props => {
 
   return (
     <Wrapper>
-      <Header text={'Home'} />
       <Row>
-        <Carousel images={data.mainCarousel} />
+        <CarouselWrapper>
+          <Carousel images={data.mainCarousel} />
+        </CarouselWrapper>
+      </Row>
+      <Row>
+        <Col>
+          <Lorem />
+        </Col>
+        <Col>
+          <Ipsum />
+        </Col>
       </Row>
     </Wrapper>
   )
