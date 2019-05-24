@@ -18,7 +18,7 @@ router.post("/addCoach", (req, res) => {
   }
 
   const coachExists = query => query.rows.length === 0
-
+  
   db.searchCoach([values[1]])
     .then(query => {
       coachExists(query)
