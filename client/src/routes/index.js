@@ -11,7 +11,7 @@ import Spinner from 'components/spinner'
 import NotFound from 'screens/notFound'
 
 import Coach from 'screens/coach'
-import Admin from 'screens/coach'
+import Admin from 'screens/admin'
 
 const Home        = lazy(() => import('screens/home'))
 const Login       = lazy(() => import('screens/login'))
