@@ -28,6 +28,8 @@ const NavBar = props => {
       </Row>
       <Row>
         <Link to='/tournaments'>Tournaments</Link>
+        <Link to='/coach'>Roster</Link>
+        <Link to='/admin'>Admin</Link>
         <Link to='/about'>About</Link>
         <Link to='/login'>Login</Link>
         <Link to='/signup'>Sign up</Link>
